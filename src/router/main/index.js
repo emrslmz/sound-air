@@ -1,12 +1,14 @@
 export default [{
     path: '/',
     component: () => import('@/modules/main/views/Main.vue'),
-    children: [{
-        name: 'Main',
-        path: 'sounds',
+    children: [
+        {
+        name: 'Home',
+        path: 'home',
         meta: {
-            title: 'Main',
+            title: 'Home',
         },
         component: () => import('@/modules/main/components/Sounds.vue'),
-    }],
+    }
+    ],
 }];

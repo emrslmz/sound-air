@@ -1,7 +1,8 @@
 export default [{
     path: '/admin',
     component: () => import('@/modules/admin/views/Admin.vue'),
-    children: [{
+    children: [
+        {
         name: 'Feedbacks',
         path: 'feedbacks',
         meta: {
@@ -9,12 +10,13 @@ export default [{
         },
         component: () => import('@/modules/admin/components/Feedbacks.vue'),
     },
-        {
-            name: 'Feedbacks',
-            path: 'settings',
-            meta: {
-                title: 'Feedbacks',
-            },
-            component: () => import('@/modules/admin/components/Feedbacks.vue'),
-        }],
+    {
+        name: 'Feedbacks',
+        path: 'settings',
+        meta: {
+            title: 'Feedbacks',
+        },
+        component: () => import('@/modules/admin/components/Feedbacks.vue'),
+    }
+    ],
 }];
