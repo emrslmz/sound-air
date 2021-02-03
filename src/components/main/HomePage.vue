@@ -1,12 +1,12 @@
 <template>
   <div class="home-page-body">
     <the-header />
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import TheHeader from './layouts/TheHeader.vue';
+
 export default {
   name: 'HomePage',
   components: {
