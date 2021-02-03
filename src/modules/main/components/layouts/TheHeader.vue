@@ -1,21 +1,22 @@
 <template>
   <div>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div>
+    <div class="navbar navbar-expand-lg navbar-dark bg-pruple">
+      <div class="text-white px-md-4 mx-md-5">
         <h5>Sound AIR</h5>
       </div>
       <div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="header">
         <div class="navbar-nav mr-auto"></div>
 
-       <div class="d-flex align-items-center justify-content-center">
-         <h5><button class="btn btn-sm header-button mx-2">Contact us</button></h5>
-         <h5><button class="btn btn-sm header-button mx-2">Contact us</button></h5>
+       <div class="d-md-flex text-center align-items-center justify-content-center">
+         <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-calendar-alt"></i> Categories</button></h5>
+         <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-play-circle"></i> Sounds</button></h5>
+         <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-comments"></i> Contact us</button></h5>
          <h5><input class="dark-mode-button mx-2 mt-2" type="checkbox"></h5>
        </div>
       </div>
@@ -30,6 +31,21 @@
   color: #343A40;
   border-radius: 15px;
   background-color: white;
+  box-shadow: 0 0 5px white;
+  transition-duration: 200ms;
+}
+
+.bg-pruple {
+  background-color: #5710B2;
+}
+
+.header-button:hover {
+  min-width: 100px;
+  color: #343A40;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 0 8px white;
+  transition-duration: 200ms;
 }
 
 

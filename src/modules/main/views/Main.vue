@@ -1,6 +1,7 @@
 <template>
   <div class="main-body">
     <the-header />
+    <the-side-bar />
     <router-view />
     <the-footer />
   </div>
@@ -9,12 +10,14 @@
 <script>
 import TheHeader from '../components/layouts/TheHeader.vue';
 import TheFooter from '../components/layouts/TheFooter.vue';
+import TheSideBar from '../components/layouts/TheSideBar.vue';
 
 export default {
   name: 'Main',
   components: {
     TheHeader,
     TheFooter,
+    TheSideBar
   }
 }
 </script>
