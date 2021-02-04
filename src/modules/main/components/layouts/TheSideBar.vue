@@ -73,7 +73,7 @@ export default {
 .sidebar-body {
   position: absolute;
   background-color: #343A40;
-  height: 93vh;
+  height: 94vh;
   width: 300px;
   display: block;
 }

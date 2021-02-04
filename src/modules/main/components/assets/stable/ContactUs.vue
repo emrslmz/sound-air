@@ -1,54 +1,54 @@
 <template>
   <div>
-   <div class="container text-md-center">
+   <div class="container text-xl-center">
      <div class="contact-us-padding"></div>
-     <div class="contact-us-top">
-       <h1>Is there something to tell us?</h1>
-       <p>your feedback is valuable to us.</p>
+     <div>
+       <h1><b>Is there something to tell us?</b></h1>
+       <p class="text-spacing5">your feedback is valuable to us.</p>
      </div>
 
 
-     <div class="contact-us-middle pt-3">
+     <div class="pt-3">
 
-       <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area">
+       <div class="d-xl-flex justify-content-around align-items-center py-3">
          <div class="col-12 col-xl-6 text-xl-center">
            <h6>Name</h6>
          </div>
-         <div class="col-12 col-xl-6" align="left">
+         <div class="col-12 col-xl-6 form-contact" align="left">
            <input class="px-3" value="max_stone" type="text">
          </div>
        </div>
 
-       <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area-email">
+       <div class="d-xl-flex justify-content-around align-items-center form-contact-email">
          <div class="col-12 col-xl-6 text-xl-center">
            <h6>Email Address</h6>
          </div>
          <div class="col-12 col-xl-6" align="left">
-           <div class="d-flex justify-content-start ">
+           <div class="d-xl-flex justify-content-start">
              <i class="fas fa-at py-3 px-3"></i>
-             <input class="px-3" value="nick.watson@loop.com" type="email">
+             <input class="px-xl-3" value="nick.watson@loop.com" type="email">
            </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
        </div>
      </div>
 
-     <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area-description">
+     <div class="d-xl-flex justify-content-around align-items-center py-2">
        <div class="col-12 col-xl-6 text-xl-center">
          <h6>Description</h6>
        </div>
-       <div class="col-12 col-xl-6" align="left">
-         <textarea class="form-control px-3" cols="5" value="max_stone" type="text" />
+       <div class="col-12 col-xl-6 form-contact" align="left">
+         <textarea class="form-control px-3" value="max_stone" type="text" />
        </div>
      </div>
 
-     <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area-communication">
+     <div class="d-xl-flex justify-content-around align-items-center py-3">
        <div class="col-12 col-xl-6 text-xl-center">
          <h6>Contact</h6>
        </div>
        <div class="col-12 col-xl-6">
          <div class="d-xl-flex justify-content-start align-items-center">
-           <div class="d-xl-flex align-items-center ">
+           <div class="d-xl-flex align-items-center">
              <label class="checkbox-input">
                I would like to receive notifications for feedback and updates.
                <input type="checkbox" />
@@ -60,12 +60,10 @@
      </div>
 
 
-     <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area pt-4">
-       <div class="col-12 col-xl-6 text-xl-center">
-
-       </div>
+     <div class="d-xl-flex justify-content-around align-items-center py-2">
+       <div class="col-12 col-xl-6 text-xl-center"></div>
        <div class="d-flex col-12 col-xl-6">
-         <div class="save-changes-account-button pr-3"><button class="btn">Submit</button></div>
+         <div class="save-changes-account-button"><button class="btn">Submit</button></div>
        </div>
      </div>
 
@@ -84,19 +82,8 @@
     padding-top: 100px;
   }
 }
-.contact-us-top h1 {
-  font-weight: bold;
-}
-.contact-us-top p {
-  letter-spacing: 5px;
-}
 
-
-
-
-
-
-.custom-card-input-area input {
+.form-contact input {
   color: #5E6278;
   outline: 0;
   border: none;
@@ -106,7 +93,7 @@
   border-radius: 8px;
 }
 
-.custom-card-input-area-description textarea {
+.form-contact textarea {
   color: #5E6278;
   outline: 0;
   border: none;
@@ -117,21 +104,7 @@
 }
 
 
-.custom-card-input-area select {
-  color: #5E6278;
-  outline: 0;
-  border: none;
-  background-color: #F5F8FA;
-  min-width: 70%;
-  height: 45px;
-  border-radius: 8px;
-}
-
-.custom-card-input-area-email {
-  padding-top: 40px;
-}
-
-.custom-card-input-area-email input {
+.form-contact-email input {
   color: #5E6278;
   outline: 0;
   border: none;
@@ -141,7 +114,7 @@
   border-radius: 0 8px 8px 0;
 }
 
-.custom-card-input-area-email i {
+.form-contact-email i {
   width: 40px;
   height: 45px;
   background-color: #F5F8FA;
@@ -152,6 +125,10 @@
 .custom-card-input-area-communication {
   padding-top: 30px;
 }
+
+
+
+
 
 .checkbox-input {
   font-weight: bold;
@@ -185,7 +162,7 @@
 }
 
 .checkbox-input:hover input ~ .checkmark {
-  background-color: ;
+  background-color: white;
 }
 
 .checkbox-input input:checked ~ .checkmark {

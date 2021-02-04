@@ -14,11 +14,10 @@
         <div class="navbar-nav mr-auto"></div>
 
        <div class="d-md-flex text-center align-items-center justify-content-center">
-         <div class="save-changes-account-button pr-3"><button class="btn">Submit</button></div>
-         <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-calendar-alt"></i> Categories</button></h5>
-         <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-play-circle"></i> Sounds</button></h5>
-         <router-link to="contact-us"><h5><button class="btn btn-sm header-button mx-2"><i class="far fa-comments"></i> Contact us</button></h5></router-link>
-         <h5><input class="dark-mode-button mx-2 mt-2" type="checkbox"></h5>
+         <div class="header-button mx-2"><button class="btn btn-sm"><i class="far fa-calendar-alt"></i> Categories</button></div>
+         <div class="header-button mx-2"><button class="btn btn-sm"><i class="far fa-play-circle"></i> Sounds</button></div>
+         <router-link to="contact-us"><div class="header-button mx-2"><button class="btn btn-sm"><i class="far fa-comments"></i> Contact us</button></div>  </router-link>
+         <div><input class="dark-mode-button mx-2 mt-2" type="checkbox"></div>
        </div>
       </div>
     </div>
@@ -27,57 +26,30 @@
 
 
 <style scoped>
-/*.header-button {*/
-/*  min-width: 100px;*/
-/*  color: #343A40;*/
-/*  border-radius: 15px;*/
-/*  background-color: white;*/
-/*  box-shadow: 0 0 5px white;*/
-/*  transition-duration: 200ms;*/
-/*}*/
-
-
-/*.header-button:hover {*/
-/*  min-width: 100px;*/
-/*  color: #343A40;*/
-/*  border-radius: 15px;*/
-/*  background-color: white;*/
-/*  box-shadow: 0 0 8px white;*/
-/*  transition-duration: 200ms;*/
-/*}*/
-
-.router-link-active button {
-  min-width: 100px;
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 8px #1ED760;
-  transition-duration: 200ms;
-  background-color: #1ED760;
-}
-
-.router-link-active button:hover {
-  min-width: 100px;
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #1ED760;
-  transition-duration: 0.8s;
-  background-color: #1ED760;
-}
-
 
 .header-button button {
+  background-color: white;
+  color: #343A40;
   border-radius: 10px;
-  background-color: #20D489;
-  color: white;
   font-weight: bold;
+  transition: 0.4s;
 }
 
 .header-button button:hover {
-  background-color: #28ffa7;
-  font-weight: bold;
+  background-color: #20D489;
   color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.4s;
 }
 
+.router-link-active button {
+  background-color: #20D489;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.4s;
+}
 /****************************************/
 /*APPLE CHECKBOX STYLE */
 input.dark-mode-button {

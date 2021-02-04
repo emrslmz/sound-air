@@ -70,12 +70,12 @@
   height: 50px;
   border-radius: 25px;
   color: white;
-  background-color: #1DBB55;
+  background-color:  #20D489;
   transition: 0.5s;
 }
 
 .try-now-for-free-button:hover {
-  background-color: #1ED760;
+  background-color: #28ffa7;
   box-shadow: 1px 2px 5px 1px white;
   transition: 0.5s;
 }
