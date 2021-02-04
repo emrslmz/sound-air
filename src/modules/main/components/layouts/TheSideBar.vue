@@ -2,23 +2,23 @@
   <div class="sidebar-body">
     <div class="d-flex justify-content-around align-items-center px-3 py-3">
       <div class="sidebar-top-box">
-          <div class="d-flex justify-content-center align-items-center py-3">
-            <h3><i class="fas fa-home"></i></h3>
+          <div class="d-flex justify-content-center align-items-center py-3 text-">
+            <router-link to="/"><h3><i class="fas fa-home text-dark"></i></h3></router-link>
           </div>
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-            <h3><i class="fas fa-stopwatch"></i></h3>
+            <h3><i class="fas fa-stopwatch text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-           <h3><i class="fas fa-stream"></i></h3>
+           <h3><i class="fas fa-stream text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-          <h3><i class="fas fa-search-location"></i></h3>
+          <h3><i class="fas fa-search-location text-dark"></i></h3>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@ export default {
 .sidebar-body {
   position: absolute;
   background-color: #343A40;
-  height: 95vh;
+  height: 100vh;
   width: 300px;
   display: block;
 }
@@ -106,7 +106,7 @@ export default {
 
 .sidebar-top-box:hover {
   border-radius: 25px;
-  box-shadow: 0 0 20px white;
+  box-shadow: 0 0 10px white;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -125,10 +125,4 @@ export default {
 .side-bar-middle-title h5:hover {
   opacity: 1;
 }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-}
-
 </style>

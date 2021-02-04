@@ -16,7 +16,7 @@
        <div class="d-md-flex text-center align-items-center justify-content-center">
          <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-calendar-alt"></i> Categories</button></h5>
          <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-play-circle"></i> Sounds</button></h5>
-         <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-comments"></i> Contact us</button></h5>
+         <router-link to="contact-us"><h5><button class="btn btn-sm header-button mx-2"><i class="far fa-comments"></i> Contact us</button></h5></router-link>
          <h5><input class="dark-mode-button mx-2 mt-2" type="checkbox"></h5>
        </div>
       </div>

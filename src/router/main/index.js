@@ -3,12 +3,20 @@ export default [{
     component: () => import('@/modules/main/views/Main.vue'),
     children: [
         {
-        name: 'Home',
-        path: 'home',
+        name: 'Main',
+        path: '',
         meta: {
-            title: 'Home',
+            title: 'Main',
         },
-        component: () => import('@/modules/main/components/Sounds.vue'),
-    }
+        component: () => import('@/modules/main/components/MainArea.vue'),
+         },
+        {
+            name: 'Contact Us',
+            path: 'contact-us',
+            meta: {
+                title: 'ContactUs',
+            },
+            component: () => import('@/modules/main/components/assets/stable/ContactUs.vue'),
+        }
     ],
 }];

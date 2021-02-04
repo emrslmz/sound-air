@@ -2,8 +2,9 @@
   <div class="main-body">
     <the-header />
     <the-side-bar />
-    <router-view />
-    <main-area />
+    <div class="router-padding-left">
+      <router-view />
+    </div>
     <div class="main-footer">
       <the-footer />
     </div>
@@ -14,7 +15,6 @@
 import TheHeader from '../components/layouts/TheHeader.vue';
 import TheFooter from '../components/layouts/TheFooter.vue';
 import TheSideBar from '../components/layouts/TheSideBar.vue';
-import MainArea from '../components/MainArea.vue';
 
 export default {
   name: 'Main',
@@ -22,7 +22,6 @@ export default {
     TheHeader,
     TheFooter,
     TheSideBar,
-    MainArea
   }
 }
 </script>
@@ -31,7 +30,11 @@ export default {
 .main-body {
   background-color: #e9e9e9;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.router-padding-left {
+  padding-left: 300px;
 }
 
 .main-footer {
@@ -42,6 +45,12 @@ export default {
   .main-footer {
     display: none;
     position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .router-padding-left {
+    padding-left: 0;
   }
 }
 </style>

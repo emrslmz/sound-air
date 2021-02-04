@@ -13,27 +13,29 @@
     </div>
     <div class="d-flex justify-content-around pt-5">
       <div class="text-center">
-        <h1><i class="fas fa-crosshairs"></i></h1>
+        <h1><i class="fas fa-crosshairs fa-flip-horizontal"></i></h1>
         <small><b>Full focus!</b></small>
       </div>
       <div class="text-center">
-        <h1><i class="fas fa-code-branch"></i></h1>
+        <h1><i class="fas fa-code-branch fa-flip-horizontal"></i></h1>
         <small><b>İncrease Creativity</b></small>
       </div>
       <div class="text-center">
-        <h1><i class="fas fa-map-marked-alt"></i></h1>
+        <h1><i class="fas fa-map-marked-alt fa-flip-horizontal"></i></h1>
         <small><b>What is the Weather in your Location? :) </b></small>
       </div>
       <div class="text-center">
-        <h1><i class="fas fa-hourglass-start"></i></h1>
+        <h1><i class="fas fa-hourglass-start fa-flip-horizontal"></i></h1>
         <small><b>Timer for Pomodoro Technique</b></small>
       </div>
       <div class="text-center">
-        <h1><i class="fab fa-modx"></i></h1>
-        <small><b>Multiple Audio Playback Features</b></small>
+        <h1><i class="fas fa-plane fa-flip-horizontal"></i></h1>
+        <small><b>Many different Sound Effects</b></small>
       </div>
-
-
+    </div>
+    
+    <div class="text-center pt-5">
+      <small><a href="#">*Terms and conditions</a> apply.</small>
     </div>
 
   </div>
@@ -42,7 +44,6 @@
 
 <style scoped>
 .main-top {
-  padding-left: 300px;
   height: 100vh;
 }
 
