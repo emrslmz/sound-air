@@ -17,6 +17,14 @@ export default [{
                 title: 'ContactUs',
             },
             component: () => import('@/modules/main/components/assets/stable/ContactUs.vue'),
+        },
+        {
+            name: 'Sounds',
+            path: 'play',
+            meta: {
+                title: 'PlaySounds',
+            },
+            component: () => import('@/modules/main/components/assets/sounds/PlaySounds.vue'),
         }
     ],
 }];
