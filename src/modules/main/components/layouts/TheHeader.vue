@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="navbar navbar-expand-lg navbar-dark bg-pruple">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="text-white px-md-4 mx-md-5">
         <h5>Sound AIR</h5>
       </div>

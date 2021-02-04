@@ -3,7 +3,10 @@
     <the-header />
     <the-side-bar />
     <router-view />
-    <the-footer />
+    <main-area />
+    <div class="main-footer">
+      <the-footer />
+    </div>
   </div>
 </template>
 
@@ -11,13 +14,15 @@
 import TheHeader from '../components/layouts/TheHeader.vue';
 import TheFooter from '../components/layouts/TheFooter.vue';
 import TheSideBar from '../components/layouts/TheSideBar.vue';
+import MainArea from '../components/MainArea.vue';
 
 export default {
   name: 'Main',
   components: {
     TheHeader,
     TheFooter,
-    TheSideBar
+    TheSideBar,
+    MainArea
   }
 }
 </script>
@@ -27,5 +32,16 @@ export default {
   background-color: #fcfaf7;
   width: 100%;
   height: 100vh;
+}
+
+.main-footer {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .main-footer {
+    display: none;
+    position: relative;
+  }
 }
 </style>
