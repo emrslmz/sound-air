@@ -1,9 +1,10 @@
 <template>
-<div class="main-top pt-5">
+<div class="main-top">
   <div class="container">
-    <div style="padding-top: 200px"></div>
+    
+    <div class="main-padding"></div>
 
-    <div class="main-top-div text-center">
+    <div class="main-top-div text-md-center">
      <h1>Sound AIR for everyone</h1>
      <p>and all sounds are free</p>
    </div>
@@ -43,14 +44,17 @@
 </template>
 
 <style scoped>
-.main-top {
-  height: 100vh;
+.main-padding {
+  padding-top: 200px;
 }
 
 @media (max-width: 768px) {
   .main-top {
     display: inline;
     position: relative;
+  }
+  .main-padding {
+    padding-top: 100px;
   }
 }
 

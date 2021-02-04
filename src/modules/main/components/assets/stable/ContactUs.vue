@@ -1,6 +1,231 @@
 <template>
   <div>
-   <div class="container">
+   <div class="container text-md-center">
+     <div class="contact-us-padding"></div>
+     <div class="contact-us-top">
+       <h1>Is there something to tell us?</h1>
+       <p>your feedback is valuable to us.</p>
+     </div>
+
+
+     <div class="contact-us-middle pt-3">
+
+       <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area">
+         <div class="col-12 col-xl-6 text-xl-center">
+           <h6>Name</h6>
+         </div>
+         <div class="col-12 col-xl-6" align="left">
+           <input class="px-3" value="max_stone" type="text">
+         </div>
+       </div>
+
+       <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area-email">
+         <div class="col-12 col-xl-6 text-xl-center">
+           <h6>Email Address</h6>
+         </div>
+         <div class="col-12 col-xl-6" align="left">
+           <div class="d-flex justify-content-start ">
+             <i class="fas fa-at py-3 px-3"></i>
+             <input class="px-3" value="nick.watson@loop.com" type="email">
+           </div>
+           <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
+         </div>
+       </div>
+     </div>
+
+     <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area-description">
+       <div class="col-12 col-xl-6 text-xl-center">
+         <h6>Description</h6>
+       </div>
+       <div class="col-12 col-xl-6" align="left">
+         <textarea class="form-control px-3" cols="5" value="max_stone" type="text" />
+       </div>
+     </div>
+
+     <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area-communication">
+       <div class="col-12 col-xl-6 text-xl-center">
+         <h6>Contact</h6>
+       </div>
+       <div class="col-12 col-xl-6">
+         <div class="d-xl-flex justify-content-start align-items-center">
+           <div class="d-xl-flex align-items-center ">
+             <label class="checkbox-input">
+               I would like to receive notifications for feedback and updates.
+               <input type="checkbox" />
+               <span class="checkmark"></span>
+             </label>
+           </div>
+         </div>
+       </div>
+     </div>
+
+
+     <div class="d-xl-flex justify-content-around align-items-center custom-card-input-area pt-4">
+       <div class="col-12 col-xl-6 text-xl-center">
+
+       </div>
+       <div class="d-flex col-12 col-xl-6">
+         <div class="save-changes-account-button pr-3"><button class="btn">Submit</button></div>
+       </div>
+     </div>
+
    </div>
   </div>
 </template>
+
+
+<style scoped>
+.contact-us-padding {
+  padding-top: 200px;
+}
+
+@media (max-width: 768px) {
+  .contact-us-padding {
+    padding-top: 100px;
+  }
+}
+.contact-us-top h1 {
+  font-weight: bold;
+}
+.contact-us-top p {
+  letter-spacing: 5px;
+}
+
+
+
+
+
+
+.custom-card-input-area input {
+  color: #5E6278;
+  outline: 0;
+  border: none;
+  background-color: #F5F8FA;
+  min-width: 70%;
+  height: 45px;
+  border-radius: 8px;
+}
+
+.custom-card-input-area-description textarea {
+  color: #5E6278;
+  outline: 0;
+  border: none;
+  background-color: #F5F8FA;
+  max-width: 70%;
+  height: 45px;
+  border-radius: 8px;
+}
+
+
+.custom-card-input-area select {
+  color: #5E6278;
+  outline: 0;
+  border: none;
+  background-color: #F5F8FA;
+  min-width: 70%;
+  height: 45px;
+  border-radius: 8px;
+}
+
+.custom-card-input-area-email {
+  padding-top: 40px;
+}
+
+.custom-card-input-area-email input {
+  color: #5E6278;
+  outline: 0;
+  border: none;
+  background-color: #F5F8FA;
+  min-width: 63%;
+  height: 45px;
+  border-radius: 0 8px 8px 0;
+}
+
+.custom-card-input-area-email i {
+  width: 40px;
+  height: 45px;
+  background-color: #F5F8FA;
+  color: #7a7b7c;
+  border-radius: 8px 0 0 8px;
+}
+
+.custom-card-input-area-communication {
+  padding-top: 30px;
+}
+
+.checkbox-input {
+  font-weight: bold;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-input input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.checkbox-input:hover input ~ .checkmark {
+  background-color: ;
+}
+
+.checkbox-input input:checked ~ .checkmark {
+  background-color: #20d489;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-input input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-input .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.save-changes-account-button button {
+  border-radius: 10px;
+  background-color: #20D489;
+  color: white;
+  font-weight: bold;
+}
+
+.save-changes-account-button button:hover {
+  background-color: #28ffa7;
+  font-weight: bold;
+  color: white;
+}
+
+</style>

@@ -8,7 +8,7 @@ export default [{
         meta: {
             title: 'Main',
         },
-        component: () => import('@/modules/main/components/MainArea.vue'),
+        component: () => import('@/modules/main/components/assets/main/MainArea.vue'),
          },
         {
             name: 'Contact Us',

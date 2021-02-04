@@ -14,6 +14,7 @@
         <div class="navbar-nav mr-auto"></div>
 
        <div class="d-md-flex text-center align-items-center justify-content-center">
+         <div class="save-changes-account-button pr-3"><button class="btn">Submit</button></div>
          <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-calendar-alt"></i> Categories</button></h5>
          <h5><button class="btn btn-sm header-button mx-2"><i class="far fa-play-circle"></i> Sounds</button></h5>
          <router-link to="contact-us"><h5><button class="btn btn-sm header-button mx-2"><i class="far fa-comments"></i> Contact us</button></h5></router-link>
@@ -26,28 +27,56 @@
 
 
 <style scoped>
-.header-button {
+/*.header-button {*/
+/*  min-width: 100px;*/
+/*  color: #343A40;*/
+/*  border-radius: 15px;*/
+/*  background-color: white;*/
+/*  box-shadow: 0 0 5px white;*/
+/*  transition-duration: 200ms;*/
+/*}*/
+
+
+/*.header-button:hover {*/
+/*  min-width: 100px;*/
+/*  color: #343A40;*/
+/*  border-radius: 15px;*/
+/*  background-color: white;*/
+/*  box-shadow: 0 0 8px white;*/
+/*  transition-duration: 200ms;*/
+/*}*/
+
+.router-link-active button {
   min-width: 100px;
-  color: #343A40;
+  color: white;
   border-radius: 15px;
-  background-color: white;
-  box-shadow: 0 0 5px white;
+  box-shadow: 0 0 8px #1ED760;
   transition-duration: 200ms;
+  background-color: #1ED760;
 }
 
-.bg-pruple {
-  background-color: #5710B2;
-}
-
-.header-button:hover {
+.router-link-active button:hover {
   min-width: 100px;
-  color: #343A40;
+  color: white;
   border-radius: 15px;
-  background-color: white;
-  box-shadow: 0 0 8px white;
-  transition-duration: 200ms;
+  box-shadow: 0 0 10px #1ED760;
+  transition-duration: 0.8s;
+  background-color: #1ED760;
 }
 
+
+.header-button button {
+  border-radius: 10px;
+  background-color: #20D489;
+  color: white;
+  font-weight: bold;
+}
+
+.header-button button:hover {
+  background-color: #28ffa7;
+  font-weight: bold;
+  color: white;
+}
 
 /****************************************/
 /*APPLE CHECKBOX STYLE */

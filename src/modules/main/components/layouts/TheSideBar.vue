@@ -2,23 +2,23 @@
   <div class="sidebar-body">
     <div class="d-flex justify-content-around align-items-center px-3 py-3">
       <div class="sidebar-top-box">
-          <div class="d-flex justify-content-center align-items-center py-3 text-">
-            <router-link to="/"><h3><i class="fas fa-home text-dark"></i></h3></router-link>
+          <div class="d-flex justify-content-center align-items-center py-3">
+            <router-link to="/"><h3 class="side-bar-icon"><i class="fas fa-home text-dark"></i></h3></router-link>
           </div>
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-            <h3><i class="fas fa-stopwatch text-dark"></i></h3>
+            <h3 class="side-bar-icon"><i class="fas fa-stopwatch text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-           <h3><i class="fas fa-stream text-dark"></i></h3>
+           <h3 class="side-bar-icon"><i class="fas fa-stream text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-          <h3><i class="fas fa-search-location text-dark"></i></h3>
+          <h3 class="side-bar-icon"><i class="fas fa-search-location text-dark"></i></h3>
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@ export default {
 .sidebar-body {
   position: absolute;
   background-color: #343A40;
-  height: 100vh;
+  height: 93vh;
   width: 300px;
   display: block;
 }
@@ -109,6 +109,15 @@ export default {
   box-shadow: 0 0 10px white;
   cursor: pointer;
   transition: 0.5s;
+}
+
+.side-bar-icon i {
+  opacity: 0.8;
+  transition: 0.6s;
+}
+.side-bar-icon i:hover {
+  opacity: 1;
+  transition: 0.6s;
 }
 
 .side-bar-middle-custom-hr {
