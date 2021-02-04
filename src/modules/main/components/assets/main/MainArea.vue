@@ -5,8 +5,8 @@
     <div class="main-padding"></div>
 
     <div class="main-top-div text-md-center">
-     <h1>Sound AIR for everyone</h1>
-     <p>and all sounds are free</p>
+     <h1><b>Sound AIR for everyone</b></h1>
+     <p class="text-spacing5">and all sounds are free</p>
    </div>
 
     <div class="text-center">
@@ -56,13 +56,6 @@
   .main-padding {
     padding-top: 100px;
   }
-}
-
-.main-top-div h1 {
-  font-weight: bold;
-}
-.main-top-div p {
-  letter-spacing: 5px;                                                
 }
 
 .try-now-for-free-button {
