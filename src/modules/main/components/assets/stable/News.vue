@@ -3,8 +3,8 @@
    <div class="container text-xl-center" align="center">
      <div class="last-updates-padding"></div>
      <div>
-       <h1><b>Is there something to tell us?</b></h1>
-       <p class="text-spacing5">your feedback is valuable to us.</p>
+       <h1><b>What's new about our application</b></h1>
+       <p class="text-spacing5">here are the innovations we have added</p>
      </div>
 
       <div class="d-flex row">

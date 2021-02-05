@@ -30,12 +30,10 @@
            <h6>Email Address <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6" align="left">
-           <div class="d-xl-flex justify-content-start">
-            <div style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}">
+            <div class="d-xl-flex justify-content-start" style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}">
               <i class="fas fa-at py-3 px-3"></i>
               <input class="px-xl-3"  value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
             </div>
-           </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
        </div>
