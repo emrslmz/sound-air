@@ -1,12 +1,12 @@
 <template>
   <div>
-   <div class="container text-xl-center">
+   <div class="container text-xl-center" align="center">
      <div class="contact-us-padding"></div>
      <div>
        <h1><b>Is there something to tell us?</b></h1>
        <p class="text-spacing5">your feedback is valuable to us.</p>
 
-       <h1><b><the-success-card v-if="this.sendedConfirm" /></b></h1>
+       <the-success-card v-if="this.sendConfirm === 200"></the-success-card>
      </div>
 
 
@@ -90,7 +90,7 @@ export default {
         contactDescription: '',
         contactAcceptFeedback: null,
       },
-      sendedConfirm: null
+      sendConfirm: null 
 
     }
   },
@@ -104,13 +104,19 @@ export default {
             contactAcceptFeedback: this.newContact.contactAcceptFeedback,
           })
           .then((response) => {
-            // console.log(response.data.status)
-              console.log(response)
+              // console.log(response)
               this.newContact.contactName = '';
               this.newContact.contactMail = null;
               this.newContact.contactDescription = '';
               this.newContact.contactAcceptFeedback = null;
-              this.sendedConfirm = response.data.status;
+              //200 OK
+              console.log(response.status)
+              this.sendConfirm = response.status;
+          })
+          .catch((error) => {
+            //400 BAD REQUEST
+            console.log(error.request.status);
+            this.sendConfirm = error.request.status;
           })
     }
   }
