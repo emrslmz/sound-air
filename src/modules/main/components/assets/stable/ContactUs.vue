@@ -70,7 +70,7 @@
      <div class="d-xl-flex justify-content-around align-items-center py-2">
        <div class="col-12 col-xl-6 text-xl-center"></div>
        <div class="d-flex col-12 col-xl-6">
-         <div class="save-changes-account-button" :title="this.sendConfirm === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendContactUs()" :class="this.sendConfirm === 200 ? 'disabled' : 'active'" >Submit</button></div>
+         <div class="submit-contact-us-button" :title="this.sendConfirm === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendContactUs()" :class="this.sendConfirm === 200 ? 'disabled' : 'active'" >Submit</button></div>
        </div>
      </div>
 
@@ -257,14 +257,14 @@ export default {
 }
 
 
-.save-changes-account-button button {
+.submit-contact-us-button button {
   border-radius: 10px;
   background-color: #20D489;
   color: white;
   font-weight: bold;
 }
 
-.save-changes-account-button button:hover {
+.submit-contact-us-button button:hover {
   background-color: #28ffa7;
   font-weight: bold;
   color: white;

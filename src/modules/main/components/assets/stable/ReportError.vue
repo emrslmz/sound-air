@@ -69,6 +69,13 @@
        </div>
      </div>
 
+       <div class="d-xl-flex justify-content-around align-items-center py-2">
+         <div class="col-12 col-xl-6 text-xl-center"></div>
+         <div class="d-flex col-12 col-xl-6">
+           <div class="submit-bug-report-button"><button class="btn">Submit</button></div>
+         </div>
+       </div>
+
 
 
      </div>
@@ -78,8 +85,6 @@
 
 
 <style scoped>
-
-
 
 .report-error-padding {
   padding-top: 100px;
@@ -141,5 +146,18 @@
   max-width: 340px;
   height: 45px;
   border-radius: 8px;
+}
+
+.submit-bug-report-button button {
+  border-radius: 10px;
+  background-color: #20D489;
+  color: white;
+  font-weight: bold;
+}
+
+.submit-bug-report-button button:hover {
+  background-color: #28ffa7;
+  font-weight: bold;
+  color: white;
 }
 </style>
