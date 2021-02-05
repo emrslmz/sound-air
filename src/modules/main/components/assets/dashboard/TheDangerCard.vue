@@ -2,9 +2,9 @@
 <div>
   <div class="d-flex justify-content-center align-items-end">
 
-    <div class="alert bg-success card-success text-center alert-dismissible fade show" role="alert">
-      <h3><i class="fas fa-check"></i></h3>
-      <small>Your message has arrived. You will get a return as soon as possible!</small>
+    <div class="alert bg-danger card-danger text-center alert-dismissible fade show" role="alert">
+      <h3><i class="fas fa-times"></i></h3>
+      <small>An error occurred while sending your message. Please fill in the relevant boxes.</small>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true"><i class="fas fa-times"></i></span>
       </button>
@@ -16,21 +16,21 @@
 
 
 <style scoped>
-.card-success {
+.card-danger {
   border-radius: 15px;
   max-height: 100px;
   color: white;
 }
 
-.card-success button {
+.card-danger button {
   position: absolute;
 }
 
-.card-success span i {
+.card-danger span i {
   opacity: 0.5;
   color: white;
 }
-.card-success span i:hover {
+.card-danger span i:hover {
   opacity: 1;
   color: white;
 }

@@ -7,6 +7,7 @@
        <p class="text-spacing5">your feedback is valuable to us.</p>
 
        <the-success-card v-if="this.sendConfirm === 200"></the-success-card>
+       <the-danger-card v-if="this.sendConfirm === 400"></the-danger-card>
      </div>
 
 
@@ -28,7 +29,7 @@
          <div class="col-12 col-xl-6" align="left">
            <div class="d-xl-flex justify-content-start">
              <i class="fas fa-at py-3 px-3"></i>
-             <input class="px-xl-3" value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
+             <input class="px-xl-3" :style="{ this.sendConfirm === 400 ? 'border: 1px solid red': ''}" value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
            </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
@@ -76,11 +77,13 @@
 
 <script>
 import TheSuccessCard from '../dashboard/TheSuccessCard.vue';
+import TheDangerCard from '../dashboard/TheDangerCard.vue';
 import axios from 'axios';
 
 export default {
   components: {
-    TheSuccessCard
+    TheSuccessCard,
+    TheDangerCard
   },
   data() {
     return {
