@@ -96,7 +96,7 @@
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  min-width: 340px;
+  min-width: 310px;
   height: 45px;
   border-radius: 8px;
 }
@@ -107,7 +107,7 @@
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  min-width: 340px;
+  min-width: 310px;
   height: 45px;
   border-radius: 8px;
 }
@@ -117,7 +117,8 @@
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  min-width: 300px;
+  max-width: 300px;
+  min-width: 270px;
   height: 45px;
   border-radius: 0 8px 8px 0;
 }
@@ -143,7 +144,8 @@
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  max-width: 340px;
+  min-width: 310px;
+  max-width: 300px;
   height: 45px;
   border-radius: 8px;
 }

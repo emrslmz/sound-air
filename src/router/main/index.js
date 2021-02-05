@@ -42,5 +42,13 @@ export default [{
             },
             component: () => import('@/modules/main/components/assets/stable/ReportError.vue'),
         },
+        {
+            name: 'PrivacyAndTerms',
+            path: 'privacy-and-terms',
+            meta: {
+                title: 'PrivacyAndTerms',
+            },
+            component: () => import('@/modules/main/components/assets/stable/PrivacyAndTerms.vue'),
+        },
     ],
 }];
