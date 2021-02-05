@@ -1,7 +1,7 @@
 <template>
   <div>
    <div class="container text-xl-center" align="center">
-     <div class="last-updates-padding"></div>
+     <div class="faq-page-padding"></div>
      <div>
        <h1><b>Frequently Asked Questions</b></h1>
        <p class="text-spacing5">you can find some of the issues you are facing here</p>
@@ -9,10 +9,9 @@
 
       <div class="d-flex row">
 
-
         <!--CARD-->
         <div class="col-12 col-md-4" v-for="(faq,index) in getFAQ" :key="index">
-          <div class="card privacy-right">
+          <div class="card faq-page-card">
             <div class="card-header py-3" :class="faq.status === 'normal' ? 'bg-light' : 'bg-danger'">
              <h4><b><span v-if="faq.status === 'errorCode'"><small>Error Code:</small> <i class="fab fa-slack-hash"></i></span>{{ faq.title }}</b></h4>
             </div>
@@ -22,32 +21,6 @@
           </div>
         </div>
         <!--/CARD-->
-
-
-
-
-
-
-
-
-
-
-
-<!--        &lt;!&ndash;CARD&ndash;&gt;-->
-<!--        <div class="col-12 col-md-4">-->
-<!--          <div class="card privacy-right">-->
-<!--            <div class="card-header bg-danger py-3">-->
-<!--               <h4><b><small>Error Code:</small> #5734</b></h4>-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--              <p class="card-text text-left">If you see this error code, there are spaces you forgot to fill in before submitting the form. Fill or mark the spaces indicated in red.</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash;/CARD&ndash;&gt;-->
-
-        
-
 
       </div>
    </div>
@@ -71,7 +44,7 @@ export default {
 
 <style scoped>
 
-.last-updates-padding {
+.faq-page-padding {
   padding-top: 100px;
 }
 
@@ -84,7 +57,7 @@ export default {
   text-indent:1cm;
 }
 
-.privacy-right {
+.faq-page-card {
   margin-bottom: 100px;
   border-radius: 0 0 20px 20px;
   width: 100%;

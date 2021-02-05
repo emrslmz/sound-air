@@ -1,69 +1,54 @@
 <template>
   <div>
    <div class="container text-xl-center" align="center">
-     <div class="last-updates-padding"></div>
+     <div class="share-app-padding"></div>
      <div>
-       <h1><b>Frequently Asked Questions</b></h1>
-       <p class="text-spacing5">you can find some of the issues you are facing here</p>
+       <h1><b>Follow us on Social Media</b></h1>
+       <p class="text-spacing5">and share</p>
      </div>
 
       <div class="d-flex row">
 
-
         <!--CARD-->
-        <div class="col-12 col-md-4" v-for="(faq,index) in getFAQ" :key="index">
-          <div class="card privacy-right">
-            <div class="card-header py-3" :class="faq.status === 'normal' ? 'bg-light' : 'bg-danger'">
-             <h4><b><span v-if="faq.status === 'errorCode'"><small>Error Code:</small> <i class="fab fa-slack-hash"></i></span>{{ faq.title }}</b></h4>
-            </div>
-            <div class="card-body">
-              <p class="card-text text-left">{{ faq.description }}</p>
+        <div class="col-12 col-md-4" v-for="(social,index) in getSocial" :key="index">
+          <div class="card share-card bg-light">
+            <div class="card-body text-center d-flex justify-content-center align-items-center" :title="social.socialName">
+              <a :href="social.socialLink"><h1><i :class="social.socialLink & social.socialColor"></i></h1></a>
             </div>
           </div>
         </div>
         <!--/CARD-->
 
-
-
-
-
-
-
-
-
-
-
-<!--        &lt;!&ndash;CARD&ndash;&gt;-->
-<!--        <div class="col-12 col-md-4">-->
-<!--          <div class="card privacy-right">-->
-<!--            <div class="card-header bg-danger py-3">-->
-<!--               <h4><b><small>Error Code:</small> #5734</b></h4>-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--              <p class="card-text text-left">If you see this error code, there are spaces you forgot to fill in before submitting the form. Fill or mark the spaces indicated in red.</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash;/CARD&ndash;&gt;-->
-
-        
-
-
       </div>
+
+     <div>
+       <hr>
+       <div>
+         <label><small>or</small></label>
+         <div>
+           <router-link to="contact-us">
+             <button class="btn try-now-for-free-button">CONTACT NOW</button>
+           </router-link>
+         </div>
+         
+       </div>
+     </div>
+
+
    </div>
   </div>
 </template>
-
 
 <script>
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'Faq',
+  name: 'ShareApp',
   computed: {
     ...mapGetters([
-        'getFAQ',
+        'getSocial'
     ])
+
   }
 }
 </script>
@@ -71,25 +56,36 @@ export default {
 
 <style scoped>
 
-.last-updates-padding {
-  padding-top: 100px;
+.share-app-padding {
+  padding-top: 200px;
 }
 
-.card-body {
-  font:16px Georgia, 'Times New Roman';
+.card-body h1 {
+  font-size: 72px;
 }
 
-.card-text {
-  font-size: 18px;
-  text-indent:1cm;
-}
-
-.privacy-right {
-  margin-bottom: 100px;
-  border-radius: 0 0 20px 20px;
+.share-card {
+  margin-bottom: 25px;
+  border-radius: 20px;
   width: 100%;
-  min-height: 400px;
+  min-height: 200px;
   box-shadow: 0 0 10px 2px #cecece;
+}
+
+
+.try-now-for-free-button {
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  color: white;
+  background-color:  #20D489;
+  transition: 0.5s;
+}
+
+.try-now-for-free-button:hover {
+  background-color: #28ffa7;
+  box-shadow: 1px 2px 5px 1px white;
+  transition: 0.5s;
 }
 
 </style>
