@@ -33,6 +33,14 @@ export default [{
                 title: 'LastUpdates',
             },
             component: () => import('@/modules/main/components/assets/stable/News.vue'),
-        }
+        },
+        {
+            name: 'ReportError',
+            path: 'report-error',
+            meta: {
+                title: 'Report Bugs or Error',
+            },
+            component: () => import('@/modules/main/components/assets/stable/ReportError.vue'),
+        },
     ],
 }];

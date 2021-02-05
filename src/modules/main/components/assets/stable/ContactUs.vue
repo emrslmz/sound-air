@@ -17,7 +17,7 @@
      <div class="pt-3">
                         
        <div class="d-xl-flex justify-content-around align-items-center py-3">
-         <div class="col-12 col-xl-6 text-xl-center">
+         <div class="col-12 col-xl-6 text-left text-xl-center">
            <h6>Name <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6 form-contact" align="left">
@@ -26,7 +26,7 @@
        </div>
 
        <div class="d-xl-flex justify-content-around align-items-center form-contact-email">
-         <div class="col-12 col-xl-6 text-xl-center">
+         <div class="col-12 col-xl-6 text-left text-xl-center">
            <h6>Email Address <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6" align="left">
@@ -39,10 +39,11 @@
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
        </div>
+
      </div>
 
      <div class="d-xl-flex justify-content-around align-items-center py-2">
-       <div class="col-12 col-xl-6 text-xl-center">
+       <div class="col-12 col-xl-6 text-left text-xl-center">
          <h6>Description <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6 form-contact" align="left">
@@ -51,13 +52,13 @@
      </div>
 
      <div class="d-xl-flex justify-content-around align-items-center py-3">
-       <div class="col-12 col-xl-6 text-xl-center">
+       <div class="col-12 col-xl-6 text-left text-xl-center">
          <h6>Contact <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6">
          <div class="d-xl-flex justify-content-start align-items-center">
            <div class="d-xl-flex align-items-center">
-             <label class="checkbox-input" >
+             <label class="checkbox-input text-left">
                I would like to receive notifications for feedback and updates.
                <input type="checkbox"  v-model="newContact.contactAcceptFeedback" />
                <span style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}" class="checkmark"></span>
@@ -154,7 +155,7 @@ export default {
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  min-width: 70%;
+  min-width: 340px;
   height: 45px;
   border-radius: 8px;
 }
@@ -164,7 +165,7 @@ export default {
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  max-width: 70%;
+  max-width: 340px;
   height: 45px;
   border-radius: 8px;
 }
@@ -175,7 +176,7 @@ export default {
   outline: 0;
   border: none;
   background-color: #F5F8FA;
-  min-width: 63%;
+  min-width: 300px;
   height: 45px;
   border-radius: 0 8px 8px 0;
 }

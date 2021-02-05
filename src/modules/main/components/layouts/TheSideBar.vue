@@ -30,9 +30,11 @@
                 <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
             </div>
           </router-link>
-          <div class="side-bar-middle-title text-white">
-            <h5><span><i class="fas fa-bug"></i></span> Report error</h5>
-          </div>
+          <router-link to="report-error">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-bug"></i></span> Report error</h5>
+            </div>
+          </router-link>
           <div class="side-bar-middle-title text-white">
             <h5><span><i class="fas fa-search"></i></span> Privacy</h5>
           </div>
@@ -75,7 +77,7 @@ export default {
 .sidebar-body {
   position: absolute;
   background-color: #343A40;
-  height: 94vh;
+  min-height: 94vh;
   width: 300px;
   display: block;
 }
