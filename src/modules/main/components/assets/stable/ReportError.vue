@@ -55,7 +55,7 @@
            <i class="fas fa-hashtag py-3 px-3"></i>
            <input class="px-xl-3"  value="example: 57" type="text">
          </div>
-         <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <i class="fas fa-circle-notch fa-spin"></i> <a href="#" class="text-green">Heavily reported issues</a></label></small>
+         <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <a href="#" class="text-green">Heavily reported issues</a></label></small>
        </div>
      </div>
 

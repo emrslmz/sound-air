@@ -8,26 +8,18 @@
      </div>
 
       <div class="d-flex row">
-        <div class="col-12 col-md-4">
-
-        <!--SMALL PHOTOS AREA-->
-
-        <!--/SMALL PHOTOS AREA-->
-
-        </div>
-        <div class="col-12 col-md-8">
+        <div class="col-12">
 
         <!--BIG PHOTOS AREA-->
           <div class="card privacy-right">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title text-center">Privacy</h5>
+              <p class="card-text text-left">WHEN USING OUR SERVICES, YOU ASSUME THE LIABILITY OF RISKS AND BE SUBJECT TO THE FOLLOWING DISCLAIMERS. OUR SERVICES INCLUDE THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OWNERSHIP, NON-INFRINGEMENT, COMPUTER VIRUS AND OTHER HARMFUL CODES INCLUDING AND WITHOUT ANY EXPLAINED WARRANTIES, WITHOUT EXPRESS. ANY INFORMATION PROVIDED BY US IS ACCURATE, COMPLETE OR USEFUL; WE DO NOT WARRANT THAT OUR SERVICES WILL BE OPERATIONAL, ERROR-FREE, SECURE OR SAFE, OR THAT OUR SERVICES WILL OPERATE UNINTERRUPTED, DELAYED OR PERFECT. WE DO NOT AND HAVE NO OBLIGATION TO CONTROL HOW OR WHEN OUR USERS USE OUR SERVICES OR FEATURES, SERVICES AND INTERFACES PROVIDED BY OUR SERVICES. WE ARE NOT RESPONSIBLE FOR, AND DO NOT HAVE ANY OBLIGATION TO CHECK USERS OR OTHER THIRD PARTIES FOR ACTION OR INFORMATION (INCLUDING CONTENT). OUR AFFILIATES, AFFILIATES, DIRECTORS OF OUR COMPANY AND THESE COMPANIES, OFFICIALS, EMPLOYEES, PARTNERS AND INTERMEDIATES (COLLECTIVELY "WHATSAPP PARTIES", ALL KINDS OF REGISTRATION, WHATSAPP, SOCIETY AND SUBSIDIARIES). YOU DISCLAIM ANY KIND OF KNOWN AND UNKNOWN DAMAGES ARISING FROM OR CONCERNING YOUR CLAIM AGAINST A THIRD PARTY. YOU WAIVER ALL RIGHTS UNDER ARTICLE 1542 OF THE CALIFORNIA CIVIL CODE OR ANY SIMILAR APPLICABLE LAW OR LAW OF ANY OTHER JURISDICTION. BY THIS ARTICLE, IT IS REPRESENTED BY THE FOLLOWING THAT IT SHOULD BE CONSIDERED BY THE COLLABORATIVE, WHEN HE DOES NOT KNOW THAT THE RECEIVABLE IS TO THEIR ENFORCEMENT AND THEY ARE NOT SUSPICIOUS..</p>
             </div>
           </div>
         <!--/BIG PHOTOS AREA-->
 
         </div>
-
       </div>
    </div>
   </div>
@@ -40,14 +32,13 @@
   padding-top: 100px;
 }
 
-.not-found-images {
-  border-radius: 20px 20px 0 0;
-  background-position: center;
-  /*background-attachment: fixed;*/
-  background-repeat: no-repeat;
-  background-size: 800px;
-  min-width: 300px;
-  height: 200px;
+.card-body {
+  margin: 50px 0 100px 0;
+  font-family: "Univers LT Std 55";
+}
+
+.card-text {
+  text-indent:1cm;
 }
 
 .privacy-left {
@@ -62,7 +53,7 @@
   margin-bottom: 100px;
   border-radius: 20px;
   width: 100%;
-  min-height: 800px;
+  min-height: 600px;
   box-shadow: 0 0 10px 2px #cecece;
 }
 
