@@ -50,5 +50,21 @@ export default [{
             },
             component: () => import('@/modules/main/components/assets/stable/PrivacyAndTerms.vue'),
         },
+        {
+            name: 'TheFAQ',
+            path: 'FAQ',
+            meta: {
+                title: 'Frequently Asked Questions',
+            },
+            component: () => import('@/modules/main/components/assets/stable/TheFaq.vue'),
+        },
+        {
+            name: 'ShareApp',
+            path: 'share',
+            meta: {
+                title: 'Share the App',
+            },
+            component: () => import('@/modules/main/components/assets/stable/ShareApp.vue'),
+        },
     ],
 }];

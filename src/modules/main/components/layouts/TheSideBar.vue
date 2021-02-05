@@ -46,12 +46,16 @@
           <div class="side-bar-middle-title text-white">
             <h5><span><i class="fas fa-file-contract"></i></span> User agreement</h5>
           </div>
-          <div class="side-bar-middle-title text-white">
-            <h5><span><i class="far fa-question-circle"></i></span> FAQ</h5>
-          </div>
-          <div class="side-bar-middle-title text-white">
-            <h5><span><i class="fas fa-share-alt"></i></span> Share the app!</h5>
-          </div>
+          <router-link to="FAQ">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="far fa-question-circle"></i></span> FAQ</h5>
+            </div>
+          </router-link>
+          <router-link to="share">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-share-alt"></i></span> Share the app!</h5>
+            </div>
+          </router-link>
         </div>
     </div>
     <!-- FOOTER-->
