@@ -85,8 +85,6 @@
       </div>
 
 
-
-
     </div>
     
   </div>
@@ -103,7 +101,6 @@
     padding-top: 50px;
   }
 }
-
 
 .soundPlay-icon i {
   font-size: 52px;
