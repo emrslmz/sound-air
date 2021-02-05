@@ -5,6 +5,8 @@
      <div>
        <h1><b>Is there something to tell us?</b></h1>
        <p class="text-spacing5">your feedback is valuable to us.</p>
+
+       <h1><b><the-success-card v-if="this.sendedConfirm" /></b></h1>
      </div>
 
 
@@ -12,21 +14,21 @@
 
        <div class="d-xl-flex justify-content-around align-items-center py-3">
          <div class="col-12 col-xl-6 text-xl-center">
-           <h6>Name</h6>
+           <h6>Name <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6 form-contact" align="left">
-           <input class="px-3" value="max_stone" type="text">
+           <input class="px-3" value="max_stone" v-model="newContact.contactName" type="text">
          </div>
        </div>
 
        <div class="d-xl-flex justify-content-around align-items-center form-contact-email">
          <div class="col-12 col-xl-6 text-xl-center">
-           <h6>Email Address</h6>
+           <h6>Email Address <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6" align="left">
            <div class="d-xl-flex justify-content-start">
              <i class="fas fa-at py-3 px-3"></i>
-             <input class="px-xl-3" value="nick.watson@loop.com" type="email">
+             <input class="px-xl-3" value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
            </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
@@ -35,23 +37,23 @@
 
      <div class="d-xl-flex justify-content-around align-items-center py-2">
        <div class="col-12 col-xl-6 text-xl-center">
-         <h6>Description</h6>
+         <h6>Description <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6 form-contact" align="left">
-         <textarea class="form-control px-3" value="max_stone" type="text" />
+         <textarea class="form-control px-3" v-model="newContact.contactDescription" value="max_stone" type="text" />
        </div>
      </div>
 
      <div class="d-xl-flex justify-content-around align-items-center py-3">
        <div class="col-12 col-xl-6 text-xl-center">
-         <h6>Contact</h6>
+         <h6>Contact <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6">
          <div class="d-xl-flex justify-content-start align-items-center">
            <div class="d-xl-flex align-items-center">
              <label class="checkbox-input">
                I would like to receive notifications for feedback and updates.
-               <input type="checkbox" />
+               <input type="checkbox" v-model="newContact.contactAcceptFeedback" />
                <span class="checkmark"></span>
              </label>
            </div>
@@ -63,7 +65,7 @@
      <div class="d-xl-flex justify-content-around align-items-center py-2">
        <div class="col-12 col-xl-6 text-xl-center"></div>
        <div class="d-flex col-12 col-xl-6">
-         <div class="save-changes-account-button"><button class="btn">Submit</button></div>
+         <div class="save-changes-account-button"><button class="btn" @click="sendContactUs()">Submit</button></div>
        </div>
      </div>
 
@@ -72,7 +74,51 @@
 </template>
 
 
+<script>
+import TheSuccessCard from '../dashboard/TheSuccessCard.vue';
+import axios from 'axios';
+
+export default {
+  components: {
+    TheSuccessCard
+  },
+  data() {
+    return {
+      newContact: {
+        contactName: '',
+        contactMail: null,
+        contactDescription: '',
+        contactAcceptFeedback: null,
+      },
+      sendedConfirm: null
+
+    }
+  },
+  methods: {
+    sendContactUs() {
+      axios
+          .post("https://soundair-api.herokuapp.com/contacts", {
+            contactName: this.newContact.contactName,
+            contactMail: this.newContact.contactMail,
+            contactDescription: this.newContact.contactDescription,
+            contactAcceptFeedback: this.newContact.contactAcceptFeedback,
+          })
+          .then((response) => {
+            // console.log(response.data.status)
+              console.log(response)
+              this.newContact.contactName = '';
+              this.newContact.contactMail = null;
+              this.newContact.contactDescription = '';
+              this.newContact.contactAcceptFeedback = null;
+              this.sendedConfirm = response.data.status;
+          })
+    }
+  }
+}
+</script>
+
 <style scoped>
+
 .contact-us-padding {
   padding-top: 200px;
 }
