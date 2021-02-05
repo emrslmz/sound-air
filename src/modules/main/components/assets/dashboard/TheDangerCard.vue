@@ -1,18 +1,28 @@
 <template>
 <div>
-  <div class="d-flex justify-content-center align-items-end">
 
-    <div class="alert bg-danger card-danger text-center alert-dismissible fade show" role="alert">
-      <h3><i class="fas fa-times"></i></h3>
-      <small>An error occurred while sending your message. Please fill in the relevant boxes.</small>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <div class="d-flex justify-content-center align-items-end">
+
+      <div class="alert bg-danger card-danger text-center alert-dismissible fade show" role="alert">
+        <h3><i class="fas fa-times"></i></h3>
+        <small>An error occurred while sending your message. Please fill in the relevant boxes. <i>{{ errorCode }}</i></small>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true"><i class="fas fa-times"></i></span>
-      </button>
+        </button>
+      </div>
+
     </div>
-    
-  </div>
 </div>
 </template>
+
+
+<script>
+export default {
+  props: {
+    errorCode: String
+  }
+}
+</script>
 
 
 <style scoped>

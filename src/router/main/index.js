@@ -25,6 +25,14 @@ export default [{
                 title: 'PlaySounds',
             },
             component: () => import('@/modules/main/components/assets/sounds/PlaySounds.vue'),
+        },
+        {
+            name: 'News',
+            path: 'news',
+            meta: {
+                title: 'LastUpdates',
+            },
+            component: () => import('@/modules/main/components/assets/stable/News.vue'),
         }
     ],
 }];

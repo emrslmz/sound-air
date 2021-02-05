@@ -25,9 +25,11 @@
     
     <div class="flex-column side-bar-middle py-4 px-3">
         <div class="container">
-          <div class="side-bar-middle-title text-white">
-            <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
-          </div>
+          <router-link to="news">
+            <div class="side-bar-middle-title text-white">
+                <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
+            </div>
+          </router-link>
           <div class="side-bar-middle-title text-white">
             <h5><span><i class="fas fa-bug"></i></span> Report error</h5>
           </div>
@@ -129,9 +131,13 @@ export default {
   display: inline;
   opacity: 0.8;
   cursor: pointer;
+  text-decoration: none;
+
 }
 
 .side-bar-middle-title h5:hover {
   opacity: 1;
+  text-decoration: none;
+
 }
 </style>

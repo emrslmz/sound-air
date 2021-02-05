@@ -5,14 +5,17 @@
      <div>
        <h1><b>Is there something to tell us?</b></h1>
        <p class="text-spacing5">your feedback is valuable to us.</p>
-
-       <the-success-card v-if="this.sendConfirm === 200"></the-success-card>
-       <the-danger-card v-if="this.sendConfirm === 400"></the-danger-card>
+       <transition name="component-fade">
+          <the-success-card v-if="this.sendConfirm === 200"></the-success-card>
+       </transition>
+       <transition name="component-fade">
+          <the-danger-card errorCode="#5734" v-if="this.sendConfirm === 400"></the-danger-card>
+       </transition>
      </div>
 
 
      <div class="pt-3">
-
+                        
        <div class="d-xl-flex justify-content-around align-items-center py-3">
          <div class="col-12 col-xl-6 text-xl-center">
            <h6>Name <b>*</b></h6>
@@ -28,8 +31,10 @@
          </div>
          <div class="col-12 col-xl-6" align="left">
            <div class="d-xl-flex justify-content-start">
-             <i class="fas fa-at py-3 px-3"></i>
-             <input class="px-xl-3" :style="{ this.sendConfirm === 400 ? 'border: 1px solid red': ''}" value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
+            <div style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}">
+              <i class="fas fa-at py-3 px-3"></i>
+              <input class="px-xl-3"  value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
+            </div>
            </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
@@ -52,10 +57,10 @@
        <div class="col-12 col-xl-6">
          <div class="d-xl-flex justify-content-start align-items-center">
            <div class="d-xl-flex align-items-center">
-             <label class="checkbox-input">
+             <label class="checkbox-input" >
                I would like to receive notifications for feedback and updates.
-               <input type="checkbox" v-model="newContact.contactAcceptFeedback" />
-               <span class="checkmark"></span>
+               <input type="checkbox"  v-model="newContact.contactAcceptFeedback" />
+               <span style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}" class="checkmark"></span>
              </label>
            </div>
          </div>
@@ -66,7 +71,7 @@
      <div class="d-xl-flex justify-content-around align-items-center py-2">
        <div class="col-12 col-xl-6 text-xl-center"></div>
        <div class="d-flex col-12 col-xl-6">
-         <div class="save-changes-account-button"><button class="btn" @click="sendContactUs()">Submit</button></div>
+         <div class="save-changes-account-button" :title="this.sendConfirm === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendContactUs()" :class="this.sendConfirm === 200 ? 'disabled' : 'active'" >Submit</button></div>
        </div>
      </div>
 
@@ -99,34 +104,40 @@ export default {
   },
   methods: {
     sendContactUs() {
-      axios
-          .post("https://soundair-api.herokuapp.com/contacts", {
-            contactName: this.newContact.contactName,
-            contactMail: this.newContact.contactMail,
-            contactDescription: this.newContact.contactDescription,
-            contactAcceptFeedback: this.newContact.contactAcceptFeedback,
-          })
-          .then((response) => {
-              // console.log(response)
-              this.newContact.contactName = '';
-              this.newContact.contactMail = null;
-              this.newContact.contactDescription = '';
-              this.newContact.contactAcceptFeedback = null;
-              //200 OK
-              console.log(response.status)
-              this.sendConfirm = response.status;
-          })
-          .catch((error) => {
-            //400 BAD REQUEST
-            console.log(error.request.status);
-            this.sendConfirm = error.request.status;
-          })
+        if (this.sendConfirm !== 200) {
+          axios
+              .post("https://soundair-api.herokuapp.com/contacts", {
+                contactName: this.newContact.contactName,
+                contactMail: this.newContact.contactMail,
+                contactDescription: this.newContact.contactDescription,
+                contactAcceptFeedback: this.newContact.contactAcceptFeedback,
+              })
+              .then((response) => {
+                // console.log(response)
+                this.newContact.contactName = '';
+                this.newContact.contactMail = null;
+                this.newContact.contactDescription = '';
+                this.newContact.contactAcceptFeedback = null;
+                //200 OK
+                console.log(response.status)
+                this.sendConfirm = response.status;
+              })
+              .catch((error) => {
+                //400 BAD REQUEST
+                console.log(error.request.status);
+                this.sendConfirm = error.request.status;
+              })
+        }
     }
   }
 }
 </script>
 
 <style scoped>
+
+.disabled {
+  cursor: not-allowed;
+}
 
 .contact-us-padding {
   padding-top: 200px;
