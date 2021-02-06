@@ -45,6 +45,10 @@
     color: 	#7289da;
 }
 
+.text-green {
+    color: #20d489;
+}
+
 /***********************************************/
 /* DIFFERENT */
 /***********************************************/
@@ -60,6 +64,10 @@
 
 .disabled {
     cursor: not-allowed;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 

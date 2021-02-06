@@ -64,7 +64,7 @@
        </div>
        <div class="col-12 col-xl-6" align="left">
          <div class="d-xl-flex justify-content-start form-report-error-code" style="border-radius: 10px">
-           <i class="fas fa-hashtag py-3 px-3"></i>
+           <i @click="findErrorCode()" class="fas fa-hashtag py-3 px-3 text-green cursor-pointer"></i>
            <input class="px-xl-3" v-model="newReport.mistakeCode" placeholder="example: 57" type="text">
          </div>
          <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <a href="#" class="text-green">Heavily reported issues</a></label></small>
@@ -87,9 +87,7 @@
            <div class="submit-bug-report-button" :title="this.sendConfirm === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendError()" :class="this.sendConfirm === 200 ? 'disabled' : 'active'" >Submit</button></div>
          </div>
        </div>
-
-
-
+         <p>solution: {{ errorCodeSolution }}</p>
      </div>
    </div>
   </div>
@@ -99,6 +97,7 @@
 import TheSuccessCard from '../dashboard/TheSuccessCard.vue';
 import TheDangerCard from '../dashboard/TheDangerCard.vue';
 import axios from "axios";
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ReportErrorPage',
@@ -115,8 +114,14 @@ export default {
         mistakeCode: '',
         mistakeDescription: null,
       },
-      sendConfirm: null
+      sendConfirm: null,
+      errorCodeSolution: '',
     }
+  },
+  computed: {
+    ...mapGetters([
+        'getFAQ'
+    ])
   },
   methods: {
     sendError() {
@@ -131,23 +136,31 @@ export default {
             })
             .then((response) => {
               // console.log(response)
-              this.newReport.mistakeHunterName = '';
-              this.newReport.mistakeHunterMail = null;
-              this.newReport.mistakeSubject = '';
-              this.newReport.mistakeCode = '';
-              this.newReport.mistakeDescription = null
+              Object.keys(this.newReport).forEach((key) => {
+                this.newReport[key] = null;
+              });
+
               //200 OK
-              console.log(response.status)
+              // console.log(response.status)
               this.sendConfirm = response.status;
             })
             .catch((error) => {
               //400 BAD REQUEST
-              console.log(error.request.status);
+              // console.log(error.request.status);
               this.sendConfirm = error.request.status;
             })
       }
+    },
+    findErrorCode() {
+      const solution = this.getFAQ.find(element => element.title === this.newReport.mistakeCode);
+       if (this.errorCodeSolution.length === 0) {
+         this.errorCodeSolution = solution.description;
+       } else {
+         this.errorCodeSolution = '';
+       }
     }
-  }
+  },
+
 }
 </script>
 
@@ -203,7 +216,6 @@ export default {
   width: 40px;
   height: 45px;
   background-color: #F5F8FA;
-  color: #7a7b7c;
   border-radius: 8px 0 0 8px;
 }
 

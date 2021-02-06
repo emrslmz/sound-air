@@ -32,7 +32,7 @@
           </router-link>
           <router-link to="report-error">
             <div class="side-bar-middle-title text-white">
-              <h5><span><i class="fas fa-bug"></i></span> Report error</h5>
+              <h5><span><i class="fas fa-bug"></i></span> Report error or solution</h5>
             </div>
           </router-link>
           <router-link to="privacy-and-terms">

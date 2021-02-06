@@ -6,7 +6,7 @@ const state = {
             status: 'normal'
         },
         {
-            title: '57344',
+            title: '57',
             description: 'If you see this error code, there are spaces you forgot to fill in before submitting the form. Fill or mark the spaces indicated in red.',
             status: 'errorCode'
         },
