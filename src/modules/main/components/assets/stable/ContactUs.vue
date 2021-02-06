@@ -21,7 +21,7 @@
            <h6>Name <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6 form-contact" align="left">
-           <input class="px-3" value="max_stone" v-model="newContact.contactName" type="text">
+           <input class="px-3" placeholder="max_stone" v-model="newContact.contactName" type="text">
          </div>
        </div>
 
@@ -32,7 +32,7 @@
          <div class="col-12 col-xl-6" align="left">
             <div class="d-xl-flex justify-content-start" style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}">
               <i class="fas fa-at py-3 px-3"></i>
-              <input class="px-xl-3"  value="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
+              <input class="px-xl-3"  placeholder="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
             </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
@@ -45,7 +45,7 @@
          <h6>Description <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6 form-contact" align="left">
-         <textarea class="form-control px-3" v-model="newContact.contactDescription" value="max_stone" type="text" />
+         <textarea class="form-control px-3" v-model="newContact.contactDescription" placeholder="Your application is really successful, but " type="text" />
        </div>
      </div>
 

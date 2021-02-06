@@ -13,7 +13,7 @@
         <div class="col-12 col-md-4" v-for="(social,index) in getSocial" :key="index">
           <div class="card share-card bg-light">
             <div class="card-body text-center d-flex justify-content-center align-items-center" :title="social.socialName">
-              <a :href="social.socialLink"><h1><i :class="social.socialLink & social.socialColor"></i></h1></a>
+              <a target="_blank" :href="social.socialLink"><h1><i :class="social.socialClass"></i></h1></a>
             </div>
           </div>
         </div>
