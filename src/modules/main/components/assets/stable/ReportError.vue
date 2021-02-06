@@ -14,7 +14,7 @@
            <h6>Your Name <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6 form-report-error" align="left">
-           <input class="px-3" value="max Stone" type="text">
+           <input class="px-3" placeholder="max Stone" type="text">
          </div>
        </div>
 
@@ -25,7 +25,7 @@
          <div class="col-12 col-xl-6" align="left">
            <div class="d-xl-flex justify-content-start align-items-center form-report-error-mail" style="border-radius: 10px">
              <i class="fas fa-at py-3 px-3"></i>
-             <input class="px-xl-3" value="nick.watson@loop.com" type="email">
+             <input class="px-xl-3" placeholder="nick.watson@loop.com" type="email">
            </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
          </div>
@@ -53,7 +53,7 @@
        <div class="col-12 col-xl-6" align="left">
          <div class="d-xl-flex justify-content-start form-report-error-code" style="border-radius: 10px">
            <i class="fas fa-hashtag py-3 px-3"></i>
-           <input class="px-xl-3"  value="example: 57" type="text">
+           <input class="px-xl-3"  placeholder="example: 57" type="text">
          </div>
          <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <a href="#" class="text-green">Heavily reported issues</a></label></small>
        </div>
@@ -65,7 +65,7 @@
          <h6>Brief description of the error location <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6 form-report-error" align="left">
-         <textarea class="form-control px-3" type="text" />
+         <textarea placeholder="header/footer/sidebar.." class="form-control px-3" type="text" />
        </div>
      </div>
 
