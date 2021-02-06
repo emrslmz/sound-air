@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: 'DangerCard',
   props: {
     errorCode: String,
   }

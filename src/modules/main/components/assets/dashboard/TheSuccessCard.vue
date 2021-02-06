@@ -14,6 +14,12 @@
 </div>
 </template>
 
+<script>
+export default {
+  name: 'Success',
+
+}
+</script>
 
 <style scoped>
 .card-success {
