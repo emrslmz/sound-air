@@ -65,9 +65,9 @@
        <div class="col-12 col-xl-6" align="left">
          <div class="d-xl-flex justify-content-start form-report-error-code" style="border-radius: 10px">
            <i @click="findErrorCode()" class="fas fa-hashtag py-3 px-3 text-green cursor-pointer"></i>
-           <input class="px-xl-3" @keyup.enter="findErrorCode()" v-model="newReport.mistakeCode" placeholder="example: 57" type="text">
+           <input class="px-xl-3" v-model="newReport.mistakeCode" placeholder="example: 57" type="text">
          </div>
-         <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <br> Write and click enter <a href="#" class="text-green">Heavily reported issues</a></label></small>
+         <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <br> Click the button(#) on the left <a href="#" class="text-green">Heavily reported issues</a></label></small>
        </div>
      </div>
 
@@ -89,7 +89,7 @@
        </div>
 
        <transition name="component-fade">
-         <div v-if="this.errorCodeSolution.length > 0">
+         <div v-if="errorCodeCard">
            <the-warning-card :description="this.errorCodeSolution" />
          </div>
        </transition>
@@ -127,6 +127,7 @@ export default {
       },
       sendConfirm: null,
       errorCodeSolution: '',
+      errorCodeCard: false,
     }
   },
   computed: {
@@ -164,11 +165,13 @@ export default {
     },
     findErrorCode() {
       const solution = this.getFAQ.find(element => element.title === this.newReport.mistakeCode);
-       if (this.errorCodeSolution.length === 0) {
-         this.errorCodeSolution = solution.description;
-       } else {
-         this.errorCodeSolution = '';
-       }
+      if (solution === null) {
+        this.errorCodeCard = false;
+      } else {
+        this.errorCodeCard = true;
+        this.errorCodeSolution = solution.description;
+      }
+
     }
   },
 

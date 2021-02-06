@@ -4,7 +4,8 @@
 
       <div class="alert bg-warning card-warning text-center alert-dismissible fade show" role="alert">
         <h3><i class="fab fa-wpexplorer  fa-flip-horizontal"></i></h3>
-        <p>I found a suitable solution for the code we wrote!</p>
+        <p v-if="description.length > 0">I found a suitable solution for the code we wrote!</p>
+        <p v-else>I couldn't find an error matching the code you entered</p>
 
         <small>
           <i v-if="description.length > 0">{{ description }}</i>
