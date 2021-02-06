@@ -5,7 +5,7 @@
 
       <div class="alert bg-danger card-danger text-center alert-dismissible fade show" role="alert">
         <h3><i class="fas fa-times"></i></h3>
-        <small>An error occurred while sending your message. Please fill in the relevant boxes. <i>{{ errorCode }}</i></small>
+        <small>An error occurred while sending your message. Please fill in the relevant boxes. <i>#{{ errorCode }}</i></small>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true"><i class="fas fa-times"></i></span>
         </button>
@@ -19,7 +19,7 @@
 <script>
 export default {
   props: {
-    errorCode: String
+    errorCode: String,
   }
 }
 </script>

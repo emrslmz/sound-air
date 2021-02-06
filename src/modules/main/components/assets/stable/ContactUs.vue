@@ -2,14 +2,16 @@
   <div>
    <div class="container text-xl-center" align="center">
      <div class="contact-us-padding"></div>
+
      <div>
        <h1><b>Is there something to tell us?</b></h1>
        <p class="text-spacing5">your feedback is valuable to us.</p>
+
        <transition name="component-fade">
           <the-success-card v-if="this.sendConfirm === 200"></the-success-card>
        </transition>
        <transition name="component-fade">
-          <the-danger-card errorCode="#5734" v-if="this.sendConfirm === 400"></the-danger-card>
+          <the-danger-card errorCode="5734" v-if="this.sendConfirm === 400"></the-danger-card>
        </transition>
      </div>
 
@@ -133,10 +135,6 @@ export default {
 </script>
 
 <style scoped>
-
-.disabled {
-  cursor: not-allowed;
-}
 
 .contact-us-padding {
   padding-top: 200px;

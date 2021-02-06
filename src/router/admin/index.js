@@ -10,13 +10,5 @@ export default [{
         },
         component: () => import('@/modules/admin/components/Feedbacks.vue'),
     },
-    {
-        name: 'Feedbacks',
-        path: 'settings',
-        meta: {
-            title: 'Feedbacks',
-        },
-        component: () => import('@/modules/admin/components/Feedbacks.vue'),
-    }
     ],
 }];
