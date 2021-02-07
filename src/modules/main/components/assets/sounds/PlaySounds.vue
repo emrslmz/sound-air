@@ -8,10 +8,11 @@
     </div>
 
     <div class="row soundPlay-row">
-
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3">
+      <!--START-->
+      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3" >
         <a type="button" class="soundPlay-icon">
           <i class="fas fa-cloud-showers-heavy"></i>
+          <p></p>
         </a>
 
         <!-- START VOLUME CONTROL -->
@@ -22,73 +23,17 @@
             <input type="range" min="0" max="100" class="volumeSlider">
           </div>
         </div>
+        <!-- FINISH VOLUME CONTROL -->
       </div>
+      <!--FINISH-->
 
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3">
-        <a type="button" class="soundPlay-icon">
-          <i class="fas fa-cloud-showers-heavy"></i>
-        </a>
-
-        <!-- START VOLUME CONTROL -->
-        <div class="setting-button justify-content-between align-items-center pt-3">
-          <div class="volumeControl d-flex align-items-center">
-            <small type="button" class="fas fa-volume-up px-1"></small>
-            <small type="button" class="fas fa-volume-mute px-1"></small>
-            <input type="range" min="0" max="100" class="volumeSlider">
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3">
-        <a type="button" class="soundPlay-icon">
-          <i class="fas fa-cloud-showers-heavy"></i>
-        </a>
-
-        <!-- START VOLUME CONTROL -->
-        <div class="setting-button justify-content-between align-items-center pt-3">
-          <div class="volumeControl d-flex align-items-center">
-            <small type="button" class="fas fa-volume-up px-1"></small>
-            <small type="button" class="fas fa-volume-mute px-1"></small>
-            <input type="range" min="0" max="100" class="volumeSlider">
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3">
-        <a type="button" class="soundPlay-icon">
-          <i class="fas fa-cloud-showers-heavy"></i>
-        </a>
-
-        <!-- START VOLUME CONTROL -->
-        <div class="setting-button justify-content-between align-items-center pt-3">
-          <div class="volumeControl d-flex align-items-center">
-            <small type="button" class="fas fa-volume-up px-1"></small>
-            <small type="button" class="fas fa-volume-mute px-1"></small>
-            <input type="range" min="0" max="100" class="volumeSlider">
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3">
-        <a type="button" class="soundPlay-icon">
-          <i class="fas fa-cloud-showers-heavy"></i>
-        </a>
-
-        <!-- START VOLUME CONTROL -->
-        <div class="setting-button justify-content-between align-items-center pt-3">
-          <div class="volumeControl d-flex align-items-center">
-            <small type="button" class="fas fa-volume-up px-1"></small>
-            <small type="button" class="fas fa-volume-mute px-1"></small>
-            <input type="range" min="0" max="100" class="volumeSlider">
-          </div>
-        </div>
-      </div>
 
 
     </div>
     
   </div>
 </template>
+
 
 
 <style scoped>

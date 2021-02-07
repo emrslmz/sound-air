@@ -10,7 +10,7 @@
                  <h6>
                    <i :class="sounds.icon"></i>
                  </h6>
-                 <h6><button class="btn btn-primary btn-sm" @click="deleteData(sounds, index)">Edit/Delete</button></h6>
+                 <h6><button class="btn btn-primary btn-sm">Edit/Delete</button></h6>
                </div>
                <div class="col-12 col-md-10 text-left uploaded-sound-card-right">
                  <h6><i class="fas fa-file-signature"></i> Sound Name: {{ sounds.name }}</h6>
@@ -30,7 +30,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'UplaodedSound',
+  name: 'Uploaded',
   data() {
     return {
       getSound: [],
