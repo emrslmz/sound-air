@@ -43,8 +43,8 @@
 
           <div class="side-bar-middle-custom-hr"><hr></div>
 
-          <div class="side-bar-middle-title text-white">
-            <h5><span><i class="fas fa-file-contract"></i></span> User agreement</h5>
+          <div class="side-bar-middle-title text-white ">
+            <h5 class="disabled"><span><i class="fas fa-file-contract"></i></span> User agreement</h5>
           </div>
           <router-link to="FAQ">
             <div class="side-bar-middle-title text-white">
@@ -139,9 +139,7 @@ export default {
   font-size: 15px;
   display: inline;
   opacity: 0.8;
-  cursor: pointer;
   text-decoration: none;
-
 }
 
 .side-bar-middle-title h5:hover {

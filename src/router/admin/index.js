@@ -3,12 +3,20 @@ export default [{
     component: () => import('@/modules/admin/views/Admin.vue'),
     children: [
         {
-        name: 'Feedbacks',
-        path: 'feedbacks',
+        name: 'UploadSound',
+        path: 'upload-sound',
         meta: {
-            title: 'Feedbacks',
+            title: 'Upload Sound',
         },
-        component: () => import('@/modules/admin/components/Feedbacks.vue'),
-    },
+        component: () => import('@/modules/admin/components/assets/stable/UploadSound.vue'),
+        },
+        {
+            name: 'UploadedSounds',
+            path: 'uploaded-sounds',
+            meta: {
+                title: 'Uploaded Sounds',
+            },
+            component: () => import('@/modules/admin/components/assets/stable/UploadedSound.vue'),
+        },
     ],
 }];
