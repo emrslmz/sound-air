@@ -9,13 +9,13 @@
 
     <div class="row soundPlay-row">
       <!--START-->
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3" v-for="(sounds, index) in getSound" :key="index">
+      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center" v-for="(sounds, index) in getSound" :key="index">
         <a type="button" class="soundPlay-icon">
-          <i :title="sounds.name" class="fas fa-cloud-showers-heavy" @click="playSound(index)" :style="sounds.active ? 'opacity: 1' : 'opacity: 0.8'"></i>
+          <i :title="sounds.name" :class="sounds.icon" @click="playSound(index)" :style="sounds.active ? 'opacity: 1' : 'opacity: 0.8'"></i>
         </a>
 
         <!-- START VOLUME CONTROL -->
-        <div class="setting-button justify-content-between align-items-center pt-3">
+        <div class="setting-button justify-content-between align-items-center">
 
           <div class="volumeControl d-flex align-items-center" v-if="sounds.showButton">
             <small type="button" class="fas fa-volume-up px-1" @click="volumeButton(index)" v-if="sounds.volumeButtonMute"></small>
@@ -23,8 +23,7 @@
             <input type="range" min="0" max="100" class="volumeSlider" @change="volumeSet(index)" v-model="sounds.volume">
           </div>
 
-          <div v-else>
-          </div>
+          <div style="height: 60px" v-else></div>
         </div>
         <!-- FINISH VOLUME CONTROL -->
       </div>
@@ -128,35 +127,5 @@ export default {
 .soundPlay-row {
   margin: 0 250px 0 250px;
 }
-/*************************************************************/
-/******* Volume Bar
-/*************************************************************/
 
-
-.volumeSlider {
-  -webkit-appearance: none;
-  width: 75px;
-  height: 5px;
-  border-radius: 20px;
-  background-color: #191919;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.volumeSlider:hover {
-  opacity: 1;
-}
-
-.volumeSlider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid #191919;
-  cursor: pointer;
-}
 </style>

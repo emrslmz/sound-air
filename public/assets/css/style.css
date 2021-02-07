@@ -25,9 +25,7 @@
 
 
 /***********************************************/
-/***********************************************/
 /* TEXT-COLOR*/
-/***********************************************/
 /***********************************************/
 
 .text-dark {
@@ -48,10 +46,8 @@
 .text-green {
     color: #20d489;
 }
-
 /***********************************************/
 /* DIFFERENT */
-/***********************************************/
 /***********************************************/
 
 .text-spacing5 {
@@ -72,9 +68,7 @@
 
 
 /***********************************************/
-/***********************************************/
 /* VUEJS TRANSITIONS*/
-/***********************************************/
 /***********************************************/
 
 /*  name="component-fade" */
@@ -85,3 +79,41 @@
     /* .component-fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
+
+
+
+
+/*************************************************************/
+/******* Volume Bar
+/*************************************************************/
+
+.volumeControl {
+    height: 60px;
+}
+
+.volumeSlider {
+    -webkit-appearance: none;
+    width: 75px;
+    height: 5px;
+    border-radius: 20px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.volumeSlider:hover {
+    opacity: 1;
+}
+
+.volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
