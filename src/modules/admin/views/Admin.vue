@@ -24,5 +24,6 @@ export default {
   background-color: #191919;
   min-height: 100vh;
   height: auto;
+  padding-bottom: 200px;
 }
 </style>

@@ -11,7 +11,7 @@
 <style scoped>
 footer {
   bottom: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 </style>
