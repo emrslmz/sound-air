@@ -9,10 +9,10 @@
 
     <div class="row soundPlay-row">
       <!--START-->
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3" >
+      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3" v-for="(sounds, index) in getSound" :key="index">
         <a type="button" class="soundPlay-icon">
           <i class="fas fa-cloud-showers-heavy"></i>
-          <p></p>
+          <p>{{ sounds.name }}</p>
         </a>
 
         <!-- START VOLUME CONTROL -->
@@ -27,13 +27,31 @@
       </div>
       <!--FINISH-->
 
-
-
     </div>
     
   </div>
 </template>
 
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'PlaySounds',
+  data() {
+    return {
+      getSound: [],
+    }
+  },
+  mounted() {
+    axios
+      .get("https://soundair-api.herokuapp.com/audios")
+      .then((response) => {
+        this.getSound = response.data.data
+      })
+  }
+}
+</script>
 
 
 <style scoped>
