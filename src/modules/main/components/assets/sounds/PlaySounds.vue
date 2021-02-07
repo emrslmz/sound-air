@@ -11,16 +11,19 @@
       <!--START-->
       <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center py-3" v-for="(sounds, index) in getSound" :key="index">
         <a type="button" class="soundPlay-icon">
-          <i class="fas fa-cloud-showers-heavy"></i>
-          <p>{{ sounds.name }}</p>
+          <i :title="sounds.name" class="fas fa-cloud-showers-heavy" @click="playSound(index)" :style="sounds.active ? 'opacity: 1' : 'opacity: 0.8'"></i>
         </a>
 
         <!-- START VOLUME CONTROL -->
         <div class="setting-button justify-content-between align-items-center pt-3">
-          <div class="volumeControl d-flex align-items-center">
-            <small type="button" class="fas fa-volume-up px-1"></small>
-            <small type="button" class="fas fa-volume-mute px-1"></small>
-            <input type="range" min="0" max="100" class="volumeSlider">
+
+          <div class="volumeControl d-flex align-items-center" v-if="sounds.showButton">
+            <small type="button" class="fas fa-volume-up px-1" @click="volumeButton(index)" v-if="sounds.volumeButtonMute"></small>
+            <small type="button" class="fas fa-volume-mute px-1" @click="volumeButton(index)" v-else></small>
+            <input type="range" min="0" max="100" class="volumeSlider" @change="volumeSet(index)" v-model="sounds.volume">
+          </div>
+
+          <div v-else>
           </div>
         </div>
         <!-- FINISH VOLUME CONTROL -->
@@ -47,8 +50,52 @@ export default {
     axios
       .get("https://soundair-api.herokuapp.com/audios")
       .then((response) => {
-        this.getSound = response.data.data
+        const sounds = response.data.data;
+
+        sounds.forEach(sound => {
+          sound.content = `https://emresolmaz.com.tr/sounds/${sound.audioName}`;
+          sound.player = new Audio(sound.content)
+        });
+
+        this.getSound = sounds;
       })
+  },
+  methods: {
+    playSound(index) {
+      const sound = this.getSound[index];
+
+      if (!sound.showButton) {
+        sound.player.play();
+        sound.player.loop = true;
+        sound.showButton = true;
+        sound.active = true;
+      } else {
+        sound.player.pause();
+        sound.showButton = false;
+        sound.active = false;
+      }
+    },
+
+    volumeButton(index) {
+      const sound = this.getSound[index];
+
+      if(sound.player.volume === 0 && sound.volume === 0) {
+        sound.volumeButtonMute = true;
+        sound.player.volume = 1;
+        sound.volume = 100;
+      } else {
+        sound.volumeButtonMute = false;
+        sound.player.volume = 0;
+        sound.volume = 0;
+      }
+    },
+    volumeSet(index) {
+      const sound = this.getSound[index];
+
+      const volume = sound.volume / 100;
+      sound.player.volume = volume;
+    }
+
   }
 }
 </script>
@@ -66,8 +113,16 @@ export default {
 }
 
 .soundPlay-icon i {
+  cursor: pointer;
+  opacity: 0.8;
   font-size: 52px;
   color: #191919;
+  transition: 0.8s;
+}
+
+.soundPlay-icon i:hover {
+  opacity: 1;
+  transition: 0.8s;
 }
 
 .soundPlay-row {
