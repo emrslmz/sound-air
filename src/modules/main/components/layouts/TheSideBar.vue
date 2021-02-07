@@ -8,7 +8,7 @@
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-            <h3 class="side-bar-icon"><i class="fas fa-stopwatch text-dark"></i></h3>
+            <h3 class="side-bar-icon" @click="callFunction()"><i class="fas fa-stopwatch text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
@@ -25,6 +25,7 @@
     
     <div class="flex-column side-bar-middle py-4 px-3">
         <div class="container">
+
           <router-link to="news">
             <div class="side-bar-middle-title text-white">
                 <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
@@ -74,7 +75,7 @@ export default {
   name: 'SideBar',
   components: {
     TheFooter
-  }
+  },
 }
 </script>
 

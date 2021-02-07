@@ -10,7 +10,9 @@
    </div>
 
     <div class="text-center">
-      <button class="btn try-now-for-free-button">TRY NOW FOR FREE</button>
+      <router-link to="play">
+        <button class="btn try-now-for-free-button">TRY NOW FOR FREE</button>
+      </router-link>
     </div>
     <div class="d-flex justify-content-around pt-5">
       <div class="text-center">
