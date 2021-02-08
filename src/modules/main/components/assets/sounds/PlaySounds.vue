@@ -2,35 +2,34 @@
   <div class="container">
     <div class="soundPlay-padding"></div>
 
-    <div class="main-top-div text-md-center">
+    <div class="main-top-div text-center">
       <h1><b>Sounds</b></h1>
       <p class="text-spacing5">click icons to listen</p>
     </div>
 
-    <div class="row soundPlay-row">
-      <!--START-->
-      <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center" v-for="(sounds, index) in getSound" :key="index">
+    <div class="soundPlay-row">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="col-6 col-md-3" v-for="(sounds, index) in getSound" :key="index">
 
-            <div>
-              <a type="button" class="soundPlay-icon">
-                <i :title="sounds.name" :class="sounds.icon" @click="playSounds(index)" :style="sounds.active ? 'opacity: 1' : ''"></i>
-              </a>
+          <div>
+            <a type="button" class="soundPlay-icon">
+              <i :title="sounds.name" :class="sounds.icon" @click="playSounds(index)" :style="sounds.active ? 'opacity: 1' : ''"></i>
+            </a>
+          </div>
+          <!-- START VOLUME CONTROL -->
+          <div>
+            <div class="volumeControl d-flex align-items-center" v-if="sounds.showButton">
+              <!--<small type="button" class="fas fa-volume-up px-1" @click="volumeButton(index)" v-if="sounds.volumeButtonMute"></small>-->
+              <!--<small type="button" class="fas fa-volume-mute px-1" @click="volumeButton(index)" v-else></small>-->
+              <input type="range" min="0" max="100" class ="volumeSlider" @change="volumeSet(index)" v-model="sounds.volume">
             </div>
-            <!-- START VOLUME CONTROL -->
-            <div>
-              <div class="volumeControl d-flex align-items-center" v-if="sounds.showButton">
-                <!--            <small type="button" class="fas fa-volume-up px-1" @click="volumeButton(index)" v-if="sounds.volumeButtonMute"></small>-->
-                <!--            <small type="button" class="fas fa-volume-mute px-1" @click="volumeButton(index)" v-else></small>-->
-                <input type="range" min="0" max="100" class ="volumeSlider" @change="volumeSet(index)" v-model="sounds.volume">
-              </div>
 
-              <div style="height: 60px" v-else></div>
+            <div style="height: 60px" v-else></div>
+            <!-- FINISH VOLUME CONTROL -->
+          </div>
 
-            </div>
-        <!-- FINISH VOLUME CONTROL -->
-
+        </div>
       </div>
-      <!--FINISH-->
     </div>
 
 
@@ -65,18 +64,22 @@ export default {
 
 
 <style scoped>
-.soundPlay-padding {
+.soundPlay-padding {                      /* telefonda böyle olsun */
   padding-top: 100px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {                          /* bilgisayarda */
   .soundPlay-padding {
     padding-top: 50px;
+  }
+  .soundPlay-row {
+    margin-left: 300px;
+    margin-right: 300px;
   }
 }
 
 .soundPlay-row {
-  margin: 0 300px 0 300px;
+  margin: 0;
 }
 
 .soundPlay-icon i {

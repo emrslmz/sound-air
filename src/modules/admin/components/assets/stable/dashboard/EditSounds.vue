@@ -13,7 +13,7 @@
                      <h3><i class="fas fa-pen-nib pr-2"></i></h3>
                      <label>
                        Sound Name
-                       <input :value="feedbackGet.name"  class="form-control" type="text">
+                       <input v-model="feedbackGet.name" class="form-control" type="text">
                      </label>
                    </div>
 
@@ -21,7 +21,7 @@
                      <h3><i class="fas fa-spell-check pr-2"></i></h3>
                      <label>
                        Sound Description
-                       <input :value="feedbackGet.description"  class="form-control" type="text">
+                       <input v-model="feedbackGet.description"  class="form-control" type="text">
                      </label>
                    </div>
 
@@ -29,7 +29,7 @@
                      <h3><i class="pr-2" :class="feedbackGet.icon"></i></h3>
                      <label>
                        Sound Icon
-                       <input :value="feedbackGet.icon"  class="form-control" type="text">
+                       <input v-model="feedbackGet.icon"  class="form-control" type="text">
                      </label>
                    </div>
 
@@ -39,7 +39,7 @@
                      <h3><i class="pr-2" :class="feedbackGet.icon"></i></h3>
                      <label>
                        Audio Name
-                       <input :value="feedbackGet.audioName"  class="form-control" type="text">
+                       <input v-model="feedbackGet.audioName"  class="form-control" type="text">
                      </label>
                    </div>
 
@@ -47,7 +47,7 @@
                      <h3><i class="far fa-file-audio pr-2"></i></h3>
                      <label>
                        Audio Volume
-                       <input :value="feedbackGet.volume"  class="form-control" type="number">
+                       <input v-model="feedbackGet.volume"  class="form-control" type="number">
                      </label>
                    </div>
                  </div>
@@ -128,7 +128,7 @@
               </div>
             </div>
             <div class="text-center save-button-edit">
-                <button class="btn">Save Changest</button>
+                <button class="btn" @click="editSounds()">Save Changest</button>
             </div>
           </div>
      </div>
@@ -138,6 +138,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import axios from "axios";
 
 export default {
   name: 'EditSounds',
@@ -149,6 +150,25 @@ export default {
       return this.getAdminSound.find(f => f.id === this.$route.params.id)
     }
   },
+  methods: {
+    editSounds() {
+        axios
+          .patch(`https://soundair-api.herokuapp.com/audios/${this.$route.params.id}`, {
+            name: this.feedbackGet.name,
+            description: this.feedbackGet.description,
+            icon: this.feedbackGet.icon,
+            audioName: this.feedbackGet.audioName,
+            volume: this.feedbackGet.volume,
+            showButton: this.feedbackGet.showButton,
+            volumeButtonMute: this.feedbackGet.volumeButtonMute,
+            active: this.feedbackGet.active,
+            showSound: this.feedbackGet.showSound,
+          })
+          .then((response) => {
+            console.log(response)
+          })
+    }
+  }
 
 }
 </script>
