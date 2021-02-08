@@ -10,11 +10,14 @@
                  <h6>
                    <i :class="sounds.icon"></i>
                  </h6>
-                 <h6><button class="btn btn-primary btn-sm">Edit/Delete</button></h6>
+                <router-link to="/admin/uploaded-sounds/edit/:id">
+                  <h6><button class="btn btn-primary btn-sm">Edit/Delete</button></h6>
+                </router-link>
                </div>
                <div class="col-12 col-md-10 text-left uploaded-sound-card-right">
                  <h6><i class="fas fa-file-signature"></i> Sound Name: {{ sounds.name }}</h6>
                  <h6><i class="far fa-file-audio"></i> Audio Name: {{ sounds.audioName }}</h6>
+                 <h6><i class="far fa-file-audio"></i> Show Status: {{ sounds.showSound }}</h6>
                </div>
              </div>
            </div>

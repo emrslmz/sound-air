@@ -2,7 +2,7 @@
   <div>
     <div class="d-flex justify-content-center align-items-end">
 
-      <div class="alert bg-warning card-warning text-center alert-dismissible fade show" role="alert">
+      <div class="alert bg-warning card-warning text-center  fade show" role="alert">
         <h3><i class="fab fa-wpexplorer  fa-flip-horizontal"></i></h3>
         <p v-if="description.length > 0">I found a suitable solution for the code we wrote!</p>
         <p v-else>I couldn't find an error matching the code you entered</p>
@@ -11,9 +11,6 @@
           <i v-if="description.length > 0">{{ description }}</i>
           <i class="fas fa-circle-notch fa-spin" v-else></i>
         </small>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true"><i class="fas fa-times"></i></span>
-        </button>
       </div>
 
     </div>

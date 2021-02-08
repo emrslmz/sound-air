@@ -11,22 +11,22 @@
       <!--START-->
       <div class="col-6 col-md-3 d-flex flex-column justify-content-center align-items-center" v-for="(sounds, index) in getSound" :key="index">
 
-        <div>
-          <a type="button" class="soundPlay-icon">
-            <i :title="sounds.name" :class="sounds.icon" @click="playSounds(index)" :style="sounds.active ? 'opacity: 1' : ''"></i>
-          </a>
-        </div>
-        <!-- START VOLUME CONTROL -->
-        <div>
-          <div class="volumeControl d-flex align-items-center" v-if="sounds.showButton">
-            <small type="button" class="fas fa-volume-up px-1" @click="volumeButton(index)" v-if="sounds.volumeButtonMute"></small>
-            <small type="button" class="fas fa-volume-mute px-1" @click="volumeButton(index)" v-else></small>
-            <input type="range" min="0" max="100" class ="volumeSlider" @change="volumeSet(index)" v-model="sounds.volume">
-          </div>
+            <div>
+              <a type="button" class="soundPlay-icon">
+                <i :title="sounds.name" :class="sounds.icon" @click="playSounds(index)" :style="sounds.active ? 'opacity: 1' : ''"></i>
+              </a>
+            </div>
+            <!-- START VOLUME CONTROL -->
+            <div>
+              <div class="volumeControl d-flex align-items-center" v-if="sounds.showButton">
+                <!--            <small type="button" class="fas fa-volume-up px-1" @click="volumeButton(index)" v-if="sounds.volumeButtonMute"></small>-->
+                <!--            <small type="button" class="fas fa-volume-mute px-1" @click="volumeButton(index)" v-else></small>-->
+                <input type="range" min="0" max="100" class ="volumeSlider" @change="volumeSet(index)" v-model="sounds.volume">
+              </div>
 
-          <div style="height: 60px" v-else></div>
+              <div style="height: 60px" v-else></div>
 
-        </div>
+            </div>
         <!-- FINISH VOLUME CONTROL -->
 
       </div>
@@ -44,9 +44,9 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'PlaySounds',
   computed: {    
-    ...mapGetters({
-      getSound: 'getSound',
-    })
+    ...mapGetters([
+      'getSound',
+    ]),
   },
   mounted() {
     if (!this.getSound) {
@@ -54,27 +54,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchSounds', 'playSounds']),
-
-    volumeButton(index) {
-      const sound = this.getSound[index];
-
-      if(sound.volumeButtonMute === true) {
-        sound.volumeButtonMute = false;
-        sound.player.volume = 1;
-        sound.volume = 100;
-      } else {
-        sound.volumeButtonMute = true;
-        sound.player.volume = 0;
-        sound.volume = 0;
-      }
-    },
-    volumeSet(index) {
-      const sound = this.getSound[index];
-
-      const volume = sound.volume / 100;
-      sound.player.volume = volume;
-    }
+    ...mapActions([
+      'fetchSounds',
+      'playSounds',
+      'volumeSet',
+    ]),
   },
 }
 </script>

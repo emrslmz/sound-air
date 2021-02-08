@@ -14,7 +14,7 @@
           <router-link to="/admin/upload-sound">
             <button class="btn btn-light btn-sm header-button">Upload Sound</button>
           </router-link>
-          <router-link to="uploaded-sounds">
+          <router-link to="/admin/uploaded-sounds">
             <button class="btn btn-light btn-sm header-button">All Sound</button>
           </router-link>
         </div>

@@ -32,6 +32,17 @@
             </label>
           </div>
 
+          <div class="form-input">
+            <label>
+              <small>Display status </small>
+              <br>
+              <select class="form-control" v-model="postSound.showSound">
+                <option :value="true">true</option>
+                <option :value="false">false</option>
+              </select>
+            </label>
+          </div>
+
           <h5>
             <button class="btn btn-primary" @click="sendSound()">Upload the system</button>
           </h5>
@@ -59,6 +70,7 @@ export default {
         // showButton: false,
         // volumeButtonMute: false,
         // active: false,
+        showSound: true
       },
       sendConfirm: null
     }
@@ -75,6 +87,7 @@ export default {
             showButton: false,
             volumeButtonMute: false,
             active: false,
+            showSound: this.postSound.showSound,
           })
           .then((response) => {
             // console.log(response)
@@ -114,7 +127,7 @@ export default {
 }
 
 .form-input {
-  margin: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
   text-align: left;
 }
 
