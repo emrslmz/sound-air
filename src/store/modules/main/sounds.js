@@ -11,7 +11,7 @@ const getters = {
       if (sound) {
          return sound.filter(a => a.showSound === true);
       }
-  }
+  },
 }
 
 const mutations = {
@@ -19,7 +19,7 @@ const mutations = {
         state.sounds = sounds;
     },
     PLAY_SOUNDS(state, index) {
-        const sound = state.sounds[index];
+        const sound = state.sounds.filter(a => a.showSound === true)[index];
 
         if (!sound.showButton) {
             sound.player.play();
@@ -46,7 +46,7 @@ const mutations = {
     //     }
     // },
     VOLUME_SET(state, index) {
-        const sound = state.sounds[index];
+        const sound = state.sounds.filter(a => a.showSound === true)[index];
 
         const volume = sound.volume / 100;
         sound.player.volume = volume;

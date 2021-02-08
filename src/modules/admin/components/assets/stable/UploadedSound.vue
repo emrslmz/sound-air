@@ -4,13 +4,13 @@
            <h3 class="text-white">Uploaded Sound</h3>
 
         <div class="uploaded-sound-card-top">
-           <div class="uploaded-sound-card" v-for="(sounds, index) in getSound" :key="index">
+           <div class="uploaded-sound-card" v-for="(sounds, index) in getAdminSound" :key="index">
              <div class="d-flex align-items-center py-3">
                <div class="col-12 col-md-2 uploaded-sound-card-left">
                  <h6>
                    <i :class="sounds.icon"></i>
                  </h6>
-                <router-link to="/admin/uploaded-sounds/edit/:id">
+                <router-link :to="{ name: 'UploadedSoundEdit', params: {id: sounds.id, icon: sounds.icon, name: sounds.name, audioName: sounds.audioName, showSound: sounds.showSound }} ">
                   <h6><button class="btn btn-primary btn-sm">Edit/Delete</button></h6>
                 </router-link>
                </div>
@@ -30,7 +30,7 @@
 
 
 <script>
-import axios from 'axios';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Uploaded',
@@ -39,13 +39,20 @@ export default {
       getSound: [],
     }
   },
+  computed: {
+    ...mapGetters([
+        'getAdminSound'
+    ])
+  },
+  methods: {
+    ...mapActions([
+        'fetchAdminSounds'
+    ])
+  },
   mounted() {
-     axios
-      .get("https://soundair-api.herokuapp.com/audios")
-      .then((response) => {
-        this.getSound = response.data.data
-      })
-    },
+    this.fetchAdminSounds();
+  }
+
 }
 </script>
 

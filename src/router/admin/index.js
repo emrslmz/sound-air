@@ -18,5 +18,13 @@ export default [{
             },
             component: () => import('@/modules/admin/components/assets/stable/UploadedSound.vue'),
         },
+        {
+            name: 'UploadedSoundEdit',
+            path: 'uploaded-sounds/edit/:id',
+            meta: {
+                title: 'Uploaded Sounds',
+            },
+            component: () => import('@/modules/admin/components/assets/stable/dashboard/EditSounds.vue'),
+        },
     ],
 }];
