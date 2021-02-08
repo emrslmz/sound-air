@@ -50,44 +50,78 @@
                        <input :value="feedbackGet.volume"  class="form-control" type="number">
                      </label>
                    </div>
-                   
-
                  </div>
               </div>
+
+
+
               <div class="col-12 col-md-6">
-                <div class="flex-column">
+                <div class="flex-column card-content-right-card">
 
                   <div class="card-content-right d-flex justify-content-between align-items-end">
-                    <label>
-                      Button Show Status
-                      <input :value="feedbackGet.showButton"  class="form-control" type="text">
-                    </label>
-                    <h3><i class="far fa-eye pr-2"></i></h3>
-                  </div>
-
-                  <div class="card-content-right d-flex justify-content-between align-items-end">
-                    <label>
-                      Volume Button
-                      <input :value="feedbackGet.volumeButtonMute"  class="form-control" type="text">
-                    </label>
-                    <h3><i class="fas fa-volume-mute pr-2"></i></h3>
-                  </div>
-
-                  <div class="card-content-right d-flex justify-content-between align-items-end">
-                    <label>
-                      Active ?
-                      <input :value="feedbackGet.active"  class="form-control" type="text">
-                    </label>
-                    <h3><i class="fas fa-check-circle pr-2"></i></h3>
+                    <div class="d-flex justify-content-between align-item-center text-center">
+                      <label>Show Button Active / deactive </label>
+                      <label>
+                        Active
+                        <input name="showButton" id="showbutton_active" v-model="feedbackGet.showButton" :value="true" type="radio">
+                      </label>
+                      <label>
+                        Deactive
+                        <input name="showButton" id="showbutton_deactive" v-model="feedbackGet.showButton" :value="false" type="radio">
+                      </label>
+                    </div>
+                    <h3><i class="far fa-eye pl-2"></i></h3>
                   </div>
 
 
-                  <div class="card-content-right d-flex justify-content-between align-items-end">
-                    <label>
-                      Show / don't show
-                      <input :value="feedbackGet.showSound"  class="form-control" type="text">
-                    </label>
-                    <h3><i class="fab fa-google-wallet fa-flip-horizontal fa-flip-vertical pr-2" :class="feedbackGet.showSound === true ? 'text-green' : 'text-red'"></i></h3>
+
+                  <div class="card-content-right d-flex justify-content-between align-items-end pt-5">
+                    <div class="d-flex justify-content-between align-item-center text-center">
+                      <label>Volume Button Active / ..</label>
+                      <label>
+                        Active
+                        <input name="volumeButtonMute" id="volumebuttonmute_active" v-model="feedbackGet.volumeButtonMute" :value="true" type="radio">
+                      </label>
+                      <label>
+                        Deactive
+                        <input name="volumeButtonMute" id="volumebuttonmute_deactive" v-model="feedbackGet.volumeButtonMute" :value="false" type="radio">
+                      </label>
+                    </div>
+                    <h3><i class="fas fa-volume-mute pl-2"></i></h3>
+                  </div>
+
+
+
+                  <div class="card-content-right d-flex justify-content-between align-items-end pt-5">
+                    <div class="d-flex justify-content-between align-item-center text-center">
+                      <label>Active / Deactive</label>
+                      <label>
+                        Active
+                        <input name="active" id="active_active" v-model="feedbackGet.active" :value="true" type="radio">
+                      </label>
+                      <label>
+                        Deactive
+                        <input name="active" id="active_deactive" v-model="feedbackGet.active" :value="false" type="radio">
+                      </label>
+                    </div>
+                    <h3><i class="fas fa-check-circle pl-2"></i></h3>
+                  </div>
+
+
+
+                  <div class="card-content-right d-flex justify-content-between align-items-end pt-5">
+                    <div class="d-flex justify-content-between align-item-center text-center">
+                      <label>Show / don't show</label>
+                      <label>
+                        Active
+                        <input name="showSound" id="showsound_active" v-model="feedbackGet.showSound" :value="true" type="radio">
+                      </label>
+                      <label>
+                        Deactive
+                        <input name="showSound" id="showsound_deactive" v-model="feedbackGet.showSound" :value="false" type="radio">
+                      </label>
+                    </div>
+                    <h3><i class="fab fa-google-wallet fa-flip-horizontal fa-flip-vertical pl-2" :class="feedbackGet.showSound === true ? 'text-green' : 'text-red'"></i></h3>
                   </div>
 
                 </div>
@@ -132,6 +166,7 @@ export default {
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 0 10px 2px black;
+  padding: 40px 10px 40px 10px;
 }
 
 .card-content-left label {
@@ -143,8 +178,10 @@ export default {
 .card-content-right label {
   font-weight: bold;
   font-size: small;
-  margin-left: 200px;
+}
 
+.card-content-right-card {
+  margin-left: 200px;
 }
 
 .custom-edit-left-hr {
