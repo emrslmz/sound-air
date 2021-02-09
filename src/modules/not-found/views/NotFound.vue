@@ -13,7 +13,7 @@
           <router-link to="/">
             <button class="btn btn-success btn-sm mx-2">Main Page</button>
           </router-link>
-          <router-link to="contact-us">
+          <router-link to="/contact-us">
             <button class="btn btn-dark btn-sm mx-2">Contact Us</button>
           </router-link>
         </div>

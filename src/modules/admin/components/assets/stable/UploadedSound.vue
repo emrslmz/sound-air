@@ -12,25 +12,30 @@
 
                   <h2 class="text-green" v-if="sounds.icon"><i :class="sounds.icon"></i></h2>
                   <h2 class="text-red" v-else> <i class="fas fa-times"></i></h2>
-                  <router-link :to="{ name: 'UploadedSoundEdit', params: {id: sounds.id, icon: sounds.icon, name: sounds.name, audioName: sounds.audioName, showSound: sounds.showSound }} ">
-                    <h6><button type="button" class="btn btn-dark btn-sm">Edit/Delete</button></h6>
-                  </router-link>
+
+                  <div class="d-flex justify-content-around">
+                    <router-link :to="{ name: 'UploadedSoundEdit', params: {id: sounds.id, icon: sounds.icon, name: sounds.name, audioName: sounds.audioName, showSound: sounds.showSound }} ">
+                      <h6><button class="btn btn-dark btn-sm edit-delete-button">Edit</button></h6>
+                    </router-link>
+                    <router-link to="d/sadas">
+                      <h6><button class="btn btn-danger btn-sm edit-delete-button">Delete</button></h6>
+                    </router-link>                                
+                  </div>
                 </div>
                 <div class="col-12 col-xl-10 text-left">
-                  <div class="d-flex w-100 justify-content-between">
-                    <h6><i class="fas fa-file-signature"></i> Sound Name: {{ sounds.name }}</h6>
-                    <small class="badge badge-primary">{{ sounds.id }}</small>
+                  <div class="d-md-flex w-100 justify-content-between">
+                    <h6><small><i class="fas fa-file-signature"></i> Sound Name: <b>{{ sounds.name }}</b></small></h6>
+                    <h6><small class="badge badge-primary"><i class="fas fa-passport"></i> {{ sounds.id }}</small></h6>
                   </div>
-                  <h6><i class="far fa-file-audio"></i> Audio Name: {{ sounds.audioName }}</h6>
-                  <h6><i class="far fa-file-audio"></i> Show Status: {{ sounds.showSound }}</h6>
+                  <h6><small><i class="far fa-file-audio"></i> Audio Name: <b>{{ sounds.audioName }}</b></small></h6>
+                  <h6 v-if="sounds.showSounds"><small class="text-green"><i class="fas fa-toggle-on"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
+                  <h6 v-else><small class="text-red"><i class="fas fa-toggle-off"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
                 </div>
               </div>
             </li>
           </div>
 
         </ul>
-
-
 
       </div>
   </div>
@@ -67,18 +72,12 @@ export default {
 
 <style scoped>
 
-.uploaded-sound-card-top {
-  box-shadow: 0 0 10px 1px #cecece;
-  border-radius: 30px;
-  background-color: white;
+.edit-delete-button {
+  border-radius: 10px;
+  min-width: 70px;
 }
 /*nth-of-type(2n)*/
-.uploaded-sound-card {
-  padding: 10px 0 10px 0;
-  border-bottom: 1px solid #007BFF;
-  min-width: 200px;
-  min-height: 100px;
-}
+
 
 
 .uploaded-sound-card-left i {
