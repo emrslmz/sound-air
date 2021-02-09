@@ -4,44 +4,48 @@
         <div class="col-12 col-6 card-upload-sound py-4">
           <div class="text-center">
               <h6>Upload Sound</h6>
+              <strong style="color: green" v-if="sendConfirm === 200"><i class="fas fa-check-circle"></i> Sent!</strong>
+              <strong style="color: red" v-if="sendConfirm === 400"><i class="fas fa-exclamation-circle"></i> Could not send!</strong>
+              <strong style="color: gold" v-if="sendConfirm === 409"><i class="fas fa-exclamation-triangle"></i> File with the same name already exists!</strong>
+              <small style="color: #191919" v-if="sendConfirm === null"><i class="fas fa-spinner fa-pulse"></i></small>
           </div>
           <div class="row">
-            <div class="col-12 col-xl-6">
+            <div class="col-12 col-xl-6 pt-4">
 
               <div class="form-label text-xl-left" align="center">
                 <label>
-                  Audio Name
-                  <input class="form-control" placeholder="rainly, train, planet..." v-model="postSound.name" type="text">
+                  <i class="far fa-address-card"></i> Audio File Name
+                  <input class="form-control" :style="{border: [sendConfirm === 409 ? '2px solid gold': '']}" placeholder="rainly, train, planet..." v-model="postSound.name" type="text">
                 </label>
               </div>
 
               <div class="form-label text-xl-left pt-2" align="center">
                 <label>
-                  Audio Icon <i class="text-green" :class="postSound.icon"></i>
+                  <i class="text-green" :class="postSound.icon"></i> Audio Icon
                   <input class="form-control" placeholder="fas fa-cloud-rain..." v-model="postSound.icon" type="text">
                 </label>
               </div>
 
               <div class="form-label text-xl-left pt-2" align="center">
                 <label>
-                  Audio Name
+                  <i class="far fa-file-audio"></i> Sound Name
                   <input class="form-control" placeholder="rain1.mp3" v-model="postSound.audioName" type="text">
                 </label>
               </div>
 
               <div class="form-label text-xl-left pt-2" align="center">
                 <label>
-                  Audio Volume
+                  <i class="fas fa-volume-up"></i> Audio Volume
                   <input class="form-control" placeholder="rain1.mp3" v-model="postSound.volume" type="number">
                 </label>
               </div>
 
             </div>
-            <div class="col-12 col-xl-6">
+            <div class="col-12 col-xl-6 pt-3">
+
               <div class="d-flex justify-content-between align-items-center text-xl-right pl-xl-5 ml-xl-5" align="center">
-                
                 <div>
-                  <label class="form-label">Show Button:</label>
+                  <label class="form-label"><i class="far fa-eye-slash"></i> Show Button:</label>
                 </div>
 
                 <div class="form-check">
@@ -60,9 +64,84 @@
                   <i class="far fa-check-circle text-green" v-if="postSound.showButton"></i>
                   <i class="far fa-times-circle text-red" v-else></i>
                 </div>
-
               </div>
+
+
+              <div class="d-flex justify-content-between align-items-center text-xl-right pl-xl-5 ml-xl-5 pt-5" align="center">
+                <div>
+                  <label class="form-label"><i class="fas fa-volume-mute"></i> Volume Button</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="volumeButtonMute" id="volumeButtonMute_active" :value="true" v-model="postSound.volumeButtonMute">
+                  <label class="form-check-label form-label" for="volumeButtonMute_active">
+                    Active
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="volumeButtonMute" id="volumeButtonMute_deactive" :value="false" v-model="postSound.volumeButtonMute">
+                  <label class="form-check-label form-label" for="volumeButtonMute_deactive">
+                    Deactive
+                  </label>
+                </div>
+                <div class="check-uncheck-icon">
+                  <i class="far fa-check-circle text-green" v-if="postSound.volumeButtonMute"></i>
+                  <i class="far fa-times-circle text-red" v-else></i>
+                </div>
+              </div>
+
+
+              <div class="d-flex justify-content-between align-items-center text-xl-right pl-xl-5 ml-xl-5 pt-5" align="center">
+                <div>
+                  <label class="form-label"><i class="fas fa-low-vision"></i> Active Status</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="activestatus" id="active_active" :value="true" v-model="postSound.active">
+                  <label class="form-check-label form-label" for="active_active">
+                    Active
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="activestatus" id="active_deactive" :value="false" v-model="postSound.active">
+                  <label class="form-check-label form-label" for="active_deactive">
+                    Deactive
+                  </label>
+                </div>
+                <div class="check-uncheck-icon">
+                  <i class="far fa-check-circle text-green" v-if="postSound.active"></i>
+                  <i class="far fa-times-circle text-red" v-else></i>
+                </div>
+              </div>
+
+
+              <div class="d-flex justify-content-between align-items-center text-xl-right pl-xl-5 ml-xl-5 pt-5" align="center">
+                <div>
+                  <label class="form-label"><i class="fas fa-sign-language"></i> Sound Display</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="showSound" id="showSound_active" :value="true" v-model="postSound.showSound">
+                  <label class="form-check-label form-label" for="showSound_active">
+                    Active
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="showSound" id="showSound_deactive" :value="false" v-model="postSound.showSound">
+                  <label class="form-check-label form-label" for="showSound_deactive">
+                    Deactive
+                  </label>
+                </div>
+                <div class="check-uncheck-icon">
+                  <i class="far fa-check-circle text-green" v-if="postSound.showSound"></i>
+                  <i class="far fa-times-circle text-red" v-else></i>
+                </div>
+              </div>
+
             </div>
+          </div>
+          <div class="text-center" align="center">
+            <button class="btn btn-success submit-button" @click="sendSound()"><i class="fas fa-paper-plane"></i> Submit</button>
           </div>
         </div>
     </div>
@@ -83,8 +162,8 @@ export default {
         audioName: '',
         volume: 100,
         showButton: false,
-        // volumeButtonMute: false,
-        // active: false,
+        volumeButtonMute: false,
+        active: false,
         showSound: true
       },
       sendConfirm: null
@@ -155,5 +234,11 @@ export default {
 .check-uncheck-icon {
  font-weight: bold;
   font-size: 28px;
+}
+
+.submit-button {
+  margin-top: 100px;
+  border-radius: 10px;
+  width: 200px;
 }
 </style>
