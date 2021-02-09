@@ -1,57 +1,72 @@
 <template>
-  <div class="upload-card-top">
+ <div class="upload-card-top container">
     <div class="d-flex justify-content-center align-items-center">
-      <div class="card-upload-sound text-center">
-
-        <div class="card-body">
-          <h5 class="card-header">
-            Upload the Sounds
-          </h5>
-          <small class="text-success" v-if="sendConfirm === 200"><i>SENDED!</i></small>
-          <small class="text-danger" v-else-if="sendConfirm === 409"><i>An error occurred while sending. There is a file with the same name!</i></small>
-          <small v-else>Click the button</small>
-
-          <div class="form-input">
-            <label>
-              <small>Sound name</small>
-              <input class="form-control" v-model="postSound.name" placeholder="rainly" type="text">
-            </label>
+        <div class="col-12 col-6 card-upload-sound py-4">
+          <div class="text-center">
+              <h6>Upload Sound</h6>
           </div>
+          <div class="row">
+            <div class="col-12 col-xl-6">
 
-          <div class="form-input">
-            <label>
-              <small>Sound icon (only class name)</small>
-              <input class="form-control" v-model="postSound.icon" placeholder="fas fa-cloud-showers-heavy" type="text">
-            </label>
+              <div class="form-label text-xl-left" align="center">
+                <label>
+                  Audio Name
+                  <input class="form-control" placeholder="rainly, train, planet..." v-model="postSound.name" type="text">
+                </label>
+              </div>
+
+              <div class="form-label text-xl-left pt-2" align="center">
+                <label>
+                  Audio Icon <i class="text-green" :class="postSound.icon"></i>
+                  <input class="form-control" placeholder="fas fa-cloud-rain..." v-model="postSound.icon" type="text">
+                </label>
+              </div>
+
+              <div class="form-label text-xl-left pt-2" align="center">
+                <label>
+                  Audio Name
+                  <input class="form-control" placeholder="rain1.mp3" v-model="postSound.audioName" type="text">
+                </label>
+              </div>
+
+              <div class="form-label text-xl-left pt-2" align="center">
+                <label>
+                  Audio Volume
+                  <input class="form-control" placeholder="rain1.mp3" v-model="postSound.volume" type="number">
+                </label>
+              </div>
+
+            </div>
+            <div class="col-12 col-xl-6">
+              <div class="d-flex justify-content-between align-items-center text-xl-right pl-xl-5 ml-xl-5" align="center">
+                
+                <div>
+                  <label class="form-label">Show Button:</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="showButton" id="showbutton_active" :value="true" v-model="postSound.showButton">
+                  <label class="form-check-label form-label" for="showbutton_active">
+                    Active
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="showButton" id="showbutton_deactive" :value="false" v-model="postSound.showButton">
+                  <label class="form-check-label form-label" for="showbutton_deactive">
+                    Deactive
+                  </label>
+                </div>
+                <div class="check-uncheck-icon">
+                  <i class="far fa-check-circle text-green" v-if="postSound.showButton"></i>
+                  <i class="far fa-times-circle text-red" v-else></i>
+                </div>
+
+              </div>
+            </div>
           </div>
-
-          <div class="form-input">
-            <label>
-              <small>Audio Name(.ogg, .mp3, .m4a..) </small>
-              <input class="form-control" v-model="postSound.audioName" placeholder="thunder.m4a" type="text">
-            </label>
-          </div>
-
-          <div class="form-input">
-            <label>
-              <small>Display status </small>
-              <br>
-              <select class="form-control" v-model="postSound.showSound">
-                <option :value="true">true</option>
-                <option :value="false">false</option>
-              </select>
-            </label>
-          </div>
-
-          <h5>
-            <button class="btn btn-primary" @click="sendSound()">Upload the system</button>
-          </h5>
-          <textarea class="form-control" placeholder="..." rows="1"></textarea>
-          <h1 class="py-5 text-primary"><i :class="postSound.icon"></i></h1>
         </div>
-      </div>
     </div>
-  </div>
+ </div>
 </template>
 
 <script>
@@ -66,8 +81,8 @@ export default {
         // description: '',
         icon: '',
         audioName: '',
-        // volume: 100,
-        // showButton: false,
+        volume: 100,
+        showButton: false,
         // volumeButtonMute: false,
         // active: false,
         showSound: true
@@ -119,20 +134,26 @@ export default {
   border-radius: 20px;
   box-shadow: 0 0 5px 1px black;
   min-height: 600px;
-  width: 400px;
+  width: 100%;
+}
+.form-label {
+  font-weight: bold;
+  font-size: small;
 }
 
-.card-header {
-  border-radius: 15px;
+@media (max-width: 768px) {
+  .form-label input {
+    min-width: 300px;
+  }
+}
+@media (min-width: 768px) {
+  .form-label input {
+    min-width: 400px;
+  }
 }
 
-.form-input {
-  padding: 10px 0 10px 0;
-  text-align: left;
-}
-
-.form-control {
-  border-radius: 5px;
-  min-width: 300px;
+.check-uncheck-icon {
+ font-weight: bold;
+  font-size: 28px;
 }
 </style>
