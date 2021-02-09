@@ -10,8 +10,9 @@
 
 <style scoped>
 footer {
-  bottom: 0;
-  position: fixed;
-  width: 100%;
+  bottom: 0 !important;
+  display: block;
+  position: fixed !important;
+  width: 100% !important;
 }
 </style>
