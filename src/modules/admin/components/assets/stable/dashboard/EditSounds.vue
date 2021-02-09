@@ -4,8 +4,8 @@
           <div class="col-12 col-md-6 edit-card">
                <div class="text-center">
                  <h5>Audio Folder Editing</h5>
-                 <small class="text-green" v-if="editStatus">Success! <i class="fas fa-check"></i></small>
-                 <small v-else>{{ feedbackGet.id }}</small>
+<!--                 <small class="text-green" v-if="editStatus">Success! <i class="fas fa-check"></i></small>-->
+<!--                 <small v-else>{{ feedbackGet.id }}</small>-->
                </div>
 
                 <div class="row justify-content-between align-items-center">
@@ -22,7 +22,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text">Sound Description <i class="fas fa-pencil-alt px-2"></i></span>
                       </div>
-                      <input placeholder="Very good sounds..." type="text" class="form-control" v-model="feedbackGet.description">
+                      <input placeholder="Very good sounds..." type="text" class="form-control" >
                     </div>
 
                     <div class="input-group input-group-sm mb-3">
@@ -57,7 +57,7 @@
                       <div>
                         <strong><i class="far fa-eye-slash"></i> Show Button;</strong>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio"  name="showButton" id="showbutton_active" v-model="feedbackGet.showButton" :value="true">
+                          <input class="form-check-input" type="radio" name="showButton" id="showbutton_active" v-model="feedbackGet.showButton" :value="true">
                           <label class="form-check-label" for="showbutton_active">
                             Active
                           </label>
@@ -129,8 +129,6 @@
                     </div>
                     <!-- /SECOND-->
 
-
-
                   </div>
                 </div>
               </div>
@@ -145,15 +143,14 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import axios from "axios";
 
 export default {
   name: 'EditSounds',
-  data() {
-    return {
-      editStatus: null,
-    }
-  },
+  // data() {
+  //   return {
+  //     editStatus: null,
+  //   }
+  // },
   computed: {
     ...mapGetters([
         'getAdminSound'
@@ -163,24 +160,27 @@ export default {
     }
   },
   methods: {
-    editSounds() {
-        axios
-          .patch(`https://soundair-api.herokuapp.com/audios/${this.$route.params.id}`, {
-            name: this.feedbackGet.name,
-            description: this.feedbackGet.description,
-            icon: this.feedbackGet.icon,
-            audioName: this.feedbackGet.audioName,
-            volume: this.feedbackGet.volume,
-            showButton: this.feedbackGet.showButton,
-            volumeButtonMute: this.feedbackGet.volumeButtonMute,
-            active: this.feedbackGet.active,
-            showSound: this.feedbackGet.showSound,
-          })
-          .then((response) => {
-            console.log(response.data.code)
-            this.editStatus = response.data.code;
-          })
+     editSounds() {
+      this.$store.dispatch('editSound', this.feedbackGet);
     }
+    // editSounds() {
+    //     axios
+    //       .patch(`https://soundair-api.herokuapp.com/audios/${this.$route.params.id}`, {
+    //         name: this.feedbackGet.name,
+    //         description: this.feedbackGet.description,
+    //         icon: this.feedbackGet.icon,
+    //         audioName: this.feedbackGet.audioName,
+    //         volume: this.feedbackGet.volume,
+    //         showButton: this.feedbackGet.showButton,
+    //         volumeButtonMute: this.feedbackGet.volumeButtonMute,
+    //         active: this.feedbackGet.active,
+    //         showSound: this.feedbackGet.showSound,
+    //       })
+    //       .then((response) => {
+    //         console.log(response.data.code)
+    //         this.editStatus = response.data.code;
+    //       })
+    // }
   }
 
 }

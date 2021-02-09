@@ -5,7 +5,6 @@ const state = {
     totalSounds: null,
 }
 
-
 const getters = {
     getAdminSound(state) {
         return state.adminSounds;
@@ -16,12 +15,15 @@ const getters = {
 }
 
 const mutations = {
-    ADMIN_SET_SOUND(state, adminsound, adminTotalSound) {
-      state.adminSounds = adminsound;
+    ADMIN_SET_SOUND(state, adminSound, adminTotalSound) {
+      state.adminSounds = adminSound;
       state.totalSounds = adminTotalSound;
     },
     ADMIN_TOTAL_SOUND(state, adminTotalSound) {
         state.totalSounds = adminTotalSound;
+    },
+    EDIT_VIDEO(state, editSound) {
+     state.adminSounds = editSound;
     }
 }
 
@@ -30,16 +32,25 @@ const actions = {
        axios
            .get("https://soundair-api.herokuapp.com/audios")
            .then((response) => {
-               const adminsound = response.data.data
+               const adminSound = response.data.data
                const adminTotalSound = response.data.data.length
 
-               commit('ADMIN_SET_SOUND', adminsound);
+               commit('ADMIN_SET_SOUND', adminSound);
                commit('ADMIN_TOTAL_SOUND', adminTotalSound);
            })
-   }
+   },
+    editSound({ commit }, feedbackGet) {
+        axios
+          .patch(`https://soundair-api.herokuapp.com/audios/${feedbackGet.id}`, {
+              feedbackGet
+          })
+          .then((response) => {
+              const editSound = response.data.data
+              commit('EDIT_VIDEO', editSound)
+              return  editSound;
+          })
+    }
 }
-
-
 
 export default {
     state,
