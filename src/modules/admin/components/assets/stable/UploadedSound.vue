@@ -1,27 +1,35 @@
 <template>
   <div class="text-center pt-5">
       <div class="container">
-           <h3 class="text-white">Uploaded Sound ({{getTotalAdminSound}})</h3>
+       <h3>Uploaded Sound </h3>
+        <small>You uploaded {{getTotalAdminSound}} audio files in total.</small>
+        <ul class="list-group">
 
-        <div class="uploaded-sound-card-top">
-           <div class="uploaded-sound-card" v-for="(sounds, index) in getAdminSound" :key="index">
-             <div class="d-flex align-items-center py-3">
-               <div class="col-12 col-md-2 uploaded-sound-card-left">
-                 <h6>
-                   <i :class="sounds.icon"></i>
-                 </h6>
-                <router-link :to="{ name: 'UploadedSoundEdit', params: {id: sounds.id, icon: sounds.icon, name: sounds.name, audioName: sounds.audioName, showSound: sounds.showSound }} ">
-                  <h6><button class="btn btn-primary btn-sm">Edit/Delete</button></h6>
-                </router-link>
-               </div>
-               <div class="col-12 col-md-10 text-left uploaded-sound-card-right">
-                 <h6><i class="fas fa-file-signature"></i> Sound Name: {{ sounds.name }}</h6>
-                 <h6><i class="far fa-file-audio"></i> Audio Name: {{ sounds.audioName }}</h6>
-                 <h6><i class="far fa-file-audio"></i> Show Status: {{ sounds.showSound }}</h6>
-               </div>
-             </div>
-           </div>
-        </div>
+          <div class="my-3">
+            <li class="list-group-item " v-for="(sounds, index) in getAdminSound" :key="index">
+              <div class="d-xl-flex justify-content-start align-items-center">
+                <div class="col-12 col-xl-2">
+
+                  <h2 class="text-green" v-if="sounds.icon"><i :class="sounds.icon"></i></h2>
+                  <h2 class="text-red" v-else> <i class="fas fa-times"></i></h2>
+                  <router-link :to="{ name: 'UploadedSoundEdit', params: {id: sounds.id, icon: sounds.icon, name: sounds.name, audioName: sounds.audioName, showSound: sounds.showSound }} ">
+                    <h6><button type="button" class="btn btn-dark btn-sm">Edit/Delete</button></h6>
+                  </router-link>
+                </div>
+                <div class="col-12 col-xl-10 text-left">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6><i class="fas fa-file-signature"></i> Sound Name: {{ sounds.name }}</h6>
+                    <small class="badge badge-primary">{{ sounds.id }}</small>
+                  </div>
+                  <h6><i class="far fa-file-audio"></i> Audio Name: {{ sounds.audioName }}</h6>
+                  <h6><i class="far fa-file-audio"></i> Show Status: {{ sounds.showSound }}</h6>
+                </div>
+              </div>
+            </li>
+          </div>
+
+        </ul>
+
 
 
       </div>
@@ -71,6 +79,7 @@ export default {
   min-width: 200px;
   min-height: 100px;
 }
+
 
 .uploaded-sound-card-left i {
   font-size: 36px;
