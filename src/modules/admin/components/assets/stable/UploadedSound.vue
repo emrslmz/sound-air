@@ -2,10 +2,10 @@
   <div class="text-center pt-5">
       <div class="container">
        <h3>Uploaded Sound </h3>
-        <small>You uploaded {{getTotalAdminSound}} audio files in total.</small>
+        <small>You uploaded  <span v-if="getAdminSound">{{getTotalAdminSound}}</span> <span v-else><i class="fas fa-hourglass-half"></i></span> audio files in total.</small>
         <ul class="list-group">
 
-          <div class="my-3">
+          <div class="my-3" v-if="getAdminSound">
             <li class="list-group-item " v-for="(sounds, index) in getAdminSound" :key="index">
               <div class="d-xl-flex justify-content-start align-items-center">
                 <div class="col-12 col-xl-2">
@@ -33,6 +33,11 @@
                 </div>
               </div>
             </li>
+          </div>
+          <div v-else>
+            <h1 class="loading-gifs">
+              <i class="fas fa-circle-notch fa-spin"></i>
+            </h1>
           </div>
 
         </ul>
@@ -78,8 +83,6 @@ export default {
 }
 /*nth-of-type(2n)*/
 
-
-
 .uploaded-sound-card-left i {
   font-size: 36px;
   color: #191919;
@@ -90,6 +93,32 @@ export default {
 
 .uploaded-sound-card-right h6 {
   font-weight: bold;
-  
 }
+
+.loading-gifs {
+  color: green;
+  animation: colorful 1s infinite alternate;
+}
+
+@keyframes colorful {
+
+  0%{
+    color: #4682b4;
+    transform:rotate(0deg);
+  }
+  25%{                                                                
+    color:  #2a52be;
+  }
+  50%{
+    color:  #ff4040;
+  }
+  75%{
+    color: #084c9e;
+  }
+  100%{
+    color: #ce9c63;
+    transform:rotate(360deg);
+  }
+}
+
 </style>

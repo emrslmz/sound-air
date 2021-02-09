@@ -53,7 +53,7 @@
   border-radius: 10px;
 }
 
-.load-area i{
+.load-area i {
   font-size: 18px;
   color: green;
   animation: colorful 5s infinite alternate;
