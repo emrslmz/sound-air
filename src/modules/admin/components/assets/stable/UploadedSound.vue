@@ -1,7 +1,7 @@
 <template>
   <div class="text-center pt-5">
       <div class="container">
-           <h3 class="text-white">Uploaded Sound</h3>
+           <h3 class="text-white">Uploaded Sound ({{getTotalAdminSound}})</h3>
 
         <div class="uploaded-sound-card-top">
            <div class="uploaded-sound-card" v-for="(sounds, index) in getAdminSound" :key="index">
@@ -41,7 +41,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-        'getAdminSound'
+        'getAdminSound',
+        'getTotalAdminSound'
     ])
   },
   methods: {

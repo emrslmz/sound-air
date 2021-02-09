@@ -211,7 +211,7 @@ export default {
 .card-upload-sound {
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 0 5px 1px black;
+  box-shadow: 0 0 5px 1px white;
   min-height: 600px;
   width: 100%;
 }

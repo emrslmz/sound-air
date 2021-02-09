@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .admin-body {
-  background-color: #191919;
+  background-color: #e9e9e9;
   min-height: 100vh;
   height: auto;
   padding-bottom: 200px;

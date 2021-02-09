@@ -11,6 +11,14 @@ export default [{
         component: () => import('@/modules/admin/components/assets/stable/UploadSound.vue'),
         },
         {
+            name: 'AdminHomePage',
+            path: 'admin-home',
+            meta: {
+                title: 'Uploaded Sounds',
+            },
+            component: () => import('@/modules/admin/components/assets/home/AdminHomePage.vue'),
+        },
+        {
             name: 'UploadedSounds',
             path: 'uploaded-sounds',
             meta: {
