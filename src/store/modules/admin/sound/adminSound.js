@@ -22,13 +22,13 @@ const mutations = {
     ADMIN_TOTAL_SOUND(state, adminTotalSound) {
         state.totalSounds = adminTotalSound;
     },
-    EDIT_VIDEO(state, editSound) {
+    EDIT_SOUND(state, editSound) {
      state.adminSounds = editSound;
     }
 }
 
 const actions = {
-   fetchAdminSounds({commit}) {
+   fetchAdminSounds({ commit }) {
        axios
            .get("https://soundair-api.herokuapp.com/audios")
            .then((response) => {
@@ -41,13 +41,11 @@ const actions = {
    },
     editSound({ commit }, feedbackGet) {
         axios
-          .patch(`https://soundair-api.herokuapp.com/audios/${feedbackGet.id}`, {
-              feedbackGet
-          })
+          .patch(`https://soundair-api.herokuapp.com/audios/${feedbackGet.id}`, feedbackGet)
           .then((response) => {
-              const editSound = response.data.data
-              commit('EDIT_VIDEO', editSound)
-              return  editSound;
+              const editSound = response.data.data;
+              commit('EDIT_SOUND', editSound);
+              return editSound;
           })
     }
 }

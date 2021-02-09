@@ -2,7 +2,7 @@
   <div class="text-center pt-5">
       <div class="container">
        <h3>Uploaded Sound </h3>
-        <small>You uploaded  <span v-if="getAdminSound">{{getTotalAdminSound}}</span> <span v-else><i class="fas fa-hourglass-half"></i></span> audio files in total.</small>
+        <small>You uploaded  <span v-if="getAdminSound">{{ getTotalAdminSound }}</span> <span v-else><i class="fas fa-hourglass-half"></i></span> audio files in total.</small>
         <ul class="list-group">
 
           <div class="my-3" v-if="getAdminSound">
@@ -28,8 +28,8 @@
                     <h6><small class="badge badge-primary"><i class="fas fa-passport"></i> {{ sounds.id }}</small></h6>
                   </div>
                   <h6><small><i class="far fa-file-audio"></i> Audio Name: <b>{{ sounds.audioName }}</b></small></h6>
-                  <h6 v-if="sounds.showSounds"><small class="text-green"><i class="fas fa-toggle-on"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
-                  <h6 v-else><small class="text-red"><i class="fas fa-toggle-off"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
+                  <h6 v-if="sounds.showSound"><small><i class="fas fa-toggle-on text-green"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
+                  <h6 v-else><small><i class="fas fa-toggle-off text-red"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
                 </div>
               </div>
             </li>

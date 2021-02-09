@@ -22,7 +22,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text">Sound Description <i class="fas fa-pencil-alt px-2"></i></span>
                       </div>
-                      <input placeholder="Very good sounds..." type="text" class="form-control" >
+                      <input placeholder="Very good sounds..." type="text" class="form-control" v-model="feedbackGet.description">
                     </div>
 
                     <div class="input-group input-group-sm mb-3">
@@ -133,7 +133,7 @@
                 </div>
               </div>
               <div class="pt-5" align="center">
-                <div class="submit-edit-button"><button class="btn" @click="editSounds()">Save Changes</button></div>
+                <div class="submit-edit-button"><button class="btn" @click="changeSound()">Save Changes</button></div>
               </div>
           </div>
    </div>
@@ -142,7 +142,7 @@
 
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'EditSounds',
@@ -160,9 +160,12 @@ export default {
     }
   },
   methods: {
-     editSounds() {
-      this.$store.dispatch('editSound', this.feedbackGet);
-    }
+    changeSound() {
+      this.editSound(this.feedbackGet);
+    },
+    ...mapActions([
+        'editSound'
+    ])
     // editSounds() {
     //     axios
     //       .patch(`https://soundair-api.herokuapp.com/audios/${this.$route.params.id}`, {
