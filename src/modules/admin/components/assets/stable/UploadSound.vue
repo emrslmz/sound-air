@@ -14,7 +14,7 @@
 
               <div class="form-label text-xl-left" align="center">
                 <label>
-                  <i class="far fa-address-card"></i> Audio File Name
+                  <i class="far fa-address-card"></i> Audio Name
                   <input class="form-control" :style="{border: [sendConfirm === 409 ? '2px solid gold': '']}" placeholder="rainly, train, planet..." v-model="postSound.name" type="text">
                 </label>
               </div>
@@ -28,7 +28,7 @@
 
               <div class="form-label text-xl-left pt-2" align="center">
                 <label>
-                  <i class="far fa-file-audio"></i> Sound Name
+                  <i class="far fa-file-audio"></i> Sound File Name
                   <input class="form-control" placeholder="rain1.mp3" v-model="postSound.audioName" type="text">
                 </label>
               </div>
@@ -211,7 +211,7 @@ export default {
 .card-upload-sound {
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 0 5px 1px white;
+  box-shadow: 0 0 5px 1px gray;
   min-height: 600px;
   width: 100%;
 }

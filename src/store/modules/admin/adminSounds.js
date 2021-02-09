@@ -3,7 +3,6 @@ import axios from "axios";
 const state = {
     adminSounds: null,
     totalSounds: null,
-    showSounds: 0
 }
 
 
@@ -34,8 +33,7 @@ const actions = {
                const adminsound = response.data.data
                const adminTotalSound = response.data.data.length
 
-
-                commit('ADMIN_SET_SOUND', adminsound);
+               commit('ADMIN_SET_SOUND', adminsound);
                commit('ADMIN_TOTAL_SOUND', adminTotalSound);
            })
    }

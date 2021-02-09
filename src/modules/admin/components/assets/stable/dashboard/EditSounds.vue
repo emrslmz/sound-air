@@ -3,136 +3,143 @@
      <div class="d-flex justify-content-center align-items-center">
           <div class="col-12 col-md-6 edit-card">
                <div class="text-center">
-                   <small>{{ feedbackGet.id }}</small>
+                 <h5>Audio Folder Editing</h5>
+                 <small class="text-green" v-if="editStatus">Success! <i class="fas fa-check"></i></small>
+                 <small v-else>{{ feedbackGet.id }}</small>
                </div>
-            <div class="row">
-              <div class="col-12 col-md-6">
-                 <div class="flex-column">
 
-                   <div class="card-content-left d-flex justify-content-between align-items-end">
-                     <h3><i class="fas fa-pen-nib pr-2"></i></h3>
-                     <label>
-                       Sound Name
-                       <input v-model="feedbackGet.name" class="form-control" type="text">
-                     </label>
-                   </div>
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-12 col-xl-6 pt-4">
 
-                   <div class="card-content-left d-flex justify-content-between align-items-end">
-                     <h3><i class="fas fa-spell-check pr-2"></i></h3>
-                     <label>
-                       Sound Description
-                       <input v-model="feedbackGet.description"  class="form-control" type="text">
-                     </label>
-                   </div>
-
-                   <div class="card-content-left d-flex justify-content-between align-items-end">
-                     <h3><i class="pr-2" :class="feedbackGet.icon"></i></h3>
-                     <label>
-                       Sound Icon
-                       <input v-model="feedbackGet.icon"  class="form-control" type="text">
-                     </label>
-                   </div>
-
-                   <div class="custom-edit-left-hr"><hr></div>
-
-                   <div class="card-content-left d-flex justify-content-between align-items-end">
-                     <h3><i class="pr-2" :class="feedbackGet.icon"></i></h3>
-                     <label>
-                       Audio Name
-                       <input v-model="feedbackGet.audioName"  class="form-control" type="text">
-                     </label>
-                   </div>
-
-                   <div class="card-content-left d-flex justify-content-between align-items-end">
-                     <h3><i class="far fa-file-audio pr-2"></i></h3>
-                     <label>
-                       Audio Volume
-                       <input v-model="feedbackGet.volume"  class="form-control" type="number">
-                     </label>
-                   </div>
-                 </div>
-              </div>
-
-
-
-              <div class="col-12 col-md-6">
-                <div class="flex-column card-content-right-card">
-
-                  <div class="card-content-right d-flex justify-content-between align-items-end">
-                    <div class="d-flex justify-content-between align-item-center text-center">
-                      <label>Show Button Active / deactive </label>
-                      <label>
-                        Active
-                        <input name="showButton" id="showbutton_active" v-model="feedbackGet.showButton" :value="true" type="radio">
-                      </label>
-                      <label>
-                        Deactive
-                        <input name="showButton" id="showbutton_deactive" v-model="feedbackGet.showButton" :value="false" type="radio">
-                      </label>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Sound Name<i class="far fa-address-card px-2"></i></span>
+                      </div>
+                      <input placeholder="Rainly..." type="text" class="form-control" v-model="feedbackGet.name">
                     </div>
-                    <h3><i class="far fa-eye pl-2"></i></h3>
-                  </div>
 
-
-
-                  <div class="card-content-right d-flex justify-content-between align-items-end pt-5">
-                    <div class="d-flex justify-content-between align-item-center text-center">
-                      <label>Volume Button Active / ..</label>
-                      <label>
-                        Active
-                        <input name="volumeButtonMute" id="volumebuttonmute_active" v-model="feedbackGet.volumeButtonMute" :value="true" type="radio">
-                      </label>
-                      <label>
-                        Deactive
-                        <input name="volumeButtonMute" id="volumebuttonmute_deactive" v-model="feedbackGet.volumeButtonMute" :value="false" type="radio">
-                      </label>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Sound Description <i class="fas fa-pencil-alt px-2"></i></span>
+                      </div>
+                      <input placeholder="Very good sounds..." type="text" class="form-control" v-model="feedbackGet.description">
                     </div>
-                    <h3><i class="fas fa-volume-mute pl-2"></i></h3>
-                  </div>
 
-
-
-                  <div class="card-content-right d-flex justify-content-between align-items-end pt-5">
-                    <div class="d-flex justify-content-between align-item-center text-center">
-                      <label>Active / Deactive</label>
-                      <label>
-                        Active
-                        <input name="active" id="active_active" v-model="feedbackGet.active" :value="true" type="radio">
-                      </label>
-                      <label>
-                        Deactive
-                        <input name="active" id="active_deactive" v-model="feedbackGet.active" :value="false" type="radio">
-                      </label>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Sound Icon <i class="text-green px-2" :class="feedbackGet.icon"></i></span>
+                      </div>
+                      <input placeholder="fas fa-cloud..." type="text" class="form-control" v-model="feedbackGet.icon">
                     </div>
-                    <h3><i class="fas fa-check-circle pl-2"></i></h3>
-                  </div>
 
-
-
-                  <div class="card-content-right d-flex justify-content-between align-items-end pt-5">
-                    <div class="d-flex justify-content-between align-item-center text-center">
-                      <label>Show / don't show</label>
-                      <label>
-                        Active
-                        <input name="showSound" id="showsound_active" v-model="feedbackGet.showSound" :value="true" type="radio">
-                      </label>
-                      <label>
-                        Deactive
-                        <input name="showSound" id="showsound_deactive" v-model="feedbackGet.showSound" :value="false" type="radio">
-                      </label>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Audio Name <i class="far fa-file-audio px-2"></i></span>
+                      </div>
+                      <input placeholder="rainly.mp3" type="text" class="form-control" v-model="feedbackGet.audioName">
                     </div>
-                    <h3><i class="fab fa-google-wallet fa-flip-horizontal fa-flip-vertical pl-2" :class="feedbackGet.showSound === true ? 'text-green' : 'text-red'"></i></h3>
-                  </div>
 
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Sound Volume <i class="fas fa-volume-up px-2"></i></span>
+                      </div>
+                      <input placeholder="min: 1, max: 100" type="number" class="form-control" v-model="feedbackGet.volume">
+                    </div>
+
+
+                  </div>
+                  <div class="col-12 col-xl-6" align="left">
+
+                  <div class="d-flex justify-content-between">
+                <!-- FIRST-->
+                    <div>
+
+                      <div>
+                        <strong><i class="far fa-eye-slash"></i> Show Button;</strong>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio"  name="showButton" id="showbutton_active" v-model="feedbackGet.showButton" :value="true">
+                          <label class="form-check-label" for="showbutton_active">
+                            Active
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="showButton" id="showbutton_deactive" v-model="feedbackGet.showButton" :value="false">
+                          <label class="form-check-label" for="showbutton_deactive">
+                            Deactive
+                          </label>
+                        </div>
+                      </div>
+
+
+
+                      <div class="pt-5">
+                        <strong><i class="fas fa-volume-mute"></i> Volume Button;</strong>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio"  name="volumeButtonMute" id="volumebuttonmute_active" v-model="feedbackGet.volumeButtonMute" :value="true">
+                          <label class="form-check-label" for="volumebuttonmute_active">
+                            Active
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="volumeButtonMute" id="volumebuttonmute_deactive" v-model="feedbackGet.volumeButtonMute" :value="false">
+                          <label class="form-check-label" for="volumebuttonmute_deactive">
+                            Deactive
+                          </label>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!-- /FIRST-->
+
+                    <!-- SECOND-->
+                    <div align="right">
+                      <div>
+                        <strong>Active Status <i class="fas fa-low-vision"></i></strong>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="active" id="active_active" v-model="feedbackGet.active" :value="true">
+                          <label class="form-check-label" for="active_active">
+                            Active
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="active" id="active_deactive" v-model="feedbackGet.active" :value="false">
+                          <label class="form-check-label" for="active_deactive">
+                            Deactive
+                          </label>
+                        </div>
+                      </div>
+
+
+
+                      <div class="pt-5">
+                        <strong>Show / Don't show <i class="fas fa-sign-language"></i></strong>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="showSound" id="showsound_active" v-model="feedbackGet.showSound" :value="true">
+                          <label class="form-check-label" for="showsound_active">
+                            Active
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="showSound" id="showsound_deactive" v-model="feedbackGet.showSound" :value="false">
+                          <label class="form-check-label" for="showsound_deactive">
+                            Deactive
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /SECOND-->
+
+
+
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="text-center save-button-edit">
-                <button class="btn" @click="editSounds()">Save Changest</button>
-            </div>
+              <div class="pt-5" align="center">
+                <div class="submit-edit-button"><button class="btn" @click="editSounds()">Save Changes</button></div>
+              </div>
           </div>
-     </div>
-  </div>
+   </div>
+</div>
 </template>
 
 
@@ -142,6 +149,11 @@ import axios from "axios";
 
 export default {
   name: 'EditSounds',
+  data() {
+    return {
+      editStatus: null,
+    }
+  },
   computed: {
     ...mapGetters([
         'getAdminSound'
@@ -165,7 +177,8 @@ export default {
             showSound: this.feedbackGet.showSound,
           })
           .then((response) => {
-            console.log(response)
+            console.log(response.data.code)
+            this.editStatus = response.data.code;
           })
     }
   }
@@ -181,47 +194,30 @@ export default {
 }
 
 .edit-card {
-  background-color: #E9E9E9;
+  background-color: white;
   min-height: 500px;
-  width: 100%;
+  width: 80%;
   border-radius: 15px;
-  box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 0px gray;
   padding: 40px 10px 40px 10px;
 }
 
-.card-content-left label {
-  margin-right: 200px;
+.input-group-text {
   font-weight: bold;
-  font-size: small;
+  min-width: 170px;
 }
 
-.card-content-right label {
-  font-weight: bold;
-  font-size: small;
-}
-
-.card-content-right-card {
-  margin-left: 200px;
-}
-
-.custom-edit-left-hr {
-  width: 50%;
-}
-
-
-.save-button-edit button {
-  border: 1px solid #007BFF;
-  font-weight: bold;
-  color: #007BFF;
-  border-radius: 20px;
-  background-color: white;
-  transition: 0.4s;
-}
-
-.save-button-edit button:hover {
-  color: white;
+.submit-edit-button button {
+  border-radius: 10px;
   background-color: #007BFF;
-  transition: 0.5s;
+  color: white;
+  font-weight: bold;
+}
+
+.submit-edit-button button:hover {
+  background-color: #388ae9;
+  font-weight: bold;
+  color: white;
 }
 
 </style>

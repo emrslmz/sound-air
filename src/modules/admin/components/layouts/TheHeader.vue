@@ -11,11 +11,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav mr-auto"></div>
         <div>
+          <router-link to="/admin/admin-home">
+            <button class="btn btn-sm header-button">Home</button>
+          </router-link>
           <router-link to="/admin/upload-sound">
-            <button class="btn btn-light btn-sm header-button">Upload Sound</button>
+            <button class="btn btn-sm header-button">Upload Sound</button>
           </router-link>
           <router-link to="/admin/uploaded-sounds">
-            <button class="btn btn-light btn-sm header-button">All Sound</button>
+            <button class="btn btn-sm header-button">All Sound</button>
           </router-link>
         </div>
       </div>
@@ -25,9 +28,28 @@
 
 
 <style scoped>
-.header-button {
-  border-radius: 20px;
-  margin: 0 5px 0 5px;
+.router-link-active button {
+  background-color: #00acee;
+  color: white;
+  font-weight: bold;
 }
+
+
+.header-button {
+  min-width: 100px;
+  border: 1px solid #00acee;
+  font-weight: bold;
+  color: #00acee;
+  border-radius: 20px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.header-button:hover {
+  color: white;
+  background-color: #00acee;
+  transition: 0.5s;
+}
+
 
 </style>                  

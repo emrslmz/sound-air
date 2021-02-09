@@ -19,7 +19,7 @@
 
                <div class="pt-4 text-center">
                  <router-link to="/admin/uploaded-sounds">
-                   <button class="btn btn-light btn-sm button-uploaded-sound"><i class="far fa-eye"></i> Review</button>
+                   <button class="btn btn-light btn-sm button-upload-sound"><i class="far fa-eye"></i> Review</button>
                  </router-link>
                </div>
 
@@ -33,7 +33,7 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="pt-5 text-center">
               <router-link to="/admin/upload-sound">
-                <button class="btn btn-dark btn-sm button-upload-sound"> <i class="far fa-share-square"></i><i class="far fa-eye"></i>  Look</button>
+                <button class="btn btn-dark btn-sm button-upload-sound"><i class="far fa-eye"></i> Look</button>
               </router-link>
             </div>
           </div>
@@ -62,7 +62,7 @@
             <p class="card-text">Review the submitted errors, make a return</p>
             <div class="pt-5 text-center">
               <router-link to="/admin/upload-sound">
-                <button class="btn btn-light btn-sm button-upload-sound">Upload</button>
+                <button class="btn btn-light btn-sm button-upload-sound"><i class="far fa-eye"></i> Check</button>
               </router-link>
             </div>
           </div>
@@ -100,14 +100,10 @@ export default {
   padding-top: 100px;
 }
 
-.button-uploaded-sound {
-  max-width: 400px;
-  border-radius: 10px;
-}
-
 .button-upload-sound {
   max-width: 200px;
   border-radius: 10px;
+  font-weight: bold;
 }
 
 .card-primary {
