@@ -3,6 +3,7 @@ import axios from "axios";
 const state = {
     adminSounds: null,
     totalSounds: null,
+    editStatus: null,
 }
 
 const getters = {
@@ -11,6 +12,9 @@ const getters = {
     },
     getTotalAdminSound(state) {
         return state.totalSounds;
+    },
+    getEditStatus(state) {
+        return state.editStatus;
     }
 }
 
@@ -44,9 +48,15 @@ const actions = {
           .patch(`https://soundair-api.herokuapp.com/audios/${feedbackGet.id}`, feedbackGet)
           .then((response) => {
               const editSound = response.data.data;
+
+              state.editStatus = response.status;
+
               commit('EDIT_SOUND', editSound);
               return editSound;
           })
+            .catch((error) => {
+                state.editStatus = error.request.status;
+            })
     }
 }
 

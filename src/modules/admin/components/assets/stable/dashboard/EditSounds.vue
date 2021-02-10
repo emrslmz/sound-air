@@ -4,8 +4,9 @@
           <div class="col-12 col-md-6 edit-card">
                <div class="text-center">
                  <h5>Audio Folder Editing</h5>
-<!--                 <small class="text-green" v-if="editStatus">Success! <i class="fas fa-check"></i></small>-->
-<!--                 <small v-else>{{ feedbackGet.id }}</small>-->
+                 <small class="text-green" v-if="getEditStatus === 200">Success! <i class="fas fa-check"></i></small>
+                 <small class="text-red" v-else-if="getEditStatus === 400">Unsuccess! <i class="fas fa-times"></i></small>
+                 <small v-else>{{ feedbackGet.id }}</small>
                </div>
 
                 <div class="row justify-content-between align-items-center">
@@ -153,7 +154,8 @@ export default {
   // },
   computed: {
     ...mapGetters([
-        'getAdminSound'
+        'getAdminSound',
+        'getEditStatus',
     ]),
     feedbackGet() {
       return this.getAdminSound.find(f => f.id === this.$route.params.id)
