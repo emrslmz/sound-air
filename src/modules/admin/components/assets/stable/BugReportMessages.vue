@@ -3,10 +3,12 @@
   <div class="text-md-center contact-us-message-top">
     <h1><b>Feedbacks</b></h1>
         <p v-if="getBugDeleteStatus === 200">
-          <the-success-card />
+          <the-success-card text="Deletion successful!" />
         </p>
         <p class="text-spacing5" v-else>incoming communication messages</p>
-    <small>Total message:  {{ getTotalBug }}</small>
+    <small v-if="getTotalBug > 0">Total message:  {{ getTotalBug }}</small>
+    <small v-else-if="getTotalBug === 0">We haven' Bug!</small>
+    <small v-else><i class="fas fa-spinner fa-pulse"></i></small>
   </div>
   <div class="d-flex justify-content-center align-items-center">
 
@@ -23,20 +25,22 @@
           <th scope="col"><i class="far fa-trash-alt"></i></th>
         </tr>
         </thead>
-        <tbody>
-        <tr v-for="(mistakes, index) in getBugMessages" :key="index" class="text-center">
-          <th  scope="row">{{ index +1 }}</th>
+        <tbody v-if="getTotalBug > 0">
+        <tr v-for="(mistakes, index) in getBugMessages" :key="index" class="text-center" >
+          <th scope="row">{{ index +1 }}</th>
           <td>{{ mistakes.mistakeHunterName}}</td>
           <td>{{ mistakes.mistakeHunterMail}}</td>
           <td>{{ mistakes.mistakeSubject }}</td>
-          
           <td><span class="badge badge-success w-50"><i class="fas fa-hashtag"></i><i>{{ mistakes.mistakeCode }}</i></span></td>
           <td>{{ mistakes.mistakeDescription}}</td>
           <td><button class="btn btn-danger btn-sm w-100 bug-delete" @click="deleteBug(mistakes, index)">Delete</button></td>
         </tr>
         </tbody>
+        <div class="text-center" v-else>
+          <h6><i class="fas fa-spinner fa-pulse"></i></h6>
+        </div>
       </table>
-    </div>
+    </div>                                                          
 
 
 
@@ -45,11 +49,14 @@
 </template>
 
 <script>
-import 
+import TheSuccessCard from './cards/TheSuccessCard.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'ContactUsMessages',
+  components: {
+    TheSuccessCard
+  },
   computed: {
     ...mapGetters([
         'getBugMessages',
