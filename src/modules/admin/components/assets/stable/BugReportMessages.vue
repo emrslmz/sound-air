@@ -2,7 +2,10 @@
 <div class="container-top">
   <div class="text-md-center contact-us-message-top">
     <h1><b>Feedbacks</b></h1>
-    <p class="text-spacing5">incoming communication messages</p>
+        <p v-if="getBugDeleteStatus === 200">
+          <the-success-card />
+        </p>
+        <p class="text-spacing5" v-else>incoming communication messages</p>
     <small>Total message:  {{ getTotalBug }}</small>
   </div>
   <div class="d-flex justify-content-center align-items-center">
@@ -10,22 +13,23 @@
     <div>
       <table class="table table-striped table-dark text-left">
         <thead>
-        <tr>
+        <tr class="text-center table-top">
           <th scope="col">#</th>
-          <th style="min-width: 200px" scope="col">User Name</th>
-          <th style="min-width: 200px" scope="col"><i class="fas fa-at"></i> User Mail</th>
-          <th style="min-width: 200px" scope="col"><i class="fas fa-inbox"></i> Mistake Subject</th>
-          <th style="min-width: 200px" scope="col"><i class="fas fa-hashtag"></i> Mistake Code</th>
-          <th style="min-width: 200px" scope="col"><i class="far fa-bookmark"></i> Description</th>
-          <th style="min-width: 100px"  scope="col" class="text-center"><i class="far fa-trash-alt"></i></th>
+          <th scope="col">User Name</th>
+          <th scope="col"><i class="fas fa-at"></i> User Mail</th>
+          <th scope="col"><i class="fas fa-inbox"></i> Mistake Subject</th>
+          <th scope="col"><i class="fas fa-hashtag"></i> Mistake Code</th>
+          <th scope="col"><i class="far fa-bookmark"></i> Description</th>
+          <th scope="col"><i class="far fa-trash-alt"></i></th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(mistakes, index) in getBugMessages" :key="index">
-          <th scope="row">{{ index +1 }}</th>
+        <tr v-for="(mistakes, index) in getBugMessages" :key="index" class="text-center">
+          <th  scope="row">{{ index +1 }}</th>
           <td>{{ mistakes.mistakeHunterName}}</td>
           <td>{{ mistakes.mistakeHunterMail}}</td>
           <td>{{ mistakes.mistakeSubject }}</td>
+          
           <td><span class="badge badge-success w-50"><i class="fas fa-hashtag"></i><i>{{ mistakes.mistakeCode }}</i></span></td>
           <td>{{ mistakes.mistakeDescription}}</td>
           <td><button class="btn btn-danger btn-sm w-100 bug-delete" @click="deleteBug(mistakes, index)">Delete</button></td>
@@ -41,6 +45,7 @@
 </template>
 
 <script>
+import 
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
@@ -49,6 +54,7 @@ export default {
     ...mapGetters([
         'getBugMessages',
         'getTotalBug',
+        'getBugDeleteStatus',
     ]),
   },
    methods: {
@@ -92,5 +98,9 @@ export default {
   color: white;
   background-color: #C82333;
   transition: 0.5s;
+}
+
+.table-top th {
+  min-width: 200px;
 }
 </style>

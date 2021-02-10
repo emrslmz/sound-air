@@ -32,7 +32,7 @@
             <h5 class="card-title">Feedbacks</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="d-flex justify-content-between align-items-center">
-              <strong>Total sound loaded:</strong>
+              <strong>Total messages have been sent :</strong>
               <span class="badge badge-dark badge-pill" v-if="getTotalContact">{{  getTotalContact }}</span>
               <span class="badge badge-dark badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
             </div>
@@ -66,7 +66,7 @@
             <h5 class="card-title">Dark card title</h5>
             <p class="card-text">Review the submitted errors, make a return</p>
             <div class="d-flex justify-content-between align-items-center">
-              <strong>Total sound loaded:</strong>
+              <strong>Bugs reported:</strong>
               <span class="badge badge-light badge-pill" v-if="getTotalBug">{{  getTotalBug }}</span>
               <span class="badge badge-light badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
             </div>

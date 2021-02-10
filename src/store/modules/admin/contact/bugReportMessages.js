@@ -3,14 +3,18 @@ import axios from 'axios';
 const state = {
     bugMessages: [],
     totalBugMessages: null,
+    bugDeleteStatus: null,
 }
 
 const getters = {
-  getBugMessages(state) {
-      return state.bugMessages.reverse();
-  },
+    getBugMessages(state) {
+        return state.bugMessages.reverse();
+    },
     getTotalBug(state) {
-      return state.totalBugMessages;
+        return state.totalBugMessages;
+    },
+    getBugDeleteStatus(state) {
+        return state.bugDeleteStatus;
     }
 }
 
@@ -23,6 +27,9 @@ const mutations = {
     },
     DELETE_MISTAKE_STATE(state, mistakeIndex){
         state.bugMessages.splice(mistakeIndex, 1);
+    },
+    DELETE_STATUS(state, deleteStatus) {
+        state.bugDeleteStatus = deleteStatus;
     }
 }
 
@@ -42,11 +49,12 @@ const actions = {
       axios
           .delete(`https://soundair-api.herokuapp.com/mistakes/${mistakes.id}`, mistakes)
           .then((response) => {
-              
-              console.log(response.status);
 
               const mistakeIndex = index;
               commit('DELETE_MISTAKE_STATE', mistakeIndex);
+
+              const deleteStatus = response.status;
+              commit('DELETE_STATUS', deleteStatus);
           })
     }
 }
