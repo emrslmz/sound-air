@@ -50,7 +50,7 @@
         <div class="card card-info text-white bg-info mb-3">
           <div class="card-header"><i class="fas fa-cloud-upload-alt"></i> <i>Upload</i> Sound</div>
           <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
+            <h5 class="card-title">Click to upload audio file</h5>
             <p class="card-text">Click the button below to upload a sound and fill in the page that opens</p>
             <div class="pt-5 text-center">
               <router-link to="/admin/upload-sound">
@@ -63,7 +63,7 @@
         <div class="card card-dark text-white bg-dark mb-3">
           <div class="card-header"><i class="fas fa-bug"></i><i> Bug Report</i> Form</div>
           <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
+            <h5 class="card-title">Sent reports</h5>
             <p class="card-text">Review the submitted errors, make a return</p>
             <div class="d-flex justify-content-between align-items-center">
               <strong>Bugs reported:</strong>

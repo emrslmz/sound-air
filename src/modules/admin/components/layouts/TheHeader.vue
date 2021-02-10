@@ -14,6 +14,12 @@
           <router-link to="/admin/admin-home">
             <button class="btn btn-sm header-button">Home</button>
           </router-link>
+          <router-link to="/admin/contact-us-messages">
+            <button class="btn btn-sm header-button">Feedback</button>
+          </router-link>
+          <router-link to="/admin/bug-report-messages">
+            <button class="btn btn-sm header-button">Bug Report</button>
+          </router-link>
           <router-link to="/admin/upload-sound">
             <button class="btn btn-sm header-button">Upload Sound</button>
           </router-link>
