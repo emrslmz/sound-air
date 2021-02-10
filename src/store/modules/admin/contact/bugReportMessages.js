@@ -8,12 +8,18 @@ const state = {
 const getters = {
   getBugMessages(state) {
       return state.bugMessages.reverse();
-  }
+  },
+    getTotalBug(state) {
+      return state.totalBugMessages;
+    }
 }
 
 const mutations = {
     FETCH_BUG(state, bugMessage) {
         state.bugMessages = bugMessage
+    },
+    TOTAL_BUG(state, totalBugMessage) {
+        state.totalBugMessages = totalBugMessage;
     }
 }
 
@@ -23,9 +29,10 @@ const actions = {
           .get("https://soundair-api.herokuapp.com/mistakes")
           .then((response) => {
               const bugMessage = response.data.data;
+              const totalBugMessage = response.data.data.length;
 
-              console.log(response);
               commit('FETCH_BUG', bugMessage);
+              commit('TOTAL_BUG', totalBugMessage);
           })
   }
 }

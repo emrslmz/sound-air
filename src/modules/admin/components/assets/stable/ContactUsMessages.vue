@@ -3,7 +3,7 @@
   <div class="text-md-center contact-us-message-top">
     <h1><b>Feedbacks</b></h1>
     <p class="text-spacing5">incoming communication messages</p>
-    <small>Total message  {{ getTotalContact }}</small>
+    <small>Total message:  {{ getTotalContact }}</small>
   </div>
   <div class="d-flex justify-content-center align-items-center">
 
