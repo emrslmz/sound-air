@@ -7,7 +7,7 @@ const state = {
 
 const getters = {
    getFeedbacks(state) {
-       return state.contacts;
+       return state.contacts.reverse();
    },
     getTotalContact(state) {
         return state.totalContact;

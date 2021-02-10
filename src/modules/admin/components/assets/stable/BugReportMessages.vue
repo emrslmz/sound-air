@@ -12,17 +12,21 @@
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Mail</th>
-          <th scope="col">To accept</th>
+          <th style="min-width: 200px" scope="col">User Name</th>
+          <th style="min-width: 200px" scope="col">User Mail</th>
+          <th style="min-width: 200px" scope="col">Mistake Subject</th>
+          <th style="min-width: 200px" scope="col">Mistake Code</th>
           <th style="min-width: 200px" scope="col">Description</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(contact, index) in getFeedbacks" :key="index">
+        <tr v-for="(mistakes, index) in getBugMessages" :key="index">
           <th scope="row">{{ index +1 }}</th>
-          <td>{{contact.contactMail}}</td>
-          <td><span v-if="contact.contactAcceptFeedback"><span class="badge badge-success">Conditions: <i>Accepted!</i></span></span></td>
-          <td>{{contact.contactDescription}}</td>
+          <td>{{ mistakes.mistakeHunterName}}</td>
+          <td>{{ mistakes.mistakeHunterMail}}</td>
+          <td>{{ mistakes.mistakeSubject }}</td>
+          <td><span class="badge badge-success w-50"><i class="fas fa-hashtag"></i><i>{{ mistakes.mistakeCode }}</i></span></td>
+          <td>{{mistakes.mistakeDescription}}</td>
         </tr>
         </tbody>
       </table>
@@ -42,25 +46,16 @@ export default {
   name: 'ContactUsMessages',
   computed: {
     ...mapGetters([
-        'getFeedbacks',
-        'getTotalContact',
+        'getBugMessages',
     ])
   },
    methods: {
     ...mapActions([
-        'getContacts',
+        'fetchBugMessages',
     ]),
-    // getFeedbacks() {
-    //   axios
-    //       .get("https://soundair-api.herokuapp.com/contacts")
-    //       .then((response) => {
-    //         this.contacts = response.data.data;
-    //         console.log(response)
-    //       })
-    //   },
    },
   mounted() {
-    this.getContacts();
+    this.fetchBugMessages();
   }
 }
 </script>

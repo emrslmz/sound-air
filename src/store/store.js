@@ -6,6 +6,7 @@ import sounds from "@/store/modules/main/sound/sounds";
 import editAndLookSound from "@/store/modules/admin/sound/editAndLookSound";
 import uploadSound from "@/store/modules/admin/sound/uploadSound";
 import contactMessage from "@/store/modules/admin/contact/contactMessage";
+import bugReportMessages from "@/store/modules/admin/contact/bugReportMessages";
 
 Vue.use(Vuex);
 
@@ -16,7 +17,8 @@ export default new Vuex.Store({
         sounds,
         editAndLookSound,
         uploadSound,
-        contactMessage
+        contactMessage,
+        bugReportMessages,
     }
 })
 

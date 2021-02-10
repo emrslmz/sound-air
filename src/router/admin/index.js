@@ -42,5 +42,13 @@ export default [{
             },
             component: () => import('@/modules/admin/components/assets/stable/ContactUsMessages.vue'),
         },
+        {
+            name: 'BugReportMessages',
+            path: 'bug-report-messages',
+            meta: {
+                title: 'Bug, Report Messages',
+            },
+            component: () => import('@/modules/admin/components/assets/stable/BugReportMessages.vue'),
+        },
     ],
 }];

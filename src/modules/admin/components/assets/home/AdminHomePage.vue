@@ -31,6 +31,11 @@
           <div class="card-body">
             <h5 class="card-title">Feedbacks</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <strong>Total sound loaded:</strong>
+              <span class="badge badge-dark badge-pill" v-if="getTotalContact">{{  getTotalContact }}</span>
+              <span class="badge badge-dark badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
+            </div>
             <div class="pt-5 text-center">
               <router-link to="/admin/contact-us-messages">
                 <button class="btn btn-dark btn-sm button-upload-sound"><i class="far fa-eye"></i> Look</button>
@@ -61,7 +66,7 @@
             <h5 class="card-title">Dark card title</h5>
             <p class="card-text">Review the submitted errors, make a return</p>
             <div class="pt-5 text-center">
-              <router-link to="/admin/upload-sound">
+              <router-link to="/admin/bug-report-messages">
                 <button class="btn btn-light btn-sm button-upload-sound"><i class="far fa-eye"></i> Check</button>
               </router-link>
             </div>
@@ -80,16 +85,19 @@ export default {
   name: 'AdminHomePage',
   computed: {
     ...mapGetters([
-        'getTotalAdminSound'
+        'getTotalAdminSound',
+        'getTotalContact'
     ])
   },
   methods: {
     ...mapActions([
-      'fetchAdminSounds'
+      'fetchAdminSounds',
+      'getContacts',
     ])
   },
   mounted() {
     this.fetchAdminSounds();
+    this.getContacts();
   }
 }
 </script>
