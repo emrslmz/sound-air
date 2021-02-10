@@ -16,7 +16,7 @@ const getters = {
 
 const mutations = {
     FETCH_BUG(state, bugMessage) {
-        state.bugMessages = bugMessage
+        state.bugMessages = bugMessage;
     },
     TOTAL_BUG(state, totalBugMessage) {
         state.totalBugMessages = totalBugMessage;
@@ -34,7 +34,17 @@ const actions = {
               commit('FETCH_BUG', bugMessage);
               commit('TOTAL_BUG', totalBugMessage);
           })
-  }
+    },
+    deleteBugMessages({ commit }, mistakes) {
+      axios
+          .delete(`https://soundair-api.herokuapp.com/mistakes/${mistakes.id}`, mistakes)
+          .then(response => {
+              mistakes.splice(mistakes.id, 1)
+              const bugMessage = response.data.data;
+
+              commit('FETCH_BUG', bugMessage);
+          })
+    }
 }
 
 export default {

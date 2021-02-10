@@ -8,7 +8,7 @@
   <div class="d-flex justify-content-center align-items-center">
 
     <div>
-      <table class="table table-striped table-dark">
+      <table class="table table-striped table-dark text-left">
         <thead>
         <tr>
           <th scope="col">#</th>
@@ -17,6 +17,7 @@
           <th style="min-width: 200px" scope="col"><i class="fas fa-inbox"></i> Mistake Subject</th>
           <th style="min-width: 200px" scope="col"><i class="fas fa-hashtag"></i> Mistake Code</th>
           <th style="min-width: 200px" scope="col"><i class="far fa-bookmark"></i> Description</th>
+          <th style="min-width: 100px"  scope="col" class="text-center"><i class="far fa-trash-alt"></i></th>
         </tr>
         </thead>
         <tbody>
@@ -26,7 +27,8 @@
           <td>{{ mistakes.mistakeHunterMail}}</td>
           <td>{{ mistakes.mistakeSubject }}</td>
           <td><span class="badge badge-success w-50"><i class="fas fa-hashtag"></i><i>{{ mistakes.mistakeCode }}</i></span></td>
-          <td>{{mistakes.mistakeDescription}}</td>
+          <td>{{ mistakes.mistakeDescription}}</td>
+          <td><button class="btn btn-danger btn-sm w-100 bug-delete" @click="deleteBug(mistakes)">Delete</button></td>
         </tr>
         </tbody>
       </table>
@@ -47,12 +49,16 @@ export default {
     ...mapGetters([
         'getBugMessages',
         'getTotalBug',
-    ])
+    ]),
   },
    methods: {
     ...mapActions([
         'fetchBugMessages',
+        'deleteBugMessages'
     ]),
+     deleteBug(mistakes) {
+      this.deleteBugMessages(mistakes);
+     }
    },
   mounted() {
     this.fetchBugMessages();
@@ -69,5 +75,22 @@ export default {
 .table-striped {
  width: 1000px;
   border-radius: 0 0 10px 10px;
+}
+
+
+.bug-delete {
+  min-width: 100px;
+  border: 1px solid #DC3545;
+  font-weight: bold;
+  color: #DC3545;
+  border-radius: 20px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.bug-delete:hover {
+  color: white;
+  background-color: #C82333;
+  transition: 0.5s;
 }
 </style>

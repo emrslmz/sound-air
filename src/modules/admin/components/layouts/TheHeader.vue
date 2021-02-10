@@ -43,6 +43,7 @@
   border-radius: 20px;
   background-color: white;
   transition: 0.4s;
+  margin: 0 5px 0 5px;
 }
 
 .header-button:hover {
