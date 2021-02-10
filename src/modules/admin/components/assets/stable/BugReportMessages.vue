@@ -13,10 +13,10 @@
         <tr>
           <th scope="col">#</th>
           <th style="min-width: 200px" scope="col">User Name</th>
-          <th style="min-width: 200px" scope="col">User Mail</th>
-          <th style="min-width: 200px" scope="col">Mistake Subject</th>
-          <th style="min-width: 200px" scope="col">Mistake Code</th>
-          <th style="min-width: 200px" scope="col">Description</th>
+          <th style="min-width: 200px" scope="col"><i class="fas fa-at"></i> User Mail</th>
+          <th style="min-width: 200px" scope="col"><i class="fas fa-inbox"></i> Mistake Subject</th>
+          <th style="min-width: 200px" scope="col"><i class="fas fa-hashtag"></i> Mistake Code</th>
+          <th style="min-width: 200px" scope="col"><i class="far fa-bookmark"></i> Description</th>
         </tr>
         </thead>
         <tbody>

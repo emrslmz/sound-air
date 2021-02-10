@@ -12,9 +12,9 @@
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Mail</th>
-          <th scope="col">To accept</th>
-          <th style="min-width: 200px" scope="col">Description</th>
+          <th scope="col"><i class="fas fa-at"></i> Mail</th>
+          <th scope="col"><i class="far fa-calendar-check"></i> To accept</th>
+          <th style="min-width: 200px" scope="col"><i class="far fa-bookmark"></i>  Description</th>
         </tr>
         </thead>
         <tbody>
