@@ -2,6 +2,7 @@
   <div class="text-center pt-5">
       <div class="container">
        <h3>Uploaded Sound </h3>
+         <the-success-card text="Audio file deleted successfully!" v-if="getEditStatus === 200" />
         <small>You uploaded  <span v-if="getAdminSound">{{ getTotalAdminSound }}</span> <span v-else><i class="fas fa-hourglass-half"></i></span> audio files in total.</small>
         <ul class="list-group">
 
@@ -17,9 +18,7 @@
                     <router-link :to="{ name: 'UploadedSoundEdit', params: {id: sounds.id, icon: sounds.icon, name: sounds.name, audioName: sounds.audioName, showSound: sounds.showSound }} ">
                       <h6><button class="btn btn-dark btn-sm edit-delete-button">Edit</button></h6>
                     </router-link>
-                    <router-link to="d/sadas">
-                      <h6><button class="btn btn-danger btn-sm edit-delete-button">Delete</button></h6>
-                    </router-link>                                
+                      <h6><button class="btn btn-danger btn-sm edit-delete-button" @click="deleteSounds(sounds, index)">Delete</button></h6>
                   </div>
                 </div>
                 <div class="col-12 col-xl-10 text-left">
@@ -48,19 +47,28 @@
 
 
 <script>
+import TheSuccessCard from "@/modules/admin/components/assets/stable/cards/TheSuccessCard";
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Uploaded',
+  components: {
+    TheSuccessCard,
+  },
   computed: {
     ...mapGetters([
         'getAdminSound',
-        'getTotalAdminSound'
+        'getTotalAdminSound',
+        'getEditStatus'
     ])
   },
   methods: {
+    deleteSounds(sounds, index) {
+       this.deleteSound(sounds, index);
+    },
     ...mapActions([
-        'fetchAdminSounds'
+        'fetchAdminSounds',
+        'deleteSound'
     ])
   },
   mounted() {

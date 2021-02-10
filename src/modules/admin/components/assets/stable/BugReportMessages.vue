@@ -7,7 +7,7 @@
         </p>
         <p class="text-spacing5" v-else>incoming communication messages</p>
     <small v-if="getTotalBug > 0">Total message:  {{ getTotalBug }}</small>
-    <small v-else-if="getTotalBug === 0">We haven' Bug!</small>
+    <small v-else-if="getTotalBug === 0">We haven't Bug!</small>
     <small v-else><i class="fas fa-spinner fa-pulse"></i></small>
   </div>
   <div class="d-flex justify-content-center align-items-center">

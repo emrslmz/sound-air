@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import faq from "@/store/modules/main/faq";
 import socialMedia from "@/store/modules/main/socialMedia";
 import sounds from "@/store/modules/main/sound/sounds";
-import editAndLookSound from "@/store/modules/admin/sound/editAndLookSound";
+import deleteEditSounds from "@/store/modules/admin/sound/deleteEditSounds";
 import uploadSound from "@/store/modules/admin/sound/uploadSound";
 import contactMessage from "@/store/modules/admin/contact/contactMessage";
 import bugReportMessages from "@/store/modules/admin/contact/bugReportMessages";
@@ -15,7 +15,7 @@ export default new Vuex.Store({
         faq,
         socialMedia,
         sounds,
-        editAndLookSound,
+        deleteEditSounds,
         uploadSound,
         contactMessage,
         bugReportMessages,

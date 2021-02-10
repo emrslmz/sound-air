@@ -3,7 +3,7 @@ import axios from "axios";
 const state = {
     adminSounds: null,
     totalSounds: null,
-    editStatus: null,
+    adminSoundStatus: null,
 }
 
 const getters = {
@@ -14,7 +14,7 @@ const getters = {
         return state.totalSounds;
     },
     getEditStatus(state) {
-        return state.editStatus;
+        return state.adminSoundStatus;
     }
 }
 
@@ -28,6 +28,12 @@ const mutations = {
     },
     EDIT_SOUND(state, editSound) {
      state.adminSounds = editSound;
+    },
+    DELETE_SOUND_STATE(state, soundsIndex) {
+        state.adminSounds.splice(soundsIndex, 1);
+    },
+    DELETE_STATUS(state, deleteSounds) {
+        state.adminSoundStatus = deleteSounds;
     }
 }
 
@@ -49,14 +55,26 @@ const actions = {
           .then((response) => {
               const editSound = response.data.data;
 
-              state.editStatus = response.status;
+              state.adminSoundStatus = response.status;
 
               commit('EDIT_SOUND', editSound);
               return editSound;
           })
             .catch((error) => {
-                state.editStatus = error.request.status;
+                state.adminSoundStatus = error.request.status;
             })
+    },
+    deleteSound({ commit }, sounds, index) {
+       axios
+           .delete(`https://soundair-api.herokuapp.com/audios/${sounds.id}`, sounds)
+           .then((response) => {
+
+               const soundsIndex = index;
+               commit('DELETE_SOUND_STATE', soundsIndex);
+
+               const deleteSounds = response.status;
+               commit('DELETE_STATUS', deleteSounds);
+           })
     }
 }
 

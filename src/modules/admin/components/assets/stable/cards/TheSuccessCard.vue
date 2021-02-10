@@ -1,8 +1,8 @@
 <template>
 <div align="center">
-  <div class="card text-white bg-success">
-    <div class="card-body">
-      <h5 class="card-title"><b> <i class="far fa-check-circle"></i> </b> {{ text }}</h5>
+  <div class=" text-white bg-success">
+    <div class="py-2">
+      <b><i class="far fa-check-circle"></i> </b> {{ text }}
     </div>
   </div>
 </div>
