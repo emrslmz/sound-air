@@ -35,15 +35,15 @@ const actions = {
               commit('TOTAL_BUG', totalBugMessage);
           })
     },
-    deleteBugMessages({ commit }, mistakes) {
+    deleteBugMessages({ commit }, mistakes, index) {
       axios
           .delete(`https://soundair-api.herokuapp.com/mistakes/${mistakes.id}`, mistakes)
-          .then(response => {
-              mistakes.splice(mistakes.id, 1)
-              const bugMessage = response.data.data;
+          .then((response) => {
+              mistakes.splice(index, 1)
+              console.log(response)
 
-              commit('FETCH_BUG', bugMessage);
-          })
+              commit('FETCH_BUG');
+          })                            
     }
 }
 

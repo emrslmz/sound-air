@@ -28,7 +28,7 @@
           <td>{{ mistakes.mistakeSubject }}</td>
           <td><span class="badge badge-success w-50"><i class="fas fa-hashtag"></i><i>{{ mistakes.mistakeCode }}</i></span></td>
           <td>{{ mistakes.mistakeDescription}}</td>
-          <td><button class="btn btn-danger btn-sm w-100 bug-delete" @click="deleteBug(mistakes)">Delete</button></td>
+          <td><button class="btn btn-danger btn-sm w-100 bug-delete" @click="deleteBug(mistakes, index)">Delete</button></td>
         </tr>
         </tbody>
       </table>
@@ -56,8 +56,8 @@ export default {
         'fetchBugMessages',
         'deleteBugMessages'
     ]),
-     deleteBug(mistakes) {
-      this.deleteBugMessages(mistakes);
+     deleteBug(mistakes, index) {
+      this.deleteBugMessages(mistakes, index);
      }
    },
   mounted() {
