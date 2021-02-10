@@ -20,6 +20,9 @@ const mutations = {
     },
     TOTAL_BUG(state, totalBugMessage) {
         state.totalBugMessages = totalBugMessage;
+    },
+    DELETE_MISTAKE_STATE(state, mistakeIndex){
+        state.bugMessages.splice(mistakeIndex, 1);
     }
 }
 
@@ -39,11 +42,12 @@ const actions = {
       axios
           .delete(`https://soundair-api.herokuapp.com/mistakes/${mistakes.id}`, mistakes)
           .then((response) => {
-              mistakes.splice(index, 1)
-              console.log(response)
+              
+              console.log(response.status);
 
-              commit('FETCH_BUG');
-          })                            
+              const mistakeIndex = index;
+              commit('DELETE_MISTAKE_STATE', mistakeIndex);
+          })
     }
 }
 
