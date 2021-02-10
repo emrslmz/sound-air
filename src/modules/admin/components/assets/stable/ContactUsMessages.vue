@@ -3,52 +3,61 @@
   <div class="text-md-center contact-us-message-top">
     <h1><b>Feedbacks</b></h1>
     <p class="text-spacing5">incoming communication messages</p>
+    <small>Total message  {{ getTotalContact }}</small>
   </div>
   <div class="d-flex justify-content-center align-items-center">
 
-    <div class="col-6 col-xl-3" v-for="(contact, index) in contacts" :key="index">
-      <div class="contact-us-message-card">
-         <div class="text-center pt-3">
-           <h1><i class="far fa-user-circle"></i></h1>
-         </div>
-          <div class="px-3">
-            <b><span class="badge badge-secondary px-3"><i class="fas fa-at"></i></span> {{contact.contactMail}}</b>
-            <br>
-            <b><span class="badge badge-secondary px-3"><i class="fas fa-paperclip"></i></span> Description;</b>
-            <b class="list-group-item">{{contact.contactDescription}}</b>
-
-            <span v-if="contact.contactAcceptFeedback"><span class="badge badge-success">Conditions: <i>Accepted!</i></span></span>
-
-          </div>
-       </div>
+    <div>
+      <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Mail</th>
+          <th scope="col">To accept</th>
+          <th style="min-width: 200px" scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(contact, index) in getFeedbacks.reverse()" :key="index">
+          <th scope="row">{{ index +1 }}</th>
+          <td>{{contact.contactMail}}</td>
+          <td><span v-if="contact.contactAcceptFeedback"><span class="badge badge-success">Conditions: <i>Accepted!</i></span></span></td>
+          <td>{{contact.contactDescription}}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
+
+
+
   </div>
 </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   name: 'ContactUsMessages',
-  data() {
-    return {
-      contacts: []
-    }
+  computed: {
+    ...mapGetters([
+        'getFeedbacks',
+        'getTotalContact',
+    ])
   },
    methods: {
     ...mapActions([
         'getContacts',
     ]),
-    getFeedbacks() {
-      axios
-          .get("https://soundair-api.herokuapp.com/contacts")
-          .then((response) => {
-            this.contacts = response.data.data;
-            console.log(response)
-          })
-      },
+    // getFeedbacks() {
+    //   axios
+    //       .get("https://soundair-api.herokuapp.com/contacts")
+    //       .then((response) => {
+    //         this.contacts = response.data.data;
+    //         console.log(response)
+    //       })
+    //   },
    },
   mounted() {
     this.getContacts();
@@ -59,19 +68,11 @@ export default {
 
 <style scoped>
 .container-top {
-  padding: 100px;
+  padding: 50px;
 }
 
-.contact-us-message-card {
-  width: 100%;
-  min-height: 400px;
-  background-color: white;
-  box-shadow: 0 0 2px 1px #cecece;
-  border-radius: 10px;
-  margin-top: 30px;
-}
-
-.list-group-item {
-  min-height: 250px;
+.table-striped {
+ width: 1000px;
+  border-radius: 0 0 10px 10px;
 }
 </style>
