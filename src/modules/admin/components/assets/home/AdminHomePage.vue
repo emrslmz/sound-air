@@ -32,7 +32,7 @@
             <h5 class="card-title">Feedbacks</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="pt-5 text-center">
-              <router-link to="/admin/upload-sound">
+              <router-link to="/admin/contact-us-messages">
                 <button class="btn btn-dark btn-sm button-upload-sound"><i class="far fa-eye"></i> Look</button>
               </router-link>
             </div>

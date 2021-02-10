@@ -52,11 +52,6 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Uploaded',
-  data() {
-    return {
-      getSound: [],
-    }
-  },
   computed: {
     ...mapGetters([
         'getAdminSound',

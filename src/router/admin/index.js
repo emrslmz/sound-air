@@ -34,5 +34,13 @@ export default [{
             },
             component: () => import('@/modules/admin/components/assets/stable/dashboard/EditSounds.vue'),
         },
+        {
+            name: 'ContactUsMessages',
+            path: 'contact-us-messages',
+            meta: {
+                title: 'Contact, Feedback Messages',
+            },
+            component: () => import('@/modules/admin/components/assets/stable/ContactUsMessages.vue'),
+        },
     ],
 }];

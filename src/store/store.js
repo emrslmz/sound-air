@@ -3,8 +3,9 @@ import Vuex from 'vuex';
 import faq from "@/store/modules/main/faq";
 import socialMedia from "@/store/modules/main/socialMedia";
 import sounds from "@/store/modules/main/sound/sounds";
-import adminSound from "@/store/modules/admin/sound/adminSound";
+import editAndLookSound from "@/store/modules/admin/sound/editAndLookSound";
 import uploadSound from "@/store/modules/admin/sound/uploadSound";
+import contactMessage from "@/store/modules/admin/contact/contactMessage";
 
 Vue.use(Vuex);
 
@@ -13,8 +14,9 @@ export default new Vuex.Store({
         faq,
         socialMedia,
         sounds,
-        adminSound,
-        uploadSound
+        editAndLookSound,
+        uploadSound,
+        contactMessage
     }
 })
 
