@@ -35,7 +35,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <strong>Total messages have been sent :</strong>
               <span class="badge badge-dark badge-pill" v-if="getTotalContact > 0">{{  getTotalContact }}</span>
-              <span class="badge badge-light badge-pill" v-else-if="getTotalContact === 0">We Haven't Message!</span>
+              <span class="badge badge-dark badge-pill" v-else-if="getTotalContact === 0">We Haven't Message!</span>
               <span class="badge badge-dark badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
             </div>
             <div class="pt-5 text-center">
