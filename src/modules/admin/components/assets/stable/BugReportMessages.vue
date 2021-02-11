@@ -1,18 +1,18 @@
 <template>
 <div class="container-top">
   <div class="text-md-center contact-us-message-top">
-    <h1><b>Feedbacks</b></h1>
+    <h1><b>Mistakes</b></h1>
         <p v-if="getBugDeleteStatus === 200">
           <the-success-card text="Deletion successful!" />
         </p>
-        <p class="text-spacing5" v-else>incoming communication messages</p>
+        <p class="text-spacing5" v-else>incoming error notifications</p>
     <small v-if="getTotalBug > 0">Total message:  {{ getTotalBug }}</small>
     <small v-else-if="getTotalBug === 0">We haven't Bug!</small>
     <small v-else><i class="fas fa-spinner fa-pulse"></i></small>
   </div>
   <div class="d-flex justify-content-center align-items-center">
 
-    <div>
+    <div class="col-10">
       <table class="table table-striped table-dark text-left">
         <thead>
         <tr class="text-center table-top">
@@ -33,12 +33,12 @@
           <td>{{ mistakes.mistakeSubject }}</td>
           <td><span class="badge badge-success w-50"><i class="fas fa-hashtag"></i><i>{{ mistakes.mistakeCode }}</i></span></td>
           <td>{{ mistakes.mistakeDescription}}</td>
-          <td><button class="btn btn-danger btn-sm w-100 bug-delete" @click="deleteBug(mistakes, index)">Delete</button></td>
+          <td><button class="btn btn-danger btn-sm w-100 bug-delete-button" @click="deleteBug(mistakes, index)">Delete</button></td>
         </tr>
         </tbody>
-        <div class="text-center" v-else>
+        <tbody class="text-center" v-else>
           <h6><i class="fas fa-spinner fa-pulse"></i></h6>
-        </div>
+        </tbody>
       </table>
     </div>                                                          
 
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import TheSuccessCard from './cards/TheSuccessCard.vue';
 import { mapGetters, mapActions } from 'vuex';
+import TheSuccessCard from './cards/TheSuccessCard.vue';
 
 export default {
   name: 'ContactUsMessages',
@@ -84,12 +84,11 @@ export default {
 }
 
 .table-striped {
- width: 1000px;
+ width: 100%;
   border-radius: 0 0 10px 10px;
 }
 
-
-.bug-delete {
+.bug-delete-button {
   min-width: 100px;
   border: 1px solid #DC3545;
   font-weight: bold;
@@ -99,7 +98,7 @@ export default {
   transition: 0.4s;
 }
 
-.bug-delete:hover {
+.bug-delete-button:hover {
   color: white;
   background-color: #C82333;
   transition: 0.5s;

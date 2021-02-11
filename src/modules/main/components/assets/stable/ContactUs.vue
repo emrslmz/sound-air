@@ -106,31 +106,6 @@ export default {
        if (this.getContactStatus !== 200) {
          this.postContact(getNewContact);
        }
-
-        // if (this.sendConfirm !== 200) {
-        //   axios
-        //       .post("https://soundair-api.herokuapp.com/contacts", {
-        //         contactName: this.newContact.contactName,
-        //         contactMail: this.newContact.contactMail,
-        //         contactDescription: this.newContact.contactDescription,
-        //         contactAcceptFeedback: this.newContact.contactAcceptFeedback,
-        //       })
-        //       .then((response) => {
-        //         // console.log(response)
-        //         this.newContact.contactName = '';
-        //         this.newContact.contactMail = null;
-        //         this.newContact.contactDescription = '';
-        //         this.newContact.contactAcceptFeedback = null;
-        //         //200 OK
-        //         console.log(response.status)
-        //         this.sendConfirm = response.status;
-        //       })
-        //       .catch((error) => {
-        //         //400 BAD REQUEST
-        //         console.log(error.request.status);
-        //         this.sendConfirm = error.request.status;
-        //       })
-        // }
     }
   }
 }

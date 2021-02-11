@@ -5,7 +5,7 @@ import socialMedia from "@/store/modules/main/socialMedia";
 import sounds from "@/store/modules/main/sound/sounds";
 import deleteEditSounds from "@/store/modules/admin/sound/deleteEditSounds";
 import uploadSound from "@/store/modules/admin/sound/uploadSound";
-import contactFetch from "@/store/modules/admin/contact/contactFetch";
+import deleteFetchContacts from "@/store/modules/admin/contact/deleteFetchContacts";
 import contactSend from "@/store/modules/main/contactSend";
 import bugReportMessages from "@/store/modules/admin/contact/bugReportMessages";
 
@@ -18,7 +18,7 @@ export default new Vuex.Store({
         sounds,
         deleteEditSounds,
         uploadSound,
-        contactFetch,
+        deleteFetchContacts,
         contactSend,
         bugReportMessages,
     }
