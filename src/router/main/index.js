@@ -66,5 +66,13 @@ export default [{
             },
             component: () => import('@/modules/main/components/assets/stable/ShareApp.vue'),
         },
+        {
+            name: 'AccordingWeather',
+            path: 'according-to-weather',
+            meta: {
+                title: 'According to the Weather sounds',
+            },
+            component: () => import('@/modules/main/components/assets/stable/AccordingWeather.vue'),
+        },
     ],
 }];

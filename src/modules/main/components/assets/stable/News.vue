@@ -10,14 +10,23 @@
       <div class="d-flex row">
         <div class="col-12 col-md-4">
 
-        <!--SMALL PHOTOS AREA-->
+
+<!--          <div class="card">-->
+<!--      &lt;!&ndash;  <div class="not-found-images" style="background-image: url('/images/img/image-not-found.png')"></div>&ndash;&gt;-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title text-left">We are on Twitter!</h5>-->
+<!--              <a class="twitter-timeline" data-theme="light" href="https://twitter.com/SoundAiir?ref_src=twsrc%5Etfw"></a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+          <!--SMALL PHOTOS AREA-->
           <div class="card">
-            <div class="not-found-images" style="background-image: url('/images/img/image-not-found.png')"></div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+          <div class="not-found-images" style="background-image: url('/images/img/image-not-found.png')"></div>
+          <div class="card-body" >
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
+        </div>
         <!--/SMALL PHOTOS AREA-->
 
         </div>
@@ -39,6 +48,7 @@
    </div>
   </div>
 </template>
+
 
 
 <style scoped>

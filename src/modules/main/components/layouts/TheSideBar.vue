@@ -3,7 +3,9 @@
     <div class="d-flex justify-content-around align-items-center px-3 py-3">
       <div class="sidebar-top-box">
           <div class="d-flex justify-content-center align-items-center py-3">
-            <router-link to="/"><h3 class="side-bar-icon"><i class="fas fa-home text-dark"></i></h3></router-link>
+            <router-link to="/">
+              <h3 class="side-bar-icon"><i class="fas fa-home text-dark"></i></h3>
+            </router-link>
           </div>
       </div>
       <div class="sidebar-top-box">
@@ -18,7 +20,9 @@
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-          <h3 class="side-bar-icon"><i class="fas fa-search-location text-dark"></i></h3>
+         <router-link to="according-to-weather">
+           <h3 class="side-bar-icon"><i class="fas fa-search-location text-dark"></i></h3>
+         </router-link>
         </div>
       </div>
     </div>
@@ -57,10 +61,16 @@
               <h5><span><i class="fas fa-share-alt"></i></span> Share the app!</h5>
             </div>
           </router-link>
+
         </div>
     </div>
     <!-- FOOTER-->
     <div class="footer-sidebar">
+<!--      <div class="d-flex justify-content-around">-->
+<!--        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>-->
+
+<!--        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&width=67&height=20&appId" width="67" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">Share</iframe>-->
+<!--      </div>-->
       <the-footer />
     </div>
     <!-- FOOTER-->

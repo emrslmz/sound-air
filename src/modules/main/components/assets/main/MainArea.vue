@@ -38,7 +38,7 @@
     </div>
     
     <div class="text-center pt-5">
-      <small><a href="#">*Terms and conditions</a> apply.</small>
+      <small><router-link to="privacy-and-terms">*Terms and conditions</router-link> apply.</small>
     </div>
 
   </div>
