@@ -35,13 +35,20 @@
 
               <div class="form-label text-xl-left pt-2" align="center">
                 <label>
-                  <i class="fas fa-volume-up"></i> Audio Volume
-                  <input class="form-control" placeholder="rain1.mp3" v-model="getPostSounds.volume" type="number">
+                  <i class="fas fa-volume-up"></i> Number
+                  <input class="form-control" placeholder="1-2-3..." v-model.number="getPostSounds.soundNumber" type="number">
+                </label>
+              </div>
+
+              <div class="form-label text-xl-left pt-2" align="center">
+                <label>
+                  <i class="fas fa-sort-numeric-down-alt"></i> Audio Volume
+                  <input class="form-control" placeholder="min: 1, max: 100" v-model.number="getPostSounds.volume" type="number">
                 </label>
               </div>
 
             </div>
-            <div class="col-12 col-xl-6 pt-3">
+            <div class="col-12 col-xl-6 pt-5">
 
               <div class="d-flex justify-content-between align-items-center text-xl-right pl-xl-5 ml-xl-5" align="center">
                 <div>
