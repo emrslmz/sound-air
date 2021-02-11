@@ -12,7 +12,8 @@
 
               <div class="d-flex justify-content-between align-items-center">
                 <strong>Total sound loaded:</strong>
-                <span class="badge badge-dark badge-pill" v-if="getTotalAdminSound">{{  getTotalAdminSound }}</span>
+                <span class="badge badge-dark badge-pill" v-if="getTotalAdminSound > 0">{{  getTotalAdminSound }}</span>
+                <span class="badge badge-light badge-pill" v-else-if="getTotalAdminSound === 0">We Haven't uploaded sound!</span>
                 <span class="badge badge-dark badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
               </div>
             <hr>
@@ -33,7 +34,8 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="d-flex justify-content-between align-items-center">
               <strong>Total messages have been sent :</strong>
-              <span class="badge badge-dark badge-pill" v-if="getTotalContact">{{  getTotalContact }}</span>
+              <span class="badge badge-dark badge-pill" v-if="getTotalContact > 0">{{  getTotalContact }}</span>
+              <span class="badge badge-light badge-pill" v-else-if="getTotalContact === 0">We Haven't Message!</span>
               <span class="badge badge-dark badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
             </div>
             <div class="pt-5 text-center">
@@ -67,7 +69,8 @@
             <p class="card-text">Review the submitted errors, make a return</p>
             <div class="d-flex justify-content-between align-items-center">
               <strong>Bugs reported:</strong>
-              <span class="badge badge-light badge-pill" v-if="getTotalBug">{{  getTotalBug }}</span>
+              <span class="badge badge-light badge-pill" v-if="getTotalBug > 0">{{  getTotalBug }}</span>
+              <span class="badge badge-light badge-pill" v-else-if="getTotalBug === 0">We Haven't bug!</span>
               <span class="badge badge-light badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
             </div>
             <div class="pt-5 text-center">
