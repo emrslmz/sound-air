@@ -7,7 +7,7 @@
        <p class="text-spacing5">you can find some of the issues you are facing here</p>
      </div>
 
-      <div class="d-flex row">
+      <div class="d-flex justify-content-center align-items-center row">
 
         <!--CARD-->
         <div class="col-12 col-md-4" v-for="(faq,index) in getFAQ" :key="index">

@@ -36,7 +36,7 @@
               <i class="fas fa-at py-3 px-3"></i>
               <input class="px-xl-3"  placeholder="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
             </div>
-           <small class="text-gray px-2"><label>Email address is for communication only. <a href="#" class="text-green">Learn more.</a></label></small>
+           <small class="text-gray px-2"><label>Email address is for communication only. <router-link to="privacy-and-terms" class="text-green">Learn more.</router-link></label></small>
          </div>
        </div>
 

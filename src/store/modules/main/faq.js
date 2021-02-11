@@ -10,11 +10,6 @@ const state = {
             description: 'If you see this error code, there are spaces you forgot to fill in before submitting the form. Fill or mark the spaces indicated in red.',
             status: 'errorCode'
         },
-        {
-            title: '88',
-            description: '1111If you see this error code, there are spaces you forgot to fill in before submitting the form. Fill or mark the spaces indicated in red.',
-            status: 'errorCode'
-        },
     ]
 }
 
