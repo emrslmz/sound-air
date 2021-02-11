@@ -8,10 +8,10 @@
        <p class="text-spacing5">your feedback is valuable to us.</p>
 
        <transition name="component-fade">
-          <the-success-card v-if="this.sendConfirm === 200"></the-success-card>
+          <the-success-card v-if="this.getContactStatus === 200"></the-success-card>
        </transition>
        <transition name="component-fade">
-          <the-danger-card errorCode="5734" v-if="this.sendConfirm === 400"></the-danger-card>
+          <the-danger-card errorCode="5734" v-if="this.getContactStatus === 400"></the-danger-card>
        </transition>
      </div>
 
@@ -23,7 +23,7 @@
            <h6>Name <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6 form-contact" align="left">
-           <input class="px-3" placeholder="max_stone" v-model="newContact.contactName" type="text">
+           <input class="px-3" placeholder="max_stone" v-model="getNewContact.contactName" type="text">
          </div>
        </div>
 
@@ -32,9 +32,9 @@
            <h6>Email Address <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6" align="left">
-            <div class="d-xl-flex justify-content-start" style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}">
+            <div class="d-xl-flex justify-content-start" style="border-radius: 10px" :style="{ border: [ this.getContactStatus === 400 ? '2px solid red' : '']}">
               <i class="fas fa-at py-3 px-3"></i>
-              <input class="px-xl-3"  placeholder="nick.watson@loop.com" v-model="newContact.contactMail" type="email">
+              <input class="px-xl-3"  placeholder="nick.watson@loop.com" v-model="getNewContact.contactMail" type="email">
             </div>
            <small class="text-gray px-2"><label>Email address is for communication only. <router-link to="privacy-and-terms" class="text-green">Learn more.</router-link></label></small>                                                                              z
          </div>
@@ -47,7 +47,7 @@
          <h6>Description <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6 form-contact" align="left">
-         <textarea class="form-control px-3" v-model="newContact.contactDescription" placeholder="Your application is really successful, but " type="text" />
+         <textarea class="form-control px-3" v-model="getNewContact.contactDescription" placeholder="Your application is really successful, but " type="text" />
        </div>
      </div>
 
@@ -60,8 +60,8 @@
            <div class="d-xl-flex align-items-center">
              <label class="checkbox-input text-left">
                I would like to receive notifications for feedback and updates.
-               <input type="checkbox"  v-model="newContact.contactAcceptFeedback" />
-               <span style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}" class="checkmark"></span>
+               <input type="checkbox"  v-model="getNewContact.contactAcceptFeedback" />
+               <span style="border-radius: 10px" :style="{ border: [ this.getContactStatus === 400 ? '2px solid red' : '']}" class="checkmark"></span>
              </label>
            </div>
          </div>
@@ -72,7 +72,7 @@
      <div class="d-xl-flex justify-content-around align-items-center py-2">
        <div class="col-12 col-xl-6 text-xl-center"></div>
        <div class="d-flex col-12 col-xl-6">
-         <div class="submit-contact-us-button" :title="this.sendConfirm === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendContactUs()" :class="this.sendConfirm === 200 ? 'disabled' : 'active'" >Submit</button></div>
+         <div class="submit-contact-us-button" :title="this.getContactStatus === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendContactUs(getNewContact)" :class="this.getContactStatus === 200 ? 'disabled' : 'active'" >Submit</button></div>
        </div>
      </div>
 
@@ -82,53 +82,55 @@
 
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import TheSuccessCard from '../dashboard/TheSuccessCard.vue';
 import TheDangerCard from '../dashboard/TheDangerCard.vue';
-import axios from 'axios';
 
 export default {
   components: {
     TheSuccessCard,
     TheDangerCard
   },
-  data() {
-    return {
-      newContact: {
-        contactName: '',
-        contactMail: null,
-        contactDescription: '',
-        contactAcceptFeedback: null,
-      },
-      sendConfirm: null 
-
-    }
+  computed: {
+    ...mapGetters([
+        'getNewContact',
+        'getContactStatus',
+    ])
   },
   methods: {
-    sendContactUs() {
-        if (this.sendConfirm !== 200) {
-          axios
-              .post("https://soundair-api.herokuapp.com/contacts", {
-                contactName: this.newContact.contactName,
-                contactMail: this.newContact.contactMail,
-                contactDescription: this.newContact.contactDescription,
-                contactAcceptFeedback: this.newContact.contactAcceptFeedback,
-              })
-              .then((response) => {
-                // console.log(response)
-                this.newContact.contactName = '';
-                this.newContact.contactMail = null;
-                this.newContact.contactDescription = '';
-                this.newContact.contactAcceptFeedback = null;
-                //200 OK
-                console.log(response.status)
-                this.sendConfirm = response.status;
-              })
-              .catch((error) => {
-                //400 BAD REQUEST
-                console.log(error.request.status);
-                this.sendConfirm = error.request.status;
-              })
-        }
+    ...mapActions([
+        'postContact',
+    ]),
+
+    sendContactUs(getNewContact) {
+       if (this.getContactStatus !== 200) {
+         this.postContact(getNewContact);
+       }
+
+        // if (this.sendConfirm !== 200) {
+        //   axios
+        //       .post("https://soundair-api.herokuapp.com/contacts", {
+        //         contactName: this.newContact.contactName,
+        //         contactMail: this.newContact.contactMail,
+        //         contactDescription: this.newContact.contactDescription,
+        //         contactAcceptFeedback: this.newContact.contactAcceptFeedback,
+        //       })
+        //       .then((response) => {
+        //         // console.log(response)
+        //         this.newContact.contactName = '';
+        //         this.newContact.contactMail = null;
+        //         this.newContact.contactDescription = '';
+        //         this.newContact.contactAcceptFeedback = null;
+        //         //200 OK
+        //         console.log(response.status)
+        //         this.sendConfirm = response.status;
+        //       })
+        //       .catch((error) => {
+        //         //400 BAD REQUEST
+        //         console.log(error.request.status);
+        //         this.sendConfirm = error.request.status;
+        //       })
+        // }
     }
   }
 }
