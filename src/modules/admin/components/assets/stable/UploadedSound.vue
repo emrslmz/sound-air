@@ -27,6 +27,7 @@
                     <h6><small class="badge badge-primary"><i class="fas fa-passport"></i> {{ sounds.id }}</small></h6>
                   </div>
                   <h6><small><i class="far fa-file-audio"></i> Audio Name: <b>{{ sounds.audioName }}</b></small></h6>
+                  <h6><small><i class="fas fa-sort-numeric-up"></i> Sound Number: <b>{{ sounds.soundNumber }}</b></small></h6>
                   <h6 v-if="sounds.showSound"><small><i class="fas fa-toggle-on text-green"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
                   <h6 v-else><small><i class="fas fa-toggle-off text-red"></i> Show Status: <b>{{ sounds.showSound }}</b></small></h6>
                 </div>
