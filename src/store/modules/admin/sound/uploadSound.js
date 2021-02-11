@@ -11,56 +11,75 @@ const state = {
         volumeButtonMute: false,
         active: false,
         showSound: true,
+        soundNumber: 0
     },
     sendConfirm: null
 }
 
-
 const getters = {
-    getUploadSound(state) {
-        return state.postSound;
+    getPostSounds(state) {
+      return state.postSound;
     },
     getSendConfirm(state) {
-        return state.sendConfirm;
+      return state.sendConfirm;
     }
 }
 
 const mutations = {
-
+    RETURN_POST(state, returnPost) {
+        state.postSound = returnPost;
+    },
+    POST_STATUS(state, status) {
+        state.sendConfirm = status;
+    }
 }
 
 const actions = {
-   postSounds({ commit }, state) {
-       axios
-           .post("https://soundair-api.herokuapp.com/audios", {
-               name: state.name,
-               description: 'Audios for Sound AIR',
-               icon: state.icon,
-               audioName: state.audioName,
-               volume: 100,
-               showButton: false,
-               volumeButtonMute: false,
-               active: false,
-               showSound: state.showSound,
-           })
-           .then((response) => {
-               // console.log(response)
-               Object.keys(state.postSound).forEach((key) => {
-                   state.postSound[key] = null;
-               });
+    postedSound({ commit }, getPostSounds ) {
+        axios
+            .post("https://soundair-api.herokuapp.com/audios", {
+                name: getPostSounds.name,
+                description: 'Audios for Sound AIR',
+                icon: getPostSounds.icon,
+                audioName: getPostSounds.audioName,
+                volume: getPostSounds.volume,
+                showButton: getPostSounds.showButton,
+                volumeButtonMute: getPostSounds.volumeButtonMute,
+                active: getPostSounds.active,
+                showSound: getPostSounds.showSound,
+                soundNumber: getPostSounds.soundNumber
+            })
+            .then((response) => {
+                
+               const returnPost = {
+                   name: '',
+                   description: 'Audios for Sound AIR',
+                   icon: '',
+                   audioName: '',
+                   volume: 100,
+                   showButton: false,
+                   volumeButtonMute: false,
+                   active: false,
+                   showSound: true,
+                   soundNumber: 0
+               }
 
-               commit('UPLOAD_SOUND')
+                commit('RETURN_POST', returnPost);
 
-               //200 OK
-               // console.log(response.status)
-               state.sendConfirm = response.status;
-           })
-           .catch((error) => {
-               //400 BAD REQUEST
-               // console.log(error.request.status);
-               state.sendConfirm = error.request.status;
-           })
-   }
+                const status = response.status;
+
+                commit('POST_STATUS', status);
+
+                // Object.keys(this.postSound).forEach((key) => {
+                //     this.postSound[key] = null;
+                // });
+            })
+            .catch((error) => {
+                //400 BAD REQUEST
+                // console.log(error.request.status);
+                state.sendConfirm= error.request.status;
+            })
+    }
 }
 
 export default {
