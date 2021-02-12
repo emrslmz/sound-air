@@ -9,6 +9,7 @@ import deleteFetchContacts from "@/store/modules/admin/contact/deleteFetchContac
 import contactSend from "@/store/modules/main/contactSend";
 import bugReportMessages from "@/store/modules/admin/contact/bugReportMessages";
 import errorSend from "@/store/modules/main/errorSend";
+import rateSend from "@/store/modules/main/rateSend";
 
 Vue.use(Vuex);
 
@@ -22,7 +23,8 @@ export default new Vuex.Store({
         deleteFetchContacts,
         contactSend,
         bugReportMessages,
-        errorSend
+        errorSend,
+        rateSend,
     }
 })
 

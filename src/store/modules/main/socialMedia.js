@@ -14,7 +14,7 @@ const state = {
                 'fab fa-twitter',
                 'text-twitter',
             ],
-            socialLink: 'https://www.twitter.com/',
+            socialLink: 'https://twitter.com/SoundAiir',
         },
         {
             socialName: 'Discord',
