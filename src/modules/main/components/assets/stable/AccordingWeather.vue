@@ -13,39 +13,12 @@
      </div>
      <div class="py-3">
 
-       <button class="btn btn-danger" @click="startTimer()">Başlat</button>
+
      </div>
    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Weather',
-  data() {
-    return {
-      timer: {
-        minutes: 0,
-        seconds: 0,
-      }
-    }
-  },
-  methods: {
-    increamentTime() {
-      this.timer += 5;
-    },
-    decreamentTime() {
-      this.timer -= 5;
-    },
-    startTimer() {
-      setInterval(() => {
-        this.timer.minutes--;
-      },1000);
-    }
-  },
-
-}
-</script>
 
 
 <style scoped>

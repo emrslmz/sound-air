@@ -10,7 +10,7 @@
       </div>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3">
-            <h3 class="side-bar-icon" @click="callFunction()"><i class="fas fa-stopwatch text-dark"></i></h3>
+            <h3 class="side-bar-icon" @click="showStopwatch = !showStopwatch"><i class="fas fa-stopwatch text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
@@ -29,7 +29,12 @@
     
     <div class="flex-column side-bar-middle py-4 px-3">
         <div class="container">
-
+           <div class="side-bar-middle-title text-white" v-if="showStopwatch">
+              <the-stopwatch v-if="showStopwatch" />
+           </div>
+          <div v-else>
+            <p class="py-3"></p>
+          </div>
           <router-link to="news">
             <div class="side-bar-middle-title text-white">
                 <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
@@ -80,12 +85,19 @@
 
 <script>
 import TheFooter from './TheFooter.vue';
+import TheStopwatch from './TheStopwatch.vue';
 
 export default {
   name: 'SideBar',
   components: {
-    TheFooter
+    TheFooter,
+    TheStopwatch
   },
+  data() {
+    return {
+        showStopwatch: false,
+    }
+  }
 }
 </script>
 
