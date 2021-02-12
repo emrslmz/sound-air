@@ -168,10 +168,6 @@ export default {
   padding-top: 30px;
 }
 
-
-
-
-
 .checkbox-input {
   font-weight: bold;
   display: block;

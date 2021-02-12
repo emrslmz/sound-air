@@ -13,20 +13,26 @@
       </div>
       <div class="d-xl-flex justify-content-center pt-5">
         <div class="vote-group">
-          <h2 @click="rateButton(getRatePoint.rateFish)"><i class="fas fa-fish text-fish"></i></h2>
+          <h2> <label for="rate_fish"><i class="fas fa-fish text-fish"></i></label></h2>
+          <input id="rate_fish" v-model="getRatePost.rateFish" type="radio">
           <strong>I do not like<br> <small>It wasn't nice</small></strong>
         </div>
         <div class="vote-group">
-          <h2 @click="rateButton(getRatePoint.rateCat)"><i class="fas fa-cat text-cat"></i></h2>
+          <h2><i class="fas fa-cat text-cat"></i></h2>
           <strong>Ungrateful cat <br> <small>Neither bad nor beautiful</small></strong>
         </div>
         <div class="vote-group">
-          <h2 @click="rateButton(getRatePoint.rateSpider)"><i class="fas fa-spider text-spider"></i></h2>
+          <h2><i class="fas fa-spider text-spider"></i></h2>
           <strong>Should be improved Spider <br> <small>It would be nice if it improved</small></strong>
         </div>
         <div class="vote-group">
-          <h2 @click="rateButton(getRatePoint.rateDragon)"><i class="fas fa-dragon text-dragon"></i></h2>
+          <h2><i class="fas fa-dragon text-dragon"></i></h2>
           <strong>EXTRAORDINARY <br> <small>Unbelievable</small></strong>
+        </div>
+      </div>
+      <div class="text-center pt-4">
+        <div>
+          <div class="submit-rate-button" @click="rateButton(getRatePost)"><button class="btn btn-sm">Submit</button></div>
         </div>
       </div>
     </div>
@@ -34,22 +40,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'RateUs',
   computed: {
     ...mapGetters([
-        'getRatePoint'
+        'getRatePost'
     ])
   },
   methods: {
-    rateButton(id) {
-      if (this.getRatePoint.ratePointSend) {
-        console.log('zaten gönderildi');
-      }  else {
-        console.log(id);
-        this.getRatePoint.ratePointSend = true;
-      }
+    ...mapActions([
+       'postRate'
+    ]),
+    rateButton(getRatePost) {
+      this.postRate(getRatePost);
     }
   }
 }
@@ -79,5 +83,18 @@ export default {
 
 .vote-group small {
   font-size: 8px;
+}
+
+.submit-rate-button button {
+  border-radius: 10px;
+  background-color: #20D489;
+  color: white;
+  font-weight: bold;
+}
+
+.submit-rate-button button:hover {
+  background-color: #28ffa7;
+  font-weight: bold;
+  color: white;
 }
 </style>

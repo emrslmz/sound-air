@@ -1,4 +1,4 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 const state = {
    ratePoint: {
@@ -11,7 +11,7 @@ const state = {
 }
 
 const getters = {
-  getRatePoint(state) {
+  getRatePost(state) {
       return state.ratePoint;
   }
 }
@@ -21,7 +21,14 @@ const mutations = {
 }
 
 const actions = {
-    
+     postRate(getRatePost) {
+        axios
+            .post("https://soundair-api.herokuapp.com/rates", getRatePost)
+            .then((response) => {
+                console.log(response);
+
+            })
+     }
 }
 
 export default {
