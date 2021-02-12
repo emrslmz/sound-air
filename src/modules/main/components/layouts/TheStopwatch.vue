@@ -1,16 +1,20 @@
 <template>
   <div>
-    <h6>
-      <span v-if="timer.minutes < 10">0{{ timer.minutes }}</span><span v-else>{{ timer.minutes }}</span>
-      :
-      <span v-if="timer.seconds < 10">0{{ timer.seconds }}</span><span v-else>{{timer.seconds}}</span>
-    </h6>
-    <button class="btn btn-dark btn-sm mx-1" @click="increamentTime()">Zamanı arttır</button>
-    <button class="btn btn-dark btn-sm mx-1" @click="decreamentTime()">Zamanı Azalt</button>
-    <button class="btn btn-danger" @click="startTimer()">Başlat</button>
+    <div class="text-center">
+      <h6 class="d-flex justify-content-center align-items-center">
+        <span v-if="timer.minutes < 10">0{{ timer.minutes }}</span><span v-else>{{ timer.minutes }}</span>
+        :
+        <span v-if="timer.seconds < 10">0{{ timer.seconds }}</span><span v-else>{{timer.seconds}}</span>
+      </h6>
+      <h6>
+        <span @click="decreamentTime()" v-if="!timer.shopPlusMinusButton"><i class="btn btn-danger span-stopwatch btn-sm fas fa-minus-circle"></i></span>
+        <span @click="startTimer()" v-if="!timer.playPauseButton"><i class="btn span-stopwatch btn-info btn-sm fas fa-play-circle"></i></span>
+        <span @click="stopTimer()" v-else><i class="btn span-stopwatch btn-primary btn-sm fab fa-creative-commons-zero fa-flip-horizontal"></i></span>
+        <span @click="increamentTime()" v-if="!timer.shopPlusMinusButton"><i class="btn btn-success span-stopwatch btn-sm fas fa-plus-circle"></i></span>
+      </h6>
+    </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -18,8 +22,10 @@ export default {
   data() {
     return {
       timer: {
-        minutes: 0,
+        minutes: 25,
         seconds: 0,
+        playPauseButton: false,
+        shopPlusMinusButton: false,
       }
     }
   },
@@ -33,30 +39,50 @@ export default {
       }
     },
     startTimer() {
-      if (this.timer.minutes !== 0) {
+      if (this.timer.playPauseButton === false) {
+        this.timer.shopPlusMinusButton = true;
 
-        if (this.timer.seconds > 0) {
+        if (this.timer.minutes !== 0) {
 
-          setInterval(() => {
-            if (this.timer.seconds > 0) {
-              this.timer.seconds--;
-            } else {
-              if (this.timer.minutes > 0) {
-                this.timer.minutes--;
-                this.timer.seconds = 5;
+          if (this.timer.seconds > 0) {
+
+            setInterval(() => {
+              if (this.timer.seconds > 0) {
+                this.timer.seconds--;
+              } else {
+                if (this.timer.minutes > 0) {
+                  this.timer.minutes--;
+                  this.timer.seconds = 59;
+                }
               }
-            }
-          },1000);
+            },1000);
 
-        } else {
-          this.timer.minutes--;
-          this.timer.seconds = 5;
-          this.startTimer();
-        }
+          } else {
+            this.timer.minutes--;
+            this.timer.seconds = 59;
+            this.startTimer();
+          }
+        }                                           
+        this.timer.playPauseButton = true;
+
       }
     },
+    stopTimer() {
+      this.timer.minutes = 0;
+      this.timer.seconds = 0;
+      this.timer.shopPlusMinusButton = false;
+    }
   },
 
 }
 </script>
+
+
+<style scoped>
+.span-stopwatch {
+  border-radius: 10px;
+  font-size: 12px;
+  margin: 0 3px 0 3px;
+}
+</style>
 

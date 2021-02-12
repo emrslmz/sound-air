@@ -9,8 +9,8 @@
           </div>
       </div>
       <div class="sidebar-top-box">
-        <div class="d-flex justify-content-center align-items-center py-3">
-            <h3 class="side-bar-icon" @click="showStopwatch = !showStopwatch"><i class="fas fa-stopwatch text-dark"></i></h3>
+        <div class="d-flex justify-content-center align-items-center py-3" @click="showStopwatch = !showStopwatch">
+            <h3 class="side-bar-icon"><i class="fas fa-stopwatch text-dark"></i></h3>
         </div>
       </div>
       <div class="sidebar-top-box">
@@ -30,11 +30,8 @@
     <div class="flex-column side-bar-middle py-4 px-3">
         <div class="container">
            <div class="side-bar-middle-title text-white" v-if="showStopwatch">
-              <the-stopwatch v-if="showStopwatch" />
+              <the-stopwatch />
            </div>
-          <div v-else>
-            <p class="py-3"></p>
-          </div>
           <router-link to="news">
             <div class="side-bar-middle-title text-white">
                 <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
@@ -170,4 +167,5 @@ export default {
   text-decoration: none;
 
 }
+
 </style>

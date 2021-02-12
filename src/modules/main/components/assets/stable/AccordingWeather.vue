@@ -2,14 +2,8 @@
   <div>
    <div class="text-center pt-5">
      <h1>Weather</h1>
-     <div>
-       <h6>
-         <span v-if="timer.minutes < 10">0{{ timer.minutes }}</span><span v-else>{{ timer.minutes }}</span>
-         :
-        <span v-if="timer.seconds < 10">0{{ timer.seconds }}</span><span v-else>{{timer.seconds}}</span>
-       </h6>
-       <button class="btn btn-dark btn-sm mx-1" @click="increamentTime()">Zamanı arttır</button>
-       <button class="btn btn-dark btn-sm mx-1" @click="decreamentTime()">Zamanı Azalt</button>
+     <div class="maps">
+       <iframe src="https://www.meteoblue.com/tr/hava/maps/widget/%c4%b0stanbul_t%c3%bcrkiye_745044?windAnimation=0&windAnimation=1&gust=0&satellite=0&satellite=1&coronaWeatherScore=0&geoloc=fixed&tempunit=C&windunit=km%252Fh&lengthunit=metric&zoom=1&autowidth=auto"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%; height: 720px"></iframe>
      </div>
      <div class="py-3">
 
@@ -23,4 +17,7 @@
 
 <style scoped>
 
+.maps iframe {
+  border-radius: 1000px 1000px 0 0;
+}
 </style>
