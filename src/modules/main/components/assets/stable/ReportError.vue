@@ -8,10 +8,10 @@
        <p class="text-spacing5">fill out the form to help us improve</p>
 
        <transition name="component-fade">
-         <the-success-card v-if="sendConfirm === 200" />
+         <the-success-card v-if="getPostMistakeStatus === 200" />
        </transition>
        <transition name="component-fade">
-         <the-danger-card errorCode="5734" v-if="sendConfirm === 400" />
+         <the-danger-card errorCode="5734" v-if="getPostMistakeStatus === 400" />
        </transition>
      </div>
 
@@ -22,7 +22,7 @@
            <h6>Your Name <b>*</b></h6>
          </div>
          <div class="col-12 col-xl-6 form-report-error" align="left">
-           <input class="px-3" placeholder="max Stone" v-model="newReport.mistakeHunterName" type="text">
+           <input class="px-3" placeholder="max Stone" v-model="getNewReport.mistakeHunterName" type="text">
          </div>
        </div>
 
@@ -32,9 +32,9 @@
          </div>
          <div class="col-12 col-xl-6" align="left">
            <div class="d-xl-flex justify-content-start align-items-center form-report-error-mail">
-             <div style="border-radius: 10px" :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}">
+             <div style="border-radius: 10px" :style="{ border: [ getPostMistakeStatus === 400 ? '2px solid red' : '']}">
                <i class="fas fa-at py-3 px-3"></i>
-               <input class="px-xl-3" placeholder="nick.watson@loop.com"  v-model="newReport.mistakeHunterMail" type="email">
+               <input class="px-xl-3" placeholder="nick.watson@loop.com"  v-model="getNewReport.mistakeHunterMail" type="email">
              </div>
 
            </div>
@@ -48,7 +48,7 @@
            <h6>About which subject </h6>
          </div>
          <div class="col-12 col-xl-6 form-report-error" align="left">
-           <select v-model="newReport.mistakeSubject" class="px-xl-3">
+           <select v-model="getNewReport.mistakeSubject" class="px-xl-3">
              <option disabled value="">Select Please..</option>
              <option>None</option>
              <option>General</option>
@@ -64,8 +64,8 @@
        </div>
        <div class="col-12 col-xl-6" align="left">
          <div class="d-xl-flex justify-content-start form-report-error-code" style="border-radius: 10px">
-           <i @click="findErrorCode()" class="fas fa-hashtag py-3 px-3 text-green cursor-pointer"></i>
-           <input class="px-xl-3" v-model="newReport.mistakeCode" placeholder="example: 57" type="text">
+           <i @click="findErrorCode(getNewReport)" class="fas fa-hashtag py-3 px-3 text-green cursor-pointer"></i>
+           <input class="px-xl-3" v-model="getNewReport.mistakeCode" placeholder="example: 57" type="text">
          </div>
          <small class="text-gray px-2"><label>If you have, I can find a solution quickly. <br> Click the button(#) on the left <a href="#" class="text-green">Heavily reported issues</a></label></small>
        </div>
@@ -77,14 +77,14 @@
          <h6>Brief description of the error location <b>*</b></h6>
        </div>
        <div class="col-12 col-xl-6 form-report-error" align="left">
-         <textarea placeholder="header/footer/sidebar.." :style="{ border: [ this.sendConfirm === 400 ? '2px solid red' : '']}" v-model="newReport.mistakeDescription" class="form-control px-3" type="text" />
+         <textarea placeholder="header/footer/sidebar.." :style="{ border: [ getPostMistakeStatus === 400 ? '2px solid red' : '']}" v-model="getNewReport.mistakeDescription" class="form-control px-3" type="text" />
        </div>
      </div>
 
        <div class="d-xl-flex justify-content-around align-items-center py-2">
          <div class="col-12 col-xl-6 text-xl-center"></div>
          <div class="d-flex col-12 col-xl-6">
-           <div class="submit-bug-report-button" :title="this.sendConfirm === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendError()" :class="this.sendConfirm === 200 ? 'disabled' : 'active'" >Submit</button></div>
+           <div class="submit-bug-report-button" :title="getPostMistakeStatus === 200 ? 'You already Sent!' : 'Click to send!'"><button class="btn" @click="sendError(getNewReport)" :class="getPostMistakeStatus === 200 ? 'disabled' : 'active'" >Submit</button></div>
          </div>
        </div>
 
@@ -93,8 +93,6 @@
            <the-warning-card :description="this.errorCodeSolution" />
          </div>
        </transition>
-
-
 
 
      </div>
@@ -106,8 +104,7 @@
 import TheSuccessCard from '../dashboard/TheSuccessCard.vue';
 import TheDangerCard from '../dashboard/TheDangerCard.vue';
 import TheWarningCard from "../dashboard/TheWarningCard.vue";
-import axios from "axios";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'ReportErrorPage',
@@ -118,53 +115,26 @@ export default {
   },
   data() {
     return {
-      newReport: {
-        mistakeHunterName: '',
-        mistakeHunterMail: null,
-        mistakeSubject: '',
-        mistakeCode: '',
-        mistakeDescription: null,
-      },
-      sendConfirm: null,
       errorCodeSolution: '',
       errorCodeCard: false,
     }
   },
   computed: {
     ...mapGetters([
-        'getFAQ'
+        'getFAQ',
+        'getNewReport',
+        'getPostMistakeStatus',
     ])
   },
   methods: {
-    sendError() {
-      if (this.sendConfirm !== 200) {
-        axios
-            .post("https://soundair-api.herokuapp.com/mistakes", {
-              mistakeHunterName: this.newReport.mistakeHunterName,
-              mistakeHunterMail: this.newReport.mistakeHunterMail,
-              mistakeSubject: this.newReport.mistakeSubject,
-              mistakeCode: this.newReport.mistakeCode,
-              mistakeDescription: this.newReport.mistakeDescription,
-            })
-            .then((response) => {
-              // console.log(response)
-              Object.keys(this.newReport).forEach((key) => {
-                this.newReport[key] = null;
-              });
-
-              //200 OK
-              // console.log(response.status)
-              this.sendConfirm = response.status;
-            })
-            .catch((error) => {
-              //400 BAD REQUEST
-              // console.log(error.request.status);
-              this.sendConfirm = error.request.status;
-            })
-      }
+    ...mapActions([
+        'postMistake'
+    ]),
+    sendError(getNewReport) {
+      this.postMistake(getNewReport);
     },
-    findErrorCode() {
-      const solution = this.getFAQ.find(element => element.title === this.newReport.mistakeCode);
+    findErrorCode(getNewReport) {
+      const solution = this.getFAQ.find(element => element.title === getNewReport.mistakeCode);
       if (solution === null) {
         this.errorCodeCard = false;
       } else {
