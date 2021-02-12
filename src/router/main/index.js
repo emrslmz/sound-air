@@ -74,5 +74,13 @@ export default [{
             },
             component: () => import('@/modules/main/components/assets/stable/AccordingWeather.vue'),
         },
+        {
+            name: 'RateUsPage',
+            path: 'rate-us',
+            meta: {
+                title: 'Rate us to improve',
+            },
+            component: () => import('@/modules/main/components/assets/stable/RateUs.vue'),
+        },
     ],
 }];

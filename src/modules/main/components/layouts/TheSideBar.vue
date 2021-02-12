@@ -63,6 +63,11 @@
               <h5><span><i class="fas fa-share-alt"></i></span> Share the app!</h5>
             </div>
           </router-link>
+          <router-link to="rate-us">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-medal text-gold"></i></span> Rate us</h5>
+            </div>
+          </router-link>
 
         </div>
     </div>

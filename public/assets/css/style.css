@@ -50,6 +50,26 @@
 .text-red {
     color: red;
 }
+
+.text-gold {
+    color: gold;
+}
+
+.text-fish {
+    color: #5bc1ca;
+}
+
+.text-dragon {
+    color: #914145;
+}
+
+.text-cat {
+    color: #d7ac65;
+}
+
+.text-spider {
+    color: crimson;
+}
 /***********************************************/
 /* DIFFERENT
 /***********************************************/
