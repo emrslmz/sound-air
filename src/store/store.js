@@ -10,6 +10,8 @@ import contactSend from "@/store/modules/main/contactSend";
 import bugReportMessages from "@/store/modules/admin/contact/bugReportMessages";
 import errorSend from "@/store/modules/main/errorSend";
 import rateSend from "@/store/modules/main/rateSend";
+import deleteFetchRate from "@/store/modules/admin/contact/deleteFetchRate";
+
 
 Vue.use(Vuex);
 
@@ -25,6 +27,7 @@ export default new Vuex.Store({
         bugReportMessages,
         errorSend,
         rateSend,
+        deleteFetchRate,
     }
 })
 
