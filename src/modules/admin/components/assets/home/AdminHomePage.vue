@@ -81,8 +81,31 @@
           </div>
         </div>
 
+
+
       </div>
     </div>
+
+    <div>
+      <div class="card card-rate text-white mb-3">
+        <div class="card-header"><i class="far fa-bell"></i><i> Evaluation</i> notifications </div>
+        <div class="card-body">
+          <p class="card-text">See the ratings posted by users</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong>Total votes, feedback:</strong>
+            <span class="badge badge-light badge-pill" v-if="getTotalBug > 0">{{  getTotalBug }}</span>
+            <span class="badge badge-light badge-pill" v-else-if="getTotalBug === 0">We Haven't bug!</span>
+            <span class="badge badge-light badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
+          </div>
+          <div class="pt-5 text-center">
+            <router-link to="/admin/rate-us-notification">
+              <button class="btn btn-light btn-sm button-upload-sound"><i class="far fa-eye"></i> Check</button>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -139,6 +162,12 @@ export default {
 
 .card-dark {
   min-height: 100px;
+}
+
+.card-rate {
+  width: 100%;
+  min-height: 50px;
+  background-color: saddlebrown;
 }
 
 .card {
