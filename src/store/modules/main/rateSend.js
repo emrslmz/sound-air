@@ -31,30 +31,36 @@ const state = {
             ratePoint: 7
         },
     ],
-    postRate: {
-        postPoint: null,
-    }
+    ratePostStatus: null,
 }
 
 const getters = {
     getRateOptions(state) {
         return state.rateOptions;
     },
-    getPostRate(state) {
-        return state.postRate;
+    getRateStatus(state) {
+        return state. ratePostStatus;
     }
 }
 
 const mutations = {
-
+    RATE_POST_STATUS(state, postRateStatus) {
+        state.ratePostStatus = postRateStatus;
+    }
 }
 
 const actions = {
-    postRate( rate ) {
+    postRate({ commit }, rate ) {
+        // console.log(context)
         axios
-            .post("https://soundair-api.herokuapp.com/rates", rate)
+            .post("https://soundair-api.herokuapp.com/rates", {
+                ratePoint: rate.ratePoint,
+                rateAnimals: rate.icon
+            })
             .then((response) => {
-                console.log(response);
+                // console.log(response.status);
+                const postRateStatus = response.status;
+                commit('RATE_POST_STATUS', postRateStatus);
             })
     }
 }

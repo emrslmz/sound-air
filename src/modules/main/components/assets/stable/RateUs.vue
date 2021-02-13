@@ -15,18 +15,12 @@
 
         <div class="vote-group" v-for="(rate, index) in getRateOptions" :key="index">
           <div class="flex-column">
-            <h2><label :for="rate.id"><i :class="rate.icon"></i></label></h2>
-            <input class="display-block" :id="rate.id" name="rateUs" :value="rate.ratePoint" @click="ratePointChanged(rate)" type="radio">
+            <h2 :value="rate.ratePoint" @click="ratePointChanged(rate)" :class="getRateStatus === 200 ? 'disabled' : 'cursor-pointer'"><i :class="rate.icon"></i></h2>
           </div>
           <strong>{{ rate.title }}<br> <small>{{ rate.description }}</small></strong>
         </div>
 
       </div>
-<!--      <div class="text-center pt-4">-->
-<!--        <div>-->
-<!--          <div class="submit-rate-button" @click="rateButton(getRatePost)"><button class="btn btn-sm">Submit</button></div>-->
-<!--        </div>-->
-<!--      </div>-->
     </div>
   </div>
 </template>
@@ -39,7 +33,7 @@ export default {
   computed: {
     ...mapGetters([
         'getRateOptions',
-        'getPostRate'
+        'getRateStatus'
     ])
   },
   methods: {
@@ -47,7 +41,9 @@ export default {
         'postRate',
     ]),
     ratePointChanged(rate) {
-      this.postRate(rate);
+     if (this.getRateStatus !== 200) {
+       this.postRate(rate);
+     }
     },
   }
 }
@@ -66,7 +62,6 @@ export default {
   font-size: 40px;
   opacity: 0.8;
   transition: 0.5s;
-  cursor: pointer;
 }
 
 .vote-group h2:hover {

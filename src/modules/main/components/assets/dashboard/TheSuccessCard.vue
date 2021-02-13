@@ -4,7 +4,7 @@
 
     <div class="alert bg-success card-success text-center alert-dismissible fade show" role="alert">
       <h3><i class="fas fa-check"></i></h3>
-      <small>Your message has arrived. You will get a return as soon as possible!</small>
+      <small>{{ successMessage }}</small>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true"><i class="fas fa-times"></i></span>
       </button>
@@ -17,7 +17,9 @@
 <script>
 export default {
   name: 'Success',
-
+  props: {
+    successMessage: String
+  }
 }
 </script>
 
