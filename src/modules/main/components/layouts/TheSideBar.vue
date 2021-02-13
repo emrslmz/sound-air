@@ -1,13 +1,13 @@
 <template>
   <div class="sidebar-body">
     <div class="d-flex justify-content-around align-items-center px-3 py-3">
-      <div class="sidebar-top-box">
-          <div class="d-flex justify-content-center align-items-center py-3">
-            <router-link to="/">
-              <h3 class="side-bar-icon"><i class="fas fa-home text-dark"></i></h3>
-            </router-link>
-          </div>
-      </div>
+      <router-link to="/">
+        <div class="sidebar-top-box">
+            <div class="d-flex justify-content-center align-items-center py-3">
+                <h3 class="side-bar-icon"><i class="fas fa-home text-dark"></i></h3>
+            </div>
+        </div>
+      </router-link>
       <div class="sidebar-top-box">
         <div class="d-flex justify-content-center align-items-center py-3" @click="showStopwatch = !showStopwatch">
             <h3 class="side-bar-icon"><i class="fas fa-stopwatch text-dark"></i></h3>
@@ -19,11 +19,11 @@
         </div>
       </div>
       <div class="sidebar-top-box">
-        <div class="d-flex justify-content-center align-items-center py-3">
-         <router-link to="according-to-weather">
-           <h3 class="side-bar-icon"><i class="fas fa-search-location text-dark"></i></h3>
-         </router-link>
-        </div>
+        <router-link to="according-to-weather">
+          <div class="d-flex justify-content-center align-items-center py-3">
+             <h3 class="side-bar-icon"><i class="fas fa-search-location text-dark"></i></h3>
+          </div>
+        </router-link>
       </div>
     </div>
     

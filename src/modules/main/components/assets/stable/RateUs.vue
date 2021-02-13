@@ -12,49 +12,43 @@
         <small>Please be fair when using your vote!</small>
       </div>
       <div class="d-xl-flex justify-content-center pt-5">
-        <div class="vote-group">
-          <h2> <label for="rate_fish"><i class="fas fa-fish text-fish"></i></label></h2>
-          <input id="rate_fish" v-model="getRatePost.rateFish" type="radio">
-          <strong>I do not like<br> <small>It wasn't nice</small></strong>
+
+        <div class="vote-group" v-for="(rate, index) in getRateOptions" :key="index">
+          <div class="flex-column">
+            <h2><label :for="rate.id"><i :class="rate.icon"></i></label></h2>
+            <input class="display-block" :id="rate.id" name="rateUs" :value="rate.ratePoint" @click="ratePointChanged(rate)" type="radio">
+          </div>
+          <strong>{{ rate.title }}<br> <small>{{ rate.description }}</small></strong>
         </div>
-        <div class="vote-group">
-          <h2><i class="fas fa-cat text-cat"></i></h2>
-          <strong>Ungrateful cat <br> <small>Neither bad nor beautiful</small></strong>
-        </div>
-        <div class="vote-group">
-          <h2><i class="fas fa-spider text-spider"></i></h2>
-          <strong>Should be improved Spider <br> <small>It would be nice if it improved</small></strong>
-        </div>
-        <div class="vote-group">
-          <h2><i class="fas fa-dragon text-dragon"></i></h2>
-          <strong>EXTRAORDINARY <br> <small>Unbelievable</small></strong>
-        </div>
+
       </div>
-      <div class="text-center pt-4">
-        <div>
-          <div class="submit-rate-button" @click="rateButton(getRatePost)"><button class="btn btn-sm">Submit</button></div>
-        </div>
-      </div>
+<!--      <div class="text-center pt-4">-->
+<!--        <div>-->
+<!--          <div class="submit-rate-button" @click="rateButton(getRatePost)"><button class="btn btn-sm">Submit</button></div>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'RateUs',
   computed: {
     ...mapGetters([
-        'getRatePost'
+        'getRateOptions',
+        'getPostRate'
     ])
   },
   methods: {
     ...mapActions([
-       'postRate'
+        'postRate',
     ]),
-    rateButton(getRatePost) {
-      this.postRate(getRatePost);
-    }
+    ratePointChanged(rate) {
+      this.postRate(rate);
+    },
   }
 }
 </script>
@@ -96,5 +90,9 @@ export default {
   background-color: #28ffa7;
   font-weight: bold;
   color: white;
+}
+
+.display-none {
+  display: none;
 }
 </style>
