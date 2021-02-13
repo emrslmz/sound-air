@@ -62,6 +62,7 @@ export default {
 
 .card-body h1 {
   font-size: 72px;
+  transition: 0.8s;
 }
 
 .share-card {
