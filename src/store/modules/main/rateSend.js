@@ -31,7 +31,9 @@ const state = {
             ratePoint: 7
         },
     ],
-    ratePostStatus: null,
+    rateStatus: {
+        ratePostStatus: null,
+    }
 }
 
 const getters = {
@@ -39,13 +41,13 @@ const getters = {
         return state.rateOptions;
     },
     getRateStatus(state) {
-        return state. ratePostStatus;
+        return state.rateStatus;
     }
 }
 
 const mutations = {
     RATE_POST_STATUS(state, postRateStatus) {
-        state.ratePostStatus = postRateStatus;
+        state.rateStatus.ratePostStatus = postRateStatus;
     }
 }
 

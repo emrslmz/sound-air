@@ -1,15 +1,10 @@
 <template>
 <div>
   <div class="d-flex justify-content-center align-items-end">
-
-    <div class="alert bg-success card-success text-center alert-dismissible fade show" role="alert">
+    <div class="alert bg-success card-success text-center fade show" role="alert">
       <h3><i class="fas fa-check"></i></h3>
       <small>{{ successMessage }}</small>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true"><i class="fas fa-times"></i></span>
-      </button>
     </div>
-    
   </div>
 </div>
 </template>
@@ -28,6 +23,7 @@ export default {
   border-radius: 15px;
   max-height: 100px;
   color: white;
+  min-width: 500px;
 }
 
 .card-success button {
