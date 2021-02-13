@@ -8,7 +8,7 @@
        <p class="text-spacing5">fill out the form to help us improve</p>
 
        <transition name="component-fade">
-         <the-success-card v-if="getPostMistakeStatus === 200" />
+         <the-success-card success-message="Your message has arrived. You will get a return as soon as possible!" v-if="getPostMistakeStatus === 200" />
        </transition>
        <transition name="component-fade">
          <the-danger-card errorCode="5734" v-if="getPostMistakeStatus === 400" />
