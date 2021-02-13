@@ -12,6 +12,7 @@
                  <th scope="col">#</th>
                  <th scope="col">Rate Icon</th>
                  <th scope="col">Rate Point</th>
+                 <th scope="col"><i class="far fa-trash-alt"></i></th>
                </tr>
                </thead>
                <tbody>
@@ -19,6 +20,7 @@
                  <th scope="row">{{ index +1 }}</th>
                  <td><h6><i :class="rate.rateAnimals"></i></h6></td>
                  <td>{{ rate.ratePoint }}</td>
+                 <td><button class="btn btn-danger btn-sm w-100 bug-delete-button" @click="deleteRate(rate, index)">Delete</button></td>
                </tr>
                </tbody>
              </table>
@@ -29,7 +31,7 @@
              <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                <div class="card-header">Rate Status</div>
                <div class="card-body text-left">
-                 <h5 class="card-title">Total Rate: </h5>
+                 <h5 class="card-title">Total Rate: {{ getTotalRate }} </h5>
                  <h5 class="card-title">Total Rate Point: </h5>
                  <div class="progress">
                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -52,12 +54,17 @@ export default {
   computed: {
     ...mapGetters([
         'getRate',
+        'getTotalRate'
     ])
   },
   methods: {
     ...mapActions([
         'fetchRate',
+        'deleteRate'
     ]),
+    deleteRate(rate, index) {
+      this.deleteRate(rate, index);
+    }
   },
   mounted() {
     this.fetchRate();
