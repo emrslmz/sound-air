@@ -50,5 +50,13 @@ export default [{
             },
             component: () => import('@/modules/admin/components/assets/stable/BugReportMessages.vue'),
         },
+        {
+            name: 'RateUsNotification',
+            path: 'rate-us-notification',
+            meta: {
+                title: 'Rate for Animals Point page',
+            },
+            component: () => import('@/modules/admin/components/assets/stable/RateUsNotification.vue'),
+        },
     ],
 }];
