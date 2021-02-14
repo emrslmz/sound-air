@@ -4,6 +4,7 @@ const state = {
    getRate: {
        getRate: [],
        totalRate: null,
+       rateStatus: null,
    }
 }
 
@@ -13,6 +14,9 @@ const getters = {
     },
     getTotalRate(state) {
         return state.getRate.totalRate;
+    },
+    getDeleteRateStatus(state) {
+        return state.getRate.rateStatus;
     }
 }
 
@@ -25,6 +29,9 @@ const mutations = {
     },
     DELETE_RATE(state, deleteIndex) {
         state.getRate.getRate.splice(deleteIndex, 1);
+    },
+    DELETE_RATE_STATUS(state, rateDeleteStatus) {
+        state.getRate.rateStatus = rateDeleteStatus;
     }
 }
 
@@ -33,7 +40,7 @@ const actions = {
         axios
             .get("https://soundair-api.herokuapp.com/rates")
             .then((response) => {
-                console.log(response)
+                 console.log(response)
                 const pushGetRate = response.data.data;
                 commit('PUSH_GET_RATE', pushGetRate);
 
@@ -45,7 +52,9 @@ const actions = {
         axios
             .delete(`https://soundair-api.herokuapp.com/rates/${rate.id}`, rate)
             .then((response) => {
-                console.log(response)
+
+                const rateDeleteStatus = response.status;
+                commit('DELETE_RATE_STATUS', rateDeleteStatus);
 
                 const deleteIndex = index;
                 commit('DELETE_RATE', deleteIndex);

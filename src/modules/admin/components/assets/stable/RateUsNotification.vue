@@ -2,7 +2,10 @@
   <div class="container-top">
     <div class="text-md-center contact-us-message-top">
       <h1><b>Rates</b></h1>
-      <p class="text-spacing5">incoming votes</p>
+      <p v-if="getDeleteRateStatus === 200">
+        <the-success-card text="Deletion successful!" />
+      </p>
+      <p class="text-spacing5" v-else>incoming votes</p>
        <div class="container">
          <div class="row">
            <div class="col-12 col-xl-8">
@@ -15,13 +18,17 @@
                  <th scope="col"><i class="far fa-trash-alt"></i></th>
                </tr>
                </thead>
-               <tbody>
-               <tr v-for="(rate,index) in getRate" :key="index">
+               <tbody v-if="getTotalRate">
+               <tr v-for="(rate, index) in getRate" :key="index">
                  <th scope="row">{{ index +1 }}</th>
                  <td><h6><i :class="rate.rateAnimals"></i></h6></td>
                  <td>{{ rate.ratePoint }}</td>
-                 <td><button class="btn btn-danger btn-sm w-100 bug-delete-button" @click="deleteRate(rate, index)">Delete</button></td>
+                 <td><button class="btn btn-danger btn-sm w-100 bug-delete-button" @click="deleteRateButton(rate, index)">Delete</button></td>
+                 <td></td>
                </tr>
+               </tbody>
+               <tbody class="text-center" v-else>
+                  <h6><i class="fas fa-spinner fa-pulse"></i></h6>
                </tbody>
              </table>
            </div>
@@ -47,14 +54,19 @@
 </template>
 
 <script>
+import TheSuccessCard from "@/modules/admin/components/assets/stable/cards/TheSuccessCard";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'RateUsNotificatin',
+  name: 'RateUsNotification',
+  components: {
+    TheSuccessCard
+  },
   computed: {
     ...mapGetters([
         'getRate',
-        'getTotalRate'
+        'getTotalRate',
+        'getDeleteRateStatus'
     ])
   },
   methods: {
@@ -62,7 +74,7 @@ export default {
         'fetchRate',
         'deleteRate'
     ]),
-    deleteRate(rate, index) {
+    deleteRateButton(rate, index) {
       this.deleteRate(rate, index);
     }
   },

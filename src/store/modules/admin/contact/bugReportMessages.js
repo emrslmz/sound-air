@@ -25,7 +25,7 @@ const mutations = {
     TOTAL_BUG(state, totalBugMessage) {
         state.totalBugMessages = totalBugMessage;
     },
-    DELETE_MISTAKE_STATE(state, mistakeIndex){
+    DELETE_MISTAKE_STATE(state, mistakeIndex) {
         state.bugMessages.splice(mistakeIndex, 1);
     },
     DELETE_STATUS(state, deleteStatus) {
