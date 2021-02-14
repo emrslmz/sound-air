@@ -94,7 +94,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <strong>Total votes, feedback:</strong>
             <span class="badge badge-light badge-pill" v-if="getTotalRate > 0">{{  getTotalRate }}</span>
-            <span class="badge badge-light badge-pill" v-else-if="getTotalRate === 0">We Haven't bug!</span>
+            <span class="badge badge-light badge-pill" v-else-if="getTotalRate === 0">We Haven't vote!</span>
             <span class="badge badge-light badge-pill" v-else><i class="fas fa-spinner fa-pulse"></i></span>
           </div>
           <div class="pt-5 text-center">

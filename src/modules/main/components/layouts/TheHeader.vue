@@ -16,7 +16,7 @@
        <div class="d-xl-flex text-center align-items-center justify-content-center">
         <div class="d-flex justify-content-center align-items-center">
           <router-link to="category">
-            <div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-calendar-alt"></i> Categories</button></div>
+            <div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-calendar-alt"></i> Categories <span class="badge badge-success">soon</span></button></div>
           </router-link>
           <router-link to="play">
             <div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-play-circle"></i> Sounds</button></div>

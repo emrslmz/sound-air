@@ -13,9 +13,9 @@
 
 
           <!--SMALL PHOTOS AREA-->
-          <div class="card">
+          <div class="card card-twitter">
           <!--<div class="not-found-images" style="background-image: url('/images/img/image-not-found.png')"></div>-->
-          <div class="card-body" >
+          <div class="card-body">
             <a class="twitter-timeline" href="https://twitter.com/SoundAiir?ref_src=twsrc%5Etfw">Tweets by SoundAiir</a>
             <p class="card-text">You can find the latest developments on our twitter.</p>
           </div>
@@ -28,7 +28,7 @@
         <!--BIG PHOTOS AREA-->
           <div class="card">
             <div class="not-found-images" style="background-image: url('/images/news/news_new_sound_addded.png')"></div>
-            <div class="card-body" >
+            <div class="card-body">
               <h5 class="card-title">News Sound</h5>
               <p class="card-text">15+ new sounds have been added to Sound AIR! <a href="play">Click</a> here to try the sounds.</p>
             </div>
@@ -75,6 +75,14 @@
   width: 100%;
   min-height: 200px;
   box-shadow: 0 0 10px 2px #cecece;
+}
+
+.card-twitter {
+  border-radius: 20px 0 0 20px;
+  width: 100%;
+  box-shadow: 0 0 10px 2px #cecece;
+  overflow: auto;
+  max-height: 620px;
 }
 
 </style>
