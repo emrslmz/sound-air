@@ -14,20 +14,20 @@
         </div>
       </div>
 
-
-
-      
+      <!-- MOBILE PLATFORM BUTTON -->
       <div class="sidebar-top-box">
-
-        <div class="d-flex justify-content-center align-items-center py-3" title="">
-           <h3 class="side-bar-icon" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-caret-down text-dark"></i></h3>
-        </div>
-
+           <div class="d-flex justify-content-center align-items-center py-3 side-bar-icon" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" title="Click for more pages on mobile platforms.">
+              <h3 class="side-bar-icon">
+                <i class="fas fa-caret-down text-dark"></i>
+              </h3>
+             <router-link to="play">
+              <h3 class="side-bar-icon">
+                <i class="fas fa-stream text-dark"></i>
+              </h3>
+             </router-link>
+           </div>
       </div>
-
-
-
-
+      <!-- /MOBILE PLATFORM BUTTON -->
 
       <div class="sidebar-top-box">
         <router-link to="according-to-weather">
@@ -37,8 +37,10 @@
         </router-link>
       </div>
 
-
     </div>
+
+
+    <!-- MOBILE PLATFORM BUTTON -->
     <div class="navbar navbar-expand-lg navbar-dark bg-dark mobile-device-side-bar-device">
       <div class="collapse navbar-collapse" id="sidebar">
         <div>
@@ -105,7 +107,10 @@
 
       </div>
     </div>
-    
+
+    <!-- /MOBILE PLATFORM BUTTON -->
+
+
     <div class="flex-column side-bar-middle py-4 px-3">
         <div class="container">
            <div class="side-bar-middle-title text-white" v-if="showStopwatch">
@@ -207,12 +212,26 @@ export default {
   }
 }
 
+.fa-stream {
+  display: none;
+}
+
+.fa-caret-down {
+  display: inline;
+}
+
 .mobile-device-side-bar-device {
   display: block;
 }
 
 @media (min-width: 768px) {
   .mobile-device-side-bar-device {
+    display: none;
+  }
+  .fa-stream {
+    display: inline;
+  }
+  .fa-caret-down {
     display: none;
   }
 }

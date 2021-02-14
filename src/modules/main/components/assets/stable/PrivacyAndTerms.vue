@@ -31,7 +31,7 @@
               <p>Ads: You can see the advertisement of our service on other applications or websites. After clicking one of these advertisements and installing our Service, you will become a user of the Service. Advertising platforms including Twitter and Facebook (and integrated into our Software Development Kits (SDK) Service) may collect information to optimize advertising campaigns outside of the Service.</p>
 
               <h6>CONTACT US</h6>
-              <p>If you have any questions regarding this Privacy Policy or the information practices of the Services, please contact us at any time. You can send us a message at shorproduction@gmail.com or <router-link to="contact-us">here.</router-link></p>
+              <p>If you have any questions regarding this Privacy Policy or the information practices of the Services, please contact us at any time. You can send us a message at shorproduction@gmail.com or <router-link to="contact-us">here.</router-link> <i class="fas fa-barcode"></i></p>
 
             </div>
           </div>
