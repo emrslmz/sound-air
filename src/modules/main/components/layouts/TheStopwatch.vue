@@ -2,9 +2,9 @@
   <div>
     <div class="text-center">
       <h6 class="d-flex justify-content-center align-items-center">
-        <span v-if="timer.minutes < 10">0{{ timer.minutes }}</span><span v-else>{{ timer.minutes }}</span>
+        <span :class="timer.minutes === 0 ? 'text-red': ''" v-if="timer.minutes < 10">0{{ timer.minutes }}</span><span v-else>{{ timer.minutes }}</span>
         :
-        <span v-if="timer.seconds < 10">0{{ timer.seconds }}</span><span v-else>{{timer.seconds}}</span>
+        <span :class="timer.seconds === 0 ? 'text-red': ''" v-if="timer.seconds < 10">0{{ timer.seconds }}</span><span v-else>{{timer.seconds}}</span>
       </h6>
       <h6>
         <span @click="decreamentTime()" v-if="!timer.shopPlusMinusButton"><i class="btn btn-danger span-stopwatch btn-sm fas fa-minus-circle"></i></span>
