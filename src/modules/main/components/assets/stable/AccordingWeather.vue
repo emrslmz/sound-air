@@ -27,6 +27,7 @@
   overflow:hidden;
 }
 
+
 .maps iframe {
   width: 100%;
   min-height: 700px;
@@ -41,6 +42,16 @@
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;
 }
+
+@media (max-width: 768px) {
+  .maps {
+    padding: 0 20px 0 20px;
+    width: 100%;
+    overflow:hidden;
+    overflow-x: auto;
+  }
+}
+
 
 .soon p {
   position: absolute;

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const state = {
     sounds: null,
+    soundStatus: null,
 }
 
 const getters = {
@@ -11,6 +12,9 @@ const getters = {
          return sound.filter(a => a.showSound === true);
       }
   },
+    getSoundStatus(state) {
+      return state.soundStatus;
+    }
 }
 
 const mutations = {
@@ -49,6 +53,9 @@ const mutations = {
 
         const volume = sound.volume / 100;
         sound.player.volume = volume;
+    },
+    GET_SOUND_STATUS(state, getSoundStatus) {
+        state.soundStatus = getSoundStatus;
     }
 
 }
@@ -58,13 +65,17 @@ const actions = {
         axios
             .get("https://soundair-api.herokuapp.com/audios")
             .then((response) => {
+
+                const getSoundStatus = response.status;
+                commit('GET_SOUND_STATUS', getSoundStatus);
+
                 const sounds = response.data.data;
+                commit('SET_SOUNDS', sounds);
 
                 sounds.forEach(sound => {
                     sound.content = `https://emresolmaz.com.tr/sounds/${sound.audioName}`;
                     sound.player = new Audio(sound.content)
                 });
-                commit('SET_SOUNDS', sounds);
             });
     },
     playSounds({commit}, index) {

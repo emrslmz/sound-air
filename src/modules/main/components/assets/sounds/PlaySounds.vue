@@ -4,12 +4,13 @@
 
     <div class="main-top-div text-center">
       <h1><b>Sounds</b></h1>
-      <p class="text-spacing5">click icons to listen</p>
+      <p class="text-spacing5">click icons to listen
+      </p>
     </div>
 
     <div class="row">
       <div class="col-12 col-sm-3"></div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6" v-if="getSoundStatus === 200">
         <div align="center">
 
           <div class="row d-flex justify-content-between align-items-center">
@@ -32,12 +33,20 @@
               </div>
             </div>
           </div>
+
           <div class="col-12 col-sm-3"></div>
 
         </div>
+
+      </div>
+      <div class="col-12 col-md-6" v-else>
+         <div align="center">
+           <div class="load-area">
+             <h1><i class="fas fa-circle-notch fa-spin"></i></h1>
+           </div>
+         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -50,6 +59,7 @@ export default {
   computed: {    
     ...mapGetters([
       'getSound',
+      'getSoundStatus'
     ]),
   },
   mounted() {
@@ -94,5 +104,31 @@ export default {
 }
 
 
+.load-area i {
+  color: green;
+  animation: colorful 5s infinite alternate;
+}
+
+@keyframes colorful {
+
+  0%{
+    color: #4682b4;
+    transform:rotate(0deg);
+  }
+  25%{
+    color:  #2a52be;
+  }
+  50%{
+    color:  #ff4040;
+  }
+  75%{
+    color: #084c9e;
+  }
+  100%{
+    color: #ce9c63;
+    transform:rotate(360deg);
+  }
+
+}
 
 </style>

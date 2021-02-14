@@ -4,7 +4,7 @@
     
     <div class="main-padding"></div>
 
-    <div class="main-top-div text-md-center">
+    <div class="main-top-div text-center">
      <h1><b>Sound AIR for everyone</b></h1>
      <p class="text-spacing5">and all sounds are free</p>
    </div>
