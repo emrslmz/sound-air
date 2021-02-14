@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-body">
-    <div class="d-flex justify-content-around align-items-center px-3 py-3">
+    <div class="d-flex justify-content-around align-items-center bg-dark px-3 py-3">
       <router-link to="/">
         <div class="sidebar-top-box">
             <div class="d-flex justify-content-center align-items-center py-3">
@@ -13,17 +13,96 @@
             <h3 class="side-bar-icon"><i class="fas fa-stopwatch text-dark"></i></h3>
         </div>
       </div>
+
+
+
+      
       <div class="sidebar-top-box">
-        <div class="d-flex justify-content-center align-items-center py-3">
-           <h3 class="side-bar-icon"><i class="fas fa-stream text-dark"></i></h3>
+
+        <div class="d-flex justify-content-center align-items-center py-3" title="">
+           <h3 class="side-bar-icon" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-caret-down text-dark"></i></h3>
         </div>
+
       </div>
+
+
+
+
+
       <div class="sidebar-top-box">
         <router-link to="according-to-weather">
           <div class="d-flex justify-content-center align-items-center py-3">
              <h3 class="side-bar-icon"><i class="fas fa-search-location text-dark"></i></h3>
           </div>
         </router-link>
+      </div>
+
+
+    </div>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark mobile-device-side-bar-device">
+      <div class="collapse navbar-collapse" id="sidebar">
+        <div>
+          <div class="side-bar-middle-title text-white" v-if="showStopwatch">
+            <the-stopwatch />
+          </div>
+        </div>
+
+        <div>
+          <router-link to="news">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-bullhorn"></i></span> Last updates</h5>
+            </div>
+          </router-link>
+        </div>
+
+        <div>
+          <router-link to="report-error">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-bug"></i></span> Report error or solution</h5>
+            </div>
+          </router-link>
+        </div>
+
+        <div>
+          <router-link to="privacy-and-terms">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-search"></i></span> Privacy & Terms</h5>
+            </div>
+          </router-link>
+        </div>
+
+        <div class="side-bar-middle-custom-hr"><hr></div>
+
+        <div>
+          <div class="side-bar-middle-title text-white ">
+            <h5 class="disabled"><span><i class="fas fa-file-contract"></i></span> User agreement</h5>
+          </div>
+        </div>
+
+        <div>
+          <router-link to="FAQ">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="far fa-question-circle"></i></span> FAQ</h5>
+            </div>
+          </router-link>
+        </div>
+
+        <div>
+          <router-link to="share">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-share-alt"></i></span> Share the app!</h5>
+            </div>
+          </router-link>
+        </div>
+
+        <div>
+          <router-link to="rate-us">
+            <div class="side-bar-middle-title text-white">
+              <h5><span><i class="fas fa-medal text-gold"></i></span> Rate us</h5>
+            </div>
+          </router-link>
+        </div>
+
       </div>
     </div>
     
@@ -119,10 +198,7 @@ export default {
     display: inline;
     position: relative;
   }
-  .side-bar-middle {
-    display: none;
-  }
-  .side-bar-middle-title h5 {
+  .side-bar-middle {         /* last update vb */
     display: none;
   }
   .footer-sidebar {
@@ -130,6 +206,17 @@ export default {
     display: none;
   }
 }
+
+.mobile-device-side-bar-device {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-device-side-bar-device {
+    display: none;
+  }
+}
+
 .sidebar-top-box {
   border-radius: 20px;
   border: 1px solid white;

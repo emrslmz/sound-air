@@ -11,10 +11,11 @@
 
 <style scoped>
 footer {
-  margin-top: 30px;
+  margin-top: 300px;
   background-color: #343A40;
   width: 100%;
   padding: 10px 0 10px 0;
+  position: sticky;
   bottom: 0;
   transition: 0.5s;
   border-radius: 0 0 40px 0;
