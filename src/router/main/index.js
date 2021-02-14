@@ -82,5 +82,14 @@ export default [{
             },
             component: () => import('@/modules/main/components/assets/stable/RateUs.vue'),
         },
+
+        {
+            name: 'Category',
+            path: 'category',
+            meta: {
+                title: 'Play the Category Page',
+            },
+            component: () => import('@/modules/main/components/assets/sounds/PlayCategory.vue'),
+        },
     ],
 }];

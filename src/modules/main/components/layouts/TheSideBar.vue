@@ -20,7 +20,7 @@
               <h3 class="side-bar-icon">
                 <i class="fas fa-caret-down text-dark"></i>
               </h3>
-             <router-link to="play">
+             <router-link to="category">
               <h3 class="side-bar-icon">
                 <i class="fas fa-stream text-dark"></i>
               </h3>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="soundPlay-padding"></div>
+    <div class="playSounds-padding"></div>
 
     <div class="main-top-div text-center">
       <h1><b>Sounds</b></h1>
@@ -80,12 +80,12 @@ export default {
 
 <style scoped>
 
-.soundPlay-padding { /* telefonda böyle olsun */
+.playSounds-padding { /* telefonda böyle olsun */
   padding-top: 100px;
 }
 
 @media (max-width: 768px) { /* bilgisayarda */
-  .soundPlay-padding {
+  .playSounds-padding {
     padding-top: 50px;
   }
 }

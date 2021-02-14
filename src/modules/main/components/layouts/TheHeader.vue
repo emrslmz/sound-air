@@ -15,8 +15,12 @@
 
        <div class="d-xl-flex text-center align-items-center justify-content-center">
         <div class="d-flex justify-content-center align-items-center">
-          <div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-calendar-alt"></i> Categories</button></div>
-          <router-link to="play"><div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-play-circle"></i> Sounds</button></div></router-link>
+          <router-link to="category">
+            <div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-calendar-alt"></i> Categories</button></div>
+          </router-link>
+          <router-link to="play">
+            <div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-play-circle"></i> Sounds</button></div>
+          </router-link>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <router-link to="contact-us"><div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-comments"></i> Contact us</button></div>  </router-link>
