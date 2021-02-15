@@ -23,7 +23,7 @@ export default {
     return {
       timer: {
         minutes: 25,
-        seconds: 0,
+        seconds: 1,
         playPauseButton: false,
         shopPlusMinusButton: false,
       }

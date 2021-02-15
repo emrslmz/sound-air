@@ -13,7 +13,7 @@
       <div class="col-12 col-md-6" v-if="getSoundStatus === 200">
         <div align="center">
 
-          <div class="row d-flex justify-content-between align-items-center">
+          <div class="row d-flex justify-content-center align-items-center">
             <div class="col-6 col-xl-3" v-for="(sounds, index) in getSound" :key="index">
               <div>
                 <div class="play-icon">
