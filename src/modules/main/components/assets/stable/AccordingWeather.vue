@@ -10,13 +10,58 @@
          <iframe src="https://embed.windy.com/embed2.html?lat=34.778&lon=28.916&detailLat=37.962&detailLon=28.916&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
        </div>
      </div>
+
      <div class="py-3">
-
-
+<!--       <input type="text" v-model="country">-->
+<!--       <button @click="getWeather">GET</button>-->
+<!--       <p>{{weather}}</p>-->
      </div>
    </div>
+
   </div>
 </template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: 'AccordingWeather',
+  data() {
+    return {
+      weather: null,
+      country: '',
+    }
+  },
+  methods: {
+    getWeather() {
+      axios.request({
+        method: 'GET',
+        url: 'https://community-open-weather-map.p.rapidapi.com/weather',
+        params: {
+          q: this.country,
+          id: '2172797',
+          lang: 'null',
+          units: '"metric" or "imperial"',
+          mode: 'xml, html'
+        },
+        headers: {
+          'x-rapidapi-key': '323af40252msh38c4d5af64971f7p15db12jsnd2d370d44289',
+          'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
+        }
+      })
+      .then((response) => {
+        console.log(response)
+        this.weather = response.data.weather;
+
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+  }
+}
+
+
+</script>
 
 
 <style scoped>
