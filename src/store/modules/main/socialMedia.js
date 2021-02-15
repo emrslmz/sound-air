@@ -6,7 +6,7 @@ const state = {
                 'fab fa-instagram',
                 'text-instagram',
             ],
-            socialLink: 'https://www.instagram.com/',
+            socialLink: 'https://www.instagram.com/soundaiir/',
         },
         {
             socialName: 'Twitter',
