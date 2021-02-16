@@ -41,8 +41,7 @@
 /***********************************************/
 
 .text-shadow-black-title {
-    color: #121212;
-
+    color: black;
     text-shadow: 0 2px 1px #747474,
     -1px 3px 1px #767676,
     -2px 5px 1px #787878,
