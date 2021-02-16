@@ -22,7 +22,7 @@ const state = {
                 'fab fa-discord',
                 'text-discord',
             ],
-            socialLink: 'https://discord.gg/E3Nv7Wpz9W',
+            socialLink: 'https://discord.gg/GfCeAkseVC',
         },
     ]
 }
