@@ -1,125 +1,38 @@
 <template>
   <div>
-   <div class="text-center pt-5">
-     <h1 class="text-shadow-black-title">Weather <small><i class="fas fa-location-arrow"></i></small></h1>
-     <small>How is the weather in your location? A playlist for him!</small>
-     <br>
-     <div align="center">
-<!--       <div class="maps">-->
-<!--         <iframe src="https://embed.windy.com/embed2.html?lat=34.778&lon=28.916&detailLat=37.962&detailLon=28.916&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>-->
-<!--       </div>-->
-     </div>
+    <div class="text-center pt-5">
+      <h1 class="text-shadow-black-title">Weather <small><i class="fas fa-location-arrow"></i></small></h1>
+      <small>How is the weather in your location? A playlist for him!</small>
+    </div>
+    <div>
 
-     <div class="text-center pt-4">
-       <div class="d-flex justify-content-center align-items-center weather-search">
-         <div>
-           <label><i class="fas fa-map-marker-alt py-2" @click="getWeather"></i></label>
-         </div>
-         <div>
-           <label><input placeholder="Istanbul, Londra, New York..." type="text" v-model="country" @keypress.enter="getWeather"></label>
-         </div>
-       </div>
+      <div class="d-flex justify-content-center align-items-center weather-search py-4">
+        <div>
+          <label><i class="fas fa-map-marker-alt py-2 px-3"></i></label>
+        </div>
+        <div>
+          <label><input placeholder="Istanbul, Londra, New York..." type="text" v-model="country" @keypress.enter="getWeather"></label>
+        </div>
+      </div>
 
-
-       <div>
-         
-
-         <div align="center">
-            <div class="d-xl-flex justify-content-center align-items-start card-weather">
-
-              <div class="col-12 col-xl-4 text-xl-right py-xl-4 pt-3">
-                
-                <div v-for="(w, index) in weatherData.weather" :key="index">
-
-                  <div class="weather-icon">
-
-                    <!-- RAINLY-->
-                    <div class="text-xl-right" v-if="w.id === 500">  <!--  light rain -->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/light-rain.png')"></div>
-                    </div>
-                    <div class="text-xl-right"  v-if="w.id === 501">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/moderate-rain.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 502">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/intense-rain.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 503">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/cloud-with-lightning-and-rain.png')"></div>
-                    </div>
-                    <!-- /RAINLY-->
-
-                    
-                    <!-- SNOWLY-->
-                    <div class="text-xl-right" v-if="w.id === 600">   <!--  light snow -->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/snow-v1.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 601">   <!-- snow -->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/snow-v2.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 602">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/snow-v3.png')"></div>
-                    </div>
-                    <!-- /SNOWLY-->
-
-
-
-                    <!-- FOGLY-->
-                    <div class="text-xl-right" v-if="w.id === 701">  <!--  mist -->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/fog.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 721">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/fog-day.png')"></div>
-                    </div>
-                    <!-- /FOGLY-->
-
-                    <!-- CLOUDLY-->
-                    <div class="text-xl-right" v-if="w.id === 801">  <!--  few clouds -->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/sun-behind-small-cloud.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 802">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/cloud-icon.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 803"> <!--broken clouds-->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/sun-behind-cloud.png')"></div>
-                    </div>
-                    <div class="text-xl-right" v-if="w.id === 804">
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/cloud-icon.png')"></div>
-                    </div>
-                    <!-- /CLOUDLY-->
-
-
-                    <!-- SUNLY-->
-                    <div class="text-xl-right" v-if="w.id === 800">    <!--  clear sky -->
-                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/sun.png')"></div>
-                    </div>
-                    <!-- /SUNLY-->
-
-
-
+      <div class="d-flex justify-content-center align-items-center">
+          <div class="col-10 col-xl-4 card-weather">
+              <div class="row">
+                <div class="col-12 col-xl-6">
+                  
+                <div class="col-12 col-xl-6">
+                  <div>
+                    <h3 class="weather-temperature">{{ weatherData.weatherCountry}} </h3>
+                    <h1 class="weather-temperature text-digital" v-if="weatherData.temperature !== null">{{ weatherData.temperature  }}°C </h1>
                   </div>
-
-
                 </div>
               </div>
-
-              <div class="col-12 col-xl-6 text-xl-left py-xl-4">
-                <div>
-                  <h4 class="weather-temperature">{{ weatherData.weatherCountry}}</h4>
-                   <h1 class="weather-temperature text-digital" v-if="weatherData.temperature !== null">{{ weatherData.temperature  }}°C </h1>
-                </div>
-              </div>
-
-            </div>
-         </div>
-                                                          
-       </div>
-
-     </div>
-
-   </div>
-
+          </div>
+      </div>
+      </div>
+    </div>
   </div>
-</template>
+</template>                                                       
 
 <script>
 import axios from "axios";
@@ -155,62 +68,26 @@ export default {
           'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com'
         }
       })
-      .then((response) => {
-        //Tempature
-        this.weatherData.temperature = Math.round(response.data.main.temp - 273.15);
+          .then((response) => {
+            //Tempature
+            this.weatherData.temperature = Math.round(response.data.main.temp - 273.15);
 
-        //
+            this.weatherData.weather = response.data.weather;
 
+            this.weatherData.weatherCountry = response.data.name;
 
-        this.weatherData.weather = response.data.weather;
-
-        this.weatherData.weatherCountry = response.data.name;
-
-        console.log(response.data);
+            console.log(response.data);
 
 
-      }).catch((error) => {
+          }).catch((error) => {
         console.error(error);
       });
     }
   }
 }
-
-
 </script>
 
-
 <style scoped>
-
- /*
-.maps {
-  padding: 0 100px 0 100px;
-  width: 100%;
-  overflow:hidden;
-}
-.maps iframe {
-  width: 100%;
-  min-height: 700px;
-  color: transparent;
-  font-size:  25px;
-  -webkit-mask-image: radial-gradient(circle at top, transparent 50px, red 30px);
-  border-radius: 20px;
-
-  margin-top: -8px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (max-width: 768px) {
-  .maps {
-    padding: 0 20px 0 20px;
-    width: 100%;
-    overflow:hidden;
-    overflow-x: auto;
-  }
-}   */
 .weather-search input {
   color: #5E6278;
   outline: 0;
@@ -221,32 +98,30 @@ export default {
   border-radius: 0 8px 8px 0;
 }
 
- .weather-search i {
-   align-items: center;
-   font-size: 24px;
-   color: #5E6278;
-   outline: 0;
-   border: none;
-   background-color: #F5F8FA;
-   height: 45px;
-   width: 50px;
-   border-radius:  8px 0 0 8px;
- }
-
- .weather-temperature {
-   text-shadow: 0 0 0.3em blue, 0 0 1em blue;
-   color: white;
- }
-
-.weather-icon img {
-  width: 60px;
-  height: 60px;
+.weather-search i {
+  align-items: center;
+  font-size: 24px;
+  color: #5E6278;
+  border: none;
+  background-color: #F5F8FA;
+  height: 45px;
+  width: 50px;
+  border-radius:  8px 0 0 8px;
+  transition: 0.5s;
 }
 
-.weather-description {
-  font-size: 12px;
+.weather-search i:hover {
+  color: #191919;
+  transition: 0.5s;
 }
 
+.card-weather {
+  border:2px solid #fff;
+  background-color: white;
+  border-radius: 20px;
+  min-height: 200px;
+  box-shadow: 0 0 10px 2px #cecece;
+}
 
 .weather-cloud-icon  {
   border-radius: 20px 20px 0 0;
@@ -257,12 +132,4 @@ export default {
   height: 80px;
 }
 
- .card-weather {
-   background-color: white;
-   border-radius: 20px;
-   min-width: 30%;
-   max-width: 50%;
-   min-height: 200px;
-   box-shadow: 0 0 10px 2px #cecece;
- }
 </style>
