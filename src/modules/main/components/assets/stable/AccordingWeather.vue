@@ -13,11 +13,10 @@
      <div class="text-center pt-4">
        <div class="d-flex justify-content-center align-items-center weather-search">
          <div>
-           <label><i class="fas fa-map-marker-alt py-2"></i></label>
+           <label><i class="fas fa-map-marker-alt py-2" @click="getWeather"></i></label>
          </div>
          <div>
            <label><input placeholder="Istanbul, Londra, New York..." type="text" v-model="country" @keypress.enter="getWeather"></label>
-
          </div>
        </div>
 
@@ -26,40 +25,76 @@
          
 
          <div align="center">
-            <div class="d-flex justify-content-center align-items-start">
+            <div class="d-xl-flex justify-content-center align-items-start card-weather">
 
-              <div class="col-12 col-xl-6 text-xl-right">
+              <div class="col-12 col-xl-4 text-xl-right py-xl-4 pt-3">
+                
                 <div v-for="(w, index) in weatherData.weather" :key="index">
 
                   <div class="weather-icon">
-                    <!-- BULUTLU-->
-                    <img src="https://img.icons8.com/emoji/96/000000/sun-behind-small-cloud.png" v-if="w.id === 801" />
-                    <img src="https://img.icons8.com/emoji/96/000000/cloud-emoji.png" v-if="w.id === 802" />
-                    <img src="https://img.icons8.com/emoji/96/000000/sun-behind-cloud.png" v-if="w.id === 803" />
-                    <img src="https://img.icons8.com/emoji/96/000000/cloud-emoji.png" v-if="w.id === 804" />
 
-                    <!-- KARLI-->
-                    <div class="weather-cloud-icon"></div>
-                    <img src="https://img.icons8.com/emoji/96/000000/cloud-with-snow-emoji.png" v-if="w.id === 600" />
-                    <img src="https://img.icons8.com/emoji/96/000000/cloud-with-snow-emoji.png" v-if="w.id === 601"/>
-                    <img src="https://img.icons8.com/emoji/96/000000/cloud-with-snow-emoji.png" v-if="w.id === 602" />
-
-                    <!-- YAGMURLU-->
-                    <img src="https://img.icons8.com/fluent/96/000000/light-rain.png" v-if="w.id === 500" />
-                    <img src="https://img.icons8.com/fluent/96/000000/moderate-rain.png" v-if="w.id === 501"/>
-                    <img src="https://img.icons8.com/fluent/96/000000/intense-rain.png" v-if="w.id === 502"/>
-                    <img src="https://img.icons8.com/emoji/96/000000/cloud-with-lightning-and-rain.png" v-if="w.id === 503"/>
-
-                    <!-- SİSLİ-->
-                    <img src="https://img.icons8.com/emoji/96/000000/fog.png" v-if="w.id === 701" />
-                    <img src="https://img.icons8.com/fluent/48/000000/fog-day.png" v-if="w.id === 721" />
-
-                    <!-- GUNESLİ-->
-                    <img src="https://img.icons8.com/fluent/96/000000/sun.png" v-if="w.id === 800" />
-                    
-                    <div class="weather-description pr-1">
-                     <i>{{ w.description}}</i>
+                    <!-- RAINLY-->
+                    <div class="text-xl-right" v-if="w.id === 500">  <!--  light rain -->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/light-rain.png')"></div>
                     </div>
+                    <div class="text-xl-right"  v-if="w.id === 501">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/moderate-rain.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 502">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/intense-rain.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 503">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/cloud-with-lightning-and-rain.png')"></div>
+                    </div>
+                    <!-- /RAINLY-->
+
+                    
+                    <!-- SNOWLY-->
+                    <div class="text-xl-right" v-if="w.id === 600">   <!--  light snow -->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/snow-v1.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 601">   <!-- snow -->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/snow-v2.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 602">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/snow-v3.png')"></div>
+                    </div>
+                    <!-- /SNOWLY-->
+
+
+
+                    <!-- FOGLY-->
+                    <div class="text-xl-right" v-if="w.id === 701">  <!--  mist -->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/fog.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 721">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/fog-day.png')"></div>
+                    </div>
+                    <!-- /FOGLY-->
+
+                    <!-- CLOUDLY-->
+                    <div class="text-xl-right" v-if="w.id === 801">  <!--  few clouds -->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/sun-behind-small-cloud.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 802">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/cloud-icon.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 803"> <!--broken clouds-->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/sun-behind-cloud.png')"></div>
+                    </div>
+                    <div class="text-xl-right" v-if="w.id === 804">
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/cloud-icon.png')"></div>
+                    </div>
+                    <!-- /CLOUDLY-->
+
+
+                    <!-- SUNLY-->
+                    <div class="text-xl-right" v-if="w.id === 800">    <!--  clear sky -->
+                      <div class="weather-cloud-icon" style="background-image: url('/images/icons/sun.png')"></div>
+                    </div>
+                    <!-- /SUNLY-->
+
+
 
                   </div>
 
@@ -67,18 +102,13 @@
                 </div>
               </div>
 
-              <div class="col-12 col-xl-6 text-xl-left">
-                <div class="weather-temperature">
-                  <h1>{{ weatherData.weatherCountry}}</h1>
-                  <h1 class="text-left text-digital" v-if="weatherData.temperature !== null">
-                    {{ weatherData.temperature  }}°C
-                    <img width="36" height="36" src="https://img.icons8.com/fluent/96/000000/thermometer.png" v-if="weatherData.temperature < 0 " />
-                  </h1>
+              <div class="col-12 col-xl-6 text-xl-left py-xl-4">
+                <div>
+                  <h4 class="weather-temperature">{{ weatherData.weatherCountry}}</h4>
+                   <h1 class="weather-temperature text-digital" v-if="weatherData.temperature !== null">{{ weatherData.temperature  }}°C </h1>
                 </div>
               </div>
 
-
-              
             </div>
          </div>
                                                           
@@ -203,8 +233,8 @@ export default {
    border-radius:  8px 0 0 8px;
  }
 
- .weather-temperature h1 {
-   text-shadow: 0 0 1em blue, 0 0 0.2em blue;
+ .weather-temperature {
+   text-shadow: 0 0 0.3em blue, 0 0 1em blue;
    color: white;
  }
 
@@ -218,9 +248,21 @@ export default {
 }
 
 
-
 .weather-cloud-icon  {
-  background-image: url('');
+  border-radius: 20px 20px 0 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80px;
+  max-width: 80px;
+  height: 80px;
 }
 
+ .card-weather {
+   background-color: white;
+   border-radius: 20px;
+   min-width: 30%;
+   max-width: 50%;
+   min-height: 200px;
+   box-shadow: 0 0 10px 2px #cecece;
+ }
 </style>
