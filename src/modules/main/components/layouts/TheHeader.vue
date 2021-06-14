@@ -24,7 +24,8 @@
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <router-link to="contact-us"><div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="far fa-comments"></i> Contact us</button></div>  </router-link>
-          <router-link to="vertical-angle-calculation"><div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="fas fa-candy-cane"></i> </button></div>  </router-link>
+
+<!--          <router-link to="vertical-angle-calculation"><div class="header-button mx-2 my-2"><button class="btn btn-sm"><i class="fas fa-candy-cane"></i> </button></div>  </router-link>-->
           <div><input class="dark-mode-button mx-2 mt-2" type="checkbox" checked></div>
         </div>
        </div>
