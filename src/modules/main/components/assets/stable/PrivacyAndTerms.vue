@@ -15,7 +15,7 @@
             <div class="card-body">
               <h6 class="card-title text-center">SOUND AIR PRIVACY POLICY</h6>
               <small>Last updated and effective date: February 11, 2021</small>
-              <p class="card-text text-left">Welcome to Sound AIR. Sound AIR provides a social online and mobile-enabled chat platform through its website (“Site”), Sound AIR app (“Application”) and related internet services (collectively, “Service (s)”). Service; operated by the Discord Company ("Company" or "we") for service users ("you"). This Privacy Policy sets out our policy regarding the information collected from those who visit the Site and use the Application and / or Services. Under the applicable legislation, Sound AIR Company is the "data controller" of personal data collected through the Services. </p>
+              <p class="card-text text-left">Welcome to Sound AIR. Sound AIR provides a social online and mobile-enabled chat platform through its website (“Site”), Sound AIR app (“Application”) and related internet services (collectively, “Service (s)”). Service; operated by the Oyuncudefteri.com ("Company" or "we") for service users ("you"). This Privacy Policy sets out our policy regarding the information collected from those who visit the Site and use the Application and / or Services. Under the applicable legislation, Sound AIR Company is the "data controller" of personal data collected through the Services. </p>
 
               <h6>INFORMATION WE COLLECT</h6>
               <p>When you interact with us through the Services, we may collect information from you, as detailed below:</p>

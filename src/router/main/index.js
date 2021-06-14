@@ -91,5 +91,13 @@ export default [{
             },
             component: () => import('@/modules/main/components/assets/sounds/PlayCategory.vue'),
         },
+        {
+            name: 'ForLessonVerticalAngle',
+            path: 'vertical-angle-calculation',
+            meta: {
+                title: 'Lesson 1',
+            },
+            component: () => import('@/modules/main/components/assets/extras/VerticalAngleCalculation.vue'),
+        },
     ],
 }];
