@@ -73,7 +73,7 @@ const actions = {
                 commit('SET_SOUNDS', sounds);
 
                 sounds.forEach(sound => {
-                    sound.content = `https://emresolmaz.com.tr/sounds/${sound.audioName}`;
+                    sound.content = `${sound.audioName}`;
                     sound.player = new Audio(sound.content)
                 });
             });
